@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelseFactor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel ="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <div id="progress"></div>
+
+  <header class="header">
+    <div class="logo">✿ HelseFactor.</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+      </div>
+  </header>
+
+  <nav class="nav" id="nav">
+<a href="#">Home</a>
+<a href="mcq.html">Ta testen her!</a>
+<a href="#">Community</a>
+</nav>
+
+  <section class="hero">
+    <h1>HelseFactor<br/>Lett. Forsøkt. Troverdig.</h1>
+    <p>HelseFactor er en web-platform som hjelper mennesker med å forbedre livstil og kosthold. HelseFactor altså er oppfunnet av Tuvarakan Thillainathan. Fra 2008 har vi klart å redde mennesker fra å død ved å øke bruken av soya produkter i kostholdet til flere. Vi sammarbeider med resturanter, vår største samarbeidspartner er Ezien Sushi og Wok Langhus.</p>
+    <div class="buttons">
+    <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+    <button class="btn">Kan slette denne knappen senere</button>
+      
+    </div>
+  </section>
+
+  <section>
+    <div class="mission">
+      <p>MÅLET VÅRT</p>
+      <span class="line">Forbered helsen din nå.</span>
+      <br>
+      <span class="line">Dette er den perfekte tiden.</span>
+      <br>
+      <span class="line">Med hjelp av HelseFactor er alt mulig!</span>
+      <br>
+      <span class="line">Stolet på av flere enn tusen akademier og helseeksperter.</span>
+      <br>
+      <span class="line">Utivklet til å passe for moderne </span>
+      <br>
+      <span class="line">HelseFactor Beta Version</span>
+    </div>
+  </section>
+
+  <section class="forsøk">
+    <h1>Hvordan fungerer HelseFactor?</h1>
+    <p>HelseFactor fungerer ved å gi deg personlig tilpassede råd og tips for å forbedre din livsstil og kosthold. Vi bruker avansert teknologi og vitenskapelig forskning for å gi deg den beste opplevelsen.
+    Vår plattform analyserer dine vaner og preferanser, og gir deg konkrete anbefalinger for å hjelpe deg med å nå dine helse- og velvære mål. Enten du ønsker å gå ned i vekt, øke energinivået eller forbedre din mentale helse, er HelseFactor her for å støtte deg på din reise mot et sunnere liv.
+    Vi jobber også tett med helseeksperter og ernæringsfysiologer for å sikre at våre råd er basert på den nyeste forskningen og beste praksis innen helse og velvære.
+    Vårt mål er å gjøre det enkelt og morsomt for deg å ta vare på din helse, slik at du kan leve et lykkeligere og mer balansert liv.
+    </p>
+    <img src="https://desireeandersen.no/wp-content/uploads/2017/01/shutterstock_220221679-1.jpg" alt="HelseFactor bilde" />
+
+  </section>
+
+  <section class="mcq-spørsmål">
+    <h1>Ta testen her!</h1>
+    <p>Vi anbefaler alle sammen å gjøre noen ting før du tar testen:</p>
+    <ul>
+      <li>Ha en notatblokk og penn klar for å skrive ned svarene dine.</li>
+      <li>Finn et rolig sted hvor du kan fokusere uten forstyrrelser.</li>
+      <li>Sett av nok tid til å fullføre testen uten å føle deg stresset.</li>
+      <li>Vær ærlig med deg selv når du svarer på spørsmålene for å få mest mulig nøyaktige resultater.</li>
+      <li>Sist men ikke minst vi anbefaler deg å sjekke din Fitness App for å svare på spørsmål angående aktivitet.</li>
+    </ul>
+    <button class="btn" id="mcqknapp" onClick="window.open('mcq.html')">Kan hende jeg må slette dette senere.</button>
+    <iframe src="mandag.html" width="600" height="600"></iframe>
+  </section>
+   
+
+
+
+  <footer class="footer">
+    HelseFactor 2026 © Alle rettigheter reservert.
+  </footer>
+
+   <script>
+  const progress = document.getElementById('progress');
+  const lines = document.querySelectorAll('.line');
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+
+  // Hamburger meny som også funker på pc men også mobil
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    document.body.style.overflow =
+      nav.classList.contains('open') ? 'hidden' : 'auto';
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  // Skrolleeffekter :)
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    progress.style.width = `${(scrollTop / docHeight) * 100}%`;
+
+    lines.forEach(line => {
+      const rect = line.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.7) {
+        line.classList.add('active');
+      }
+    });
+  });
+
+
+</script>
+
+
+
+</body>
+</html>

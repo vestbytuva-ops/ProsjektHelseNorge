@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelseFactor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== TEMA VARIABLER ===== */
+    :root {
+      --bg-light: #f5faf7;
+      --text-light: #0f2f24;
+      --muted-light: #5f7f73;
+      --grad-1-light: linear-gradient(90deg, #34d399, #60a5fa);
+      --grad-2-light: linear-gradient(90deg, #6ee7b7, #93c5fd);
+
+      --bg-dark: #121212;
+      --text-dark: #f1f1f1;
+      --muted-dark: #a0a0a0;
+      --grad-1-dark: linear-gradient(90deg, #bb86fc, #03dac6);
+      --grad-2-dark: linear-gradient(90deg, #03dac6, #bb86fc);
+    }
+
+    /* ===== RESET ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== BODY ===== */
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    /* ===== SCROLL PROGRESS ===== */
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--grad-2-light);
+      z-index: 9999;
+    }
+    body.dark-mode #progress {
+      background: var(--grad-2-dark);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 72px;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    /* ===== MØRKMODUS KNAPP ===== */
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.2);
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+      width: 28px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 2px;
+      background: var(--text-light);
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+    body.dark-mode .hamburger span {
+      background: var(--text-dark);
+    }
+
+    /* ===== NAV MENU ===== */
+    .nav {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, #e6f7f1, #f5faf7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease;
+      z-index: 99;
+    }
+
+    .nav.open {
+      transform: translateY(0);
+    }
+
+    .nav a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+    body.dark-mode .nav {
+      background: radial-gradient(circle at top, #1a1a1a, #121212);
+    }
+    body.dark-mode .nav a {
+      color: var(--text-dark);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      min-height: 100vh;
+      padding: 8rem 10vw;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top, #e6f7f1, #f5faf7);
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    body.dark-mode .hero {
+      background: radial-gradient(circle at top, #1a1a1a, #121212);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: var(--muted-light);
+      margin-bottom: 2rem;
+    }
+    body.dark-mode .hero p {
+      color: var(--muted-dark);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      background: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    body.dark-mode .btn {
+      background: #333;
+      color: var(--text-dark);
+    }
+    .btn:hover {
+      box-shadow: 0 0 15px #ffffffaa;
+    }
+
+    /* ===== MISSION ===== */
+    .mission {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.2;
+    }
+    .mission p {
+      font-size: 1.2rem;
+      color: var(--muted-light);
+      margin-bottom: 2rem;
+    }
+    body.dark-mode .mission p {
+      color: var(--muted-dark);
+    }
+
+    .line {
+      display: block;
+      margin-bottom: 1.5rem;
+      color: #4b5563;
+    }
+    .line.active {
+      background: var(--grad-1-light);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    /* I stedet for gradient i mørkmodus */
+body.dark-mode .line.active {
+  background: none;
+  color: #a0d8f1; /* lys blå/turkis som står ut mot mørk bakgrunn */
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 4rem 2rem;
+      color: var(--muted-light);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    body.dark-mode .footer {
+      color: var(--muted-dark);
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .fiks > section {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .sticky-container {
+        position: static;
+        width: 100%;
+      }
+      .content {
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+      .content-block.highlight h2 {
+        font-size: 2.1rem;
+      }
+      .content-block p {
+        font-size: 1rem;
+      }
+      .divider {
+        margin: 3rem 0;
+        opacity: 0.4;
+      }
+    }
+
+    /* ===== FORSØK ===== */
+    .forsøk {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--text-light);
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    body.dark-mode .forsøk {
+      color: var(--text-dark);
+    }
+    .forsøk h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
+    .forsøk p {
+      color: var(--muted-light);
+      margin-bottom: 1rem;
+      width: 80%;
+    }
+    body.dark-mode .forsøk p {
+      color: var(--muted-dark);
+    }
+    .forsøk img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: #0f2f24;
+    }
+
+    /* ===== MCQ ===== */
+    .mcq-spørsmål {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--text-light);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    body.dark-mode .mcq-spørsmål {
+      color: var(--text-dark);
+    }
+    .mcq-spørsmål h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
+    .mcq-spørsmål p, .mcq-spørsmål ul {
+      color: var(--muted-light);
+      max-width: 400px;
+      margin: 1rem auto 0 auto;
+    }
+    body.dark-mode .mcq-spørsmål p,
+    body.dark-mode .mcq-spørsmål ul {
+      color: var(--muted-dark);
+    }
+    .mcq-spørsmål button {
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="progress"></div>
+
+  <header class="header">
+    <div class="logo">✿ HelseFactor.</div>
+
+    <!-- Mørkmodus-knapp -->
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <nav class="nav" id="nav">
+    <a href="#">Home</a>
+    <a href="mcq.html">Ta testen her!</a>
+    <a href="#">Community</a>
+  </nav>
+
+  <section class="hero">
+    <h1>HelseFactor<br/>Lett. Forsøkt. Troverdig.</h1>
+    <p>HelseFactor er en web-platform som hjelper mennesker med å forbedre livstil og kosthold. HelseFactor altså er oppfunnet av Tuvarakan Thillainathan. Fra 2008 har vi klart å redde mennesker fra å død ved å øke bruken av soya produkter i kostholdet til flere. Vi sammarbeider med resturanter, vår største samarbeidspartner er Ezien Sushi og Wok Langhus.</p>
+    <div class="buttons">
+      <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+      <button class="btn">Kan slette denne knappen senere</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="mission">
+      <p>MÅLET VÅRT</p>
+      <span class="line">Forbered helsen din nå.</span>
+      <span class="line">Dette er den perfekte tiden.</span>
+      <span class="line">Med hjelp av HelseFactor er alt mulig!</span>
+      <span class="line">Stolet på av flere enn tusen akademier og helseeksperter.</span>
+      <span class="line">Utivklet til å passe for moderne </span>
+      <span class="line">HelseFactor Beta Version</span>
+    </div>
+  </section>
+
+  <section class="forsøk">
+    <h1>Hvordan fungerer HelseFactor?</h1>
+    <p>HelseFactor fungerer ved å gi deg personlig tilpassede råd og tips for å forbedre din livsstil og kosthold. Vi bruker avansert teknologi og vitenskapelig forskning for å gi deg den beste opplevelsen.
+    Vår plattform analyserer dine vaner og preferanser, og gir deg konkrete anbefalinger for å hjelpe deg med å nå dine helse- og velvære mål. Enten du ønsker å gå ned i vekt, øke energinivået eller forbedre din mentale helse, er HelseFactor her for å støtte deg på din reise mot et sunnere liv.
+    Vi jobber også tett med helseeksperter og ernæringsfysiologer for å sikre at våre råd er basert på den nyeste forskningen og beste praksis innen helse og velvære.
+    Vårt mål er å gjøre det enkelt og morsomt for deg å ta vare på din helse, slik at du kan leve et lykkeligere og mer balansert liv.
+    </p>
+    <img src="https://desireeandersen.no/wp-content/uploads/2017/01/shutterstock_220221679-1.jpg" alt="HelseFactor bilde" />
+  </section>
+
+  <section class="mcq-spørsmål">
+    <h1>Ta testen her!</h1>
+    <p>Vi anbefaler alle sammen å gjøre noen ting før du tar testen:</p>
+    <ul>
+      <li>Ha en notatblokk og penn klar for å skrive ned svarene dine.</li>
+      <li>Finn et rolig sted hvor du kan fokusere uten forstyrrelser.</li>
+      <li>Sett av nok tid til å fullføre testen uten å føle deg stresset.</li>
+      <li>Vær ærlig med deg selv når du svarer på spørsmålene for å få mest mulig nøyaktige resultater.</li>
+      <li>Sist men ikke minst vi anbefaler deg å sjekke din Fitness App for å svare på spørsmål angående aktivitet.</li>
+    </ul>
+    <button class="btn" id="mcqknapp" onClick="window.open('mcq.html')">Ta testen nå!</button>
+  </section>
+
+  <footer class="footer">
+    HelseFactor 2026 © Alle rettigheter reservert.
+  </footer>
+
+  <script>
+    const progress = document.getElementById('progress');
+    const lines = document.querySelectorAll('.line');
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    // Hamburger meny
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      document.body.style.overflow =
+        nav.classList.contains('open') ? 'hidden' : 'auto';
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      });
+    });
+
+    // Scroll progress & animations
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      progress.style.width = `${(scrollTop / docHeight) * 100}%`;
+
+      lines.forEach(line => {
+        const rect = line.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7) {
+          line.classList.add('active');
+        }
+      });
+    });
+
+    // ===== Mørkmodus knapp =====
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggle.textContent = '☀';
+      } else {
+        themeToggle.textContent = '☾';
+      }
+    });
+  </script>
+</body>
+</html>
