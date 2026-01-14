@@ -288,3 +288,18 @@ section {
 .mcq-spørsmål button {
   margin-top: 0.75rem;
 }
+
+iframe {
+  border-radius:20px;
+  box-shadow:#0f2f24;
+  border:none;
+  overflow: hidden;
+  height:600px;
+  width:100%;
+}
+
+@media (max-width: 600px) {
+    button {
+        width: 100%;
+    }
+}
