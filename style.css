@@ -31,7 +31,7 @@ body {
   z-index: 9999;
 }
 
-      .header {
+.header {
   position: fixed;
   top: 2px; /* kanskje jeg burde endre denne senere */
   left: 50%;
@@ -49,7 +49,7 @@ body {
   backdrop-filter: blur(20px);
   border-radius: 20px;
   z-index: 1000;
-    }
+}
 
 .logo {
   font-weight: 600;
@@ -166,11 +166,11 @@ section {
   color: #4b5563;
 }
 
-    .line.active {
-      background: var(--grad-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+.line.active {
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
     
 /* ===== FOOTER ===== */
@@ -258,11 +258,14 @@ section {
   box-shadow: #0f2f24;
 }
 
+#forsøk-fiks {
+  margin-top: 80px;
+}
 
 .mcq-spørsmål {
   padding: 60px 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   align-items: center; /* Sentrerer alt horisontalt */
   text-align: center;
   min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
