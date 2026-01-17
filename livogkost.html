@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelseFactor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel ="stylesheet" href="style.css" />
+
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="header">
+    <div class="logo">✿ HelseFactor.</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+      </div>
+  </header>
+
+
+  <nav class="nav" id="nav">
+<a href="index.html">Hjem</a>
+<a href="bmisite.html">BMI-indeks</a>
+<a href="livogkost.html">Livstil og kosthold</a>
+</nav>
+
+  <section class="hero">
+    <h1>HelseFactor<br/>Livstil og kosthold</h1>
+    <div class="buttons">
+    <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+    <button class="btn">Kan slette denne knappen senere</button>
+        </div>
+  </section>
+
+<section class="forsøk" id="side3forsøk">
+    <h1>Hvordan kan du forbedre din egen livstil og kosthold.</h1>
+    <p>På denne siden av HelseFactor web-platformen kan du lese mer om hva du selv kan gjøre for å forbedre din livstil og kosthold. Dette kan brukes som veiledning etter å ha tatt BMI test eller vår HelseFactor quiz.</p>
+  
+
+  <section class="mcq-spørsmål">
+    <h1>Hvorfor bør du velge HelseFactor over annet?</h1>
+    <p>lorem</p>
+    <ul>
+    <li>Alt på ett sted: HelseFactor samler kalkulatorer, quiz, personlige vurderinger og konkrete forbedringstips på én plattform – så du slipper å hoppe mellom flere nettsider.</li>
+    <li>Personlige og forståelige råd: I stedet for bare tall og resultater får du forklaringer og forslag som faktisk gir mening, og som er enkle å bruke i hverdagen.</li>
+    </ul>
+
+    <div class="tabell" id="nettsider-ranks">
+  <table>
+      <tr>
+        <th>Nettside</th>
+        <th>Ratings</th>
+      </tr>
+      <tr>
+        <td>Helsekalkulator.com</td>
+        <td>8/10</td>
+      </tr>
+      <tr>
+        <td>WeighWisely</td>
+        <td>9/10</td>
+      </tr>
+      <tr>
+        <td>MyBMI.net</td>
+        <td>7/10</td>
+      </tr>
+      <tr>
+        <td>WebMD</td>
+        <td>9/10</td>
+      </tr>
+      <tr>
+        <td>HelseFactor</td>
+        <td>10/10</td>
+      </tr>
+    </table>
+    </div>
+  </section>
+   
+  <footer class="footer">
+    HelseFactor 2026 © Alle rettigheter reservert.
+  </footer>
+
+   <script>
+  const progress = document.getElementById('progress');
+  const lines = document.querySelectorAll('.line');
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+
+  // Hamburger meny som også funker på pc men også mobil
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    document.body.style.overflow =
+      nav.classList.contains('open') ? 'hidden' : 'auto';
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  // Skrolleeffekter kan fjerne den på denne siden her senere:)
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    progress.style.width = `${(scrollTop / docHeight) * 100}%`;
+
+    lines.forEach(line => {
+      const rect = line.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.7) {
+        line.classList.add('active');
+      }
+    });
+  });
+
+
+</script>
+
+
+
+</body>
+</html>

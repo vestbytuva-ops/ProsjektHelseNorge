@@ -1,0 +1,21 @@
+function input.number(){
+    if input.number < 0
+
+}
+
+function checkNumber() {
+    
+    if (number < 0) {
+        console.log("Tallet er negativt");
+    }
+}
+
+function checkNumber() {
+    let number = document.getElementById("numberInput").value;
+
+    if (number < 0) {
+        alert("Tallet kan ikke være mindre enn 0");
+    } else {
+        alert("Gyldig tall 👍");
+    }
+}

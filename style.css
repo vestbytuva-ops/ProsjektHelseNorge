@@ -33,7 +33,7 @@ body {
 
       .header {
   position: fixed;
-  top: 20px;
+  top: 2px; /* kanskje jeg burde endre denne senere */
   left: 50%;
   transform: translateX(-50%);
 
@@ -48,7 +48,7 @@ body {
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-    z-index: 1000;
+  z-index: 1000;
     }
 
 .logo {
@@ -103,7 +103,7 @@ body {
 /* ===== SECTIONS ===== */
 section {
   min-height: 100vh;
-  padding: 8rem 10vw;
+  padding: clamp(1rem, 4vw, 3rem);
   display: flex;
   align-items: center;
 }
@@ -175,10 +175,13 @@ section {
     
 /* ===== FOOTER ===== */
 .footer {
-  padding: 4rem 2rem;
+  padding: 20px;
+  margin-top: 20px;
   color: var(--muted);
   font-size: 0.85rem;
   text-align: center;
+  background-color:#0f2f24;
+  border-radius: 10px;
 
 }
 
@@ -244,7 +247,7 @@ section {
 .forsøk p {
  color: var(--muted);
   margin-bottom: 1rem;
-  width: 80%;
+  width: 100%;
 }
 
 .forsøk img {
@@ -257,37 +260,47 @@ section {
 
 
 .mcq-spørsmål {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: var(--text-main);
-  text-align: center;
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center; /* Sentrerer alt horisontalt */
+  text-align: center;
+  min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
+}
+
+.mcq-container {
+  max-width: 800px; /* Holder innholdet samlet */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mcq-spørsmål h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 1rem;
-  
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
 }
 
 .mcq-spørsmål p {
- color: var(--muted);
-  width: 80%;
+  color: var(--muted);
+  margin-bottom: 20px;
+  max-width: 600px;
 }
 
 .mcq-spørsmål ul {
   color: var(--muted);
-  max-width: 400px;
-  margin-top: 1rem;
-} 
+  text-align: left; /* Gjør punktene lettere å lese */
+  max-width: 500px; 
+  width: 90%; /* Sikrer at den ikke går utenfor på små skjermer */
+  margin: 0 auto 30px auto;
+  padding-left: 20px; /* Gir plass til kulepunktene */
+}
 
 .mcq-spørsmål button {
   margin-top: 0.75rem;
 }
+
 
 iframe {
   border-radius:20px;
@@ -296,10 +309,139 @@ iframe {
   overflow: hidden;
   height:600px;
   width:100%;
+
+
 }
 
-@media (max-width: 600px) {
-    button {
-        width: 100%;
-    }
+
+#side3forsøk {
+
+  margin-top: -100px;
+}
+
+/* Section */
+.tabell {
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Table */
+.tabell table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", sans-serif;
+}
+
+/* Table head */
+.tabell th {
+  text-align: left;
+  padding: 1.2rem 1.5rem;
+  background: #0f2f24;
+  color: #fff;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Table rows */
+.tabell td {
+  padding: 1.2rem 1.5rem;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+/* Row divider */
+.tabell tr:not(:last-child) td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect */
+.tabell tr:hover td {
+  background-color:#5f7f73;
+  transition: background 0.2s ease;
+}
+
+/* Rating column */
+.tabell td:last-child {
+  font-weight: 600;
+  color:#0f2f24;
+}
+
+
+
+
+/* ===== HVORDAN DET FUNGERER (FORSØK) ===== */
+.forsøk {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%; /* Gir litt mer luft på sidene på PC */
+}
+
+.forsøk-bilde {
+  flex: 1; /* Tar 50% av plassen */
+}
+
+.forsøk-bilde img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(15, 47, 36, 0.15); /* En myk skygge */
+}
+
+.forsøk-container {
+  display: flex;
+  align-items: center;
+  gap: 120px; /* Merkbart større mellomrom */
+  max-width: 1400px; /* Tillater litt bredere layout på store skjermer */
+  width: 90%;
+  margin: 0 auto;
+}
+
+.forsøk-tekst {
+  flex: 1;
+  text-align: left;
+  max-width: 600px; /* Hindrer at tekstlinjene blir altfor lange og tunge å lese */
+}
+
+.forsøk-tekst h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.forsøk-tekst p {
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ================================================= */
+/* ================= MOBILE FIX ==================== */
+/* ================================================= */
+
+@media (max-width: 900px) {
+  .forsøk-container {
+    flex-direction: column; /* Stabler bilde over tekst på mobil */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .forsøk-tekst {
+    text-align: center; /* Senterer teksten på mobil */
+  }
+
+  .forsøk {
+    padding: 40px 20px;
+  }
 }
