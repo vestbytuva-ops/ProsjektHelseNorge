@@ -6,7 +6,6 @@
   <title>HelseFactor</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel ="stylesheet" href="style.css" />
-
 </head>
 <body>
 
@@ -14,6 +13,9 @@
 
   <header class="header">
     <div class="logo">✿ HelseFactor.</div>
+    <button id="themebutton" onclick="darkMode()">
+        <img src="dark.png" alt="Lysemodus">
+    </button>
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -29,10 +31,10 @@
 
   <section class="hero">
     <h1>HelseFactor<br/>Lett. Forsøkt. Troverdig.</h1>
-    <p>HelseFactor er en web-platform som hjelper mennesker med å forbedre livstil og kosthold. HelseFactor altså er oppfunnet av Tuvarakan Thillainathan. Fra 2008 har vi klart å redde mennesker fra å død ved å øke bruken av soya produkter i kostholdet til flere. Vi sammarbeider med resturanter, vår største samarbeidspartner er Ezien Sushi og Wok Langhus.</p>
+    <p>HelseFactor er en web-platform som hjelper mennesker med å forbedre livstil og kosthold. HelseFactor altså er oppfunnet av Tuvarakan Thillainathan. Fra 2008 har vi klart å redde mennesker fra å død ved å øke bruken av soya produkter i kostholdet til flere. Vi sammarbeider med resturanter, vår største samarbeidspartner er Azien Sushi og Wok Langhus.</p>
     <div class="buttons">
     <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
-    <button class="btn">Kan slette denne knappen senere</button>
+    <button class="btn" onClick="window.open('https://www.air.org')">AIR Organisation</button>
       
     </div>
   </section>
@@ -91,6 +93,13 @@
     <iframe src="mandag.html"></iframe>
     </div>
   </section>
+
+  <div class="popup" id="popup">
+  <div class="close-btn" id="closeBtn">&times;</div>
+  <h1>Hei!</h1>
+  <p>Dette er en melding fra HelseFactor team. Du er en del av de første som besøker vår HelseFactor pre-release Beta versjon. Vi ønsker deg å ha en god opplevelse på nettsiden.</p>
+</div>
+
    
   <footer class="footer">
     HelseFactor 2026 © Alle rettigheter reservert.
@@ -109,7 +118,7 @@
       nav.classList.contains('open') ? 'hidden' : 'auto';
   });
 
-  // Close menu when clicking a link
+  // Gjorde sånn at den lukkes hvis du trykker på den igjen
   document.querySelectorAll('.nav a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
@@ -131,6 +140,40 @@
     });
   });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const button = document.getElementById("themebutton");
+
+  function updateTheme(isDark) {
+    body.classList.toggle("dark-mode", isDark);
+    button.textContent = isDark ? "Lysemodus" : "Mørkemodus";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+  }
+
+  function darkMode() {
+    const isDark = !body.classList.contains("dark-mode");
+    updateTheme(isDark);
+  }
+
+  function initDarkMode() {
+    const saved = localStorage.getItem("darkMode") === "enabled";
+    updateTheme(saved);
+  }
+
+  initDarkMode();
+  button.addEventListener("click", darkMode);
+});
+
+
+setTimeout(function () {
+    document.getElementById("popup").style.display = "block";
+    document.body.classList.add("no-scroll");
+  }, 10000);
+
+  document.getElementById("closeBtn").addEventListener("click", function () {
+    document.getElementById("popup").style.display = "none";
+    document.body.classList.remove("no-scroll");
+  });
 
 </script>
 

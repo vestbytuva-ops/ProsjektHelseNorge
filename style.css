@@ -49,6 +49,13 @@ body {
   backdrop-filter: blur(20px);
   border-radius: 20px;
   z-index: 1000;
+  gap: 20px; /* Tok denne linjen her for å få mellomrom mellom theme button og nav button */
+}
+
+.header img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .logo {
@@ -226,28 +233,26 @@ section {
 }
 
 .forsøk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
   color: var(--text-main);
   text-align: center;
-  justify-content: center;
-  flex-direction: column;
-
-  
 }
 
 .forsøk h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
-  
 }
 
 .forsøk p {
- color: var(--muted);
+  color: var(--muted);
   margin-bottom: 1rem;
-  width: 100%;
+  max-width: 600px;
 }
 
 .forsøk img {
@@ -255,7 +260,7 @@ section {
   height: auto;
   border-radius: 10px;
   margin-top: 2rem;
-  box-shadow: #0f2f24;
+  box-shadow: 0 10px 30px rgba(15, 47, 36, 0.2);
 }
 
 #forsøk-fiks {
@@ -304,7 +309,6 @@ section {
   margin-top: 0.75rem;
 }
 
-
 iframe {
   border-radius:20px;
   box-shadow:#0f2f24;
@@ -312,10 +316,7 @@ iframe {
   overflow: hidden;
   height:600px;
   width:100%;
-
-
 }
-
 
 #side3forsøk {
 
@@ -378,8 +379,6 @@ iframe {
 }
 
 
-
-
 /* ===== HVORDAN DET FUNGERER (FORSØK) ===== */
 .forsøk {
   min-height: 100vh;
@@ -397,7 +396,7 @@ iframe {
   width: 100%;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(15, 47, 36, 0.15); /* En myk skygge */
+  box-shadow: 0 20px 40px rgba(15, 47, 36, 0.15);
 }
 
 .forsøk-container {
@@ -447,4 +446,121 @@ iframe {
   .forsøk {
     padding: 40px 20px;
   }
+}
+
+body.dark-mode {
+  background-color: black;
+  color: #f1f1f1;
+}
+
+
+#themebutton {
+  background: transparent;
+  border:none;
+  color: #0f2f24;
+  margin-left:auto;
+}
+
+header.dark-mode {
+  color: white;
+}
+
+
+body.dark-mode {
+  background-color: black;
+}
+
+body.dark-mode .logo,
+body.dark-mode #themebutton {
+  color: #f1f1f1;
+}
+
+body.dark-mode .hamburger span {
+  background-color: #f1f1f1;
+}
+
+body.dark-mode .hero {
+  background: black;
+  color: #f1f1f1;            
+}
+
+body.dark-mode .nav  {
+  background: black;
+  color: white;
+}
+
+body.dark-mode a {
+  color: white;
+}
+
+/* Testing av popup */
+
+.popup {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: inset 0px 0px 20px 5x rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  width: 90%;
+  max-width: 450px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  z-index:1000;
+  display: none;
+}
+
+.popup .close-btn {
+  position: absolute;
+  top:10px;
+  right:10px;
+  width: 25px;
+  height:25px;
+  font-size: 18px;
+  text-align:center;
+  color: black;
+  background:rgba(255,255,255,0.15);
+  border-radius:50%;
+  cursor: pointer;
+}
+
+.popup h1 {
+  font-size: 35px;
+  text-align: center;
+  margin: 10px 0px 20px;
+  color: black;
+}
+
+.popup p {
+  color: black;
+  font-size: 17px;
+
+}
+
+body.dark-mode .popup p {
+  color: white;
+  font-size: 17px;
+}
+
+body.dark-mode .popup h1 {
+  color: white;
+}
+
+/* Få popup modal til å se bedre ut på mobil, tilpasse basert på størrelse */
+
+@media (max-width: 480px) {
+  .popup h1 {
+    font-size: 26px;
+  }
+
+  .popup p {
+    font-size: 15px;
+  }
+}
+
+body.no-scroll {
+  overflow: hidden;
 }

@@ -13,6 +13,11 @@
 
 <header class="header">
     <div class="logo">✿ HelseFactor.</div>
+        <button id="themebutton" onclick="darkMode()">
+      <span>
+        <img src="dark.png" alt="Lysemodus">
+      </span>
+    </button>
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -31,7 +36,7 @@
     <h1>HelseFactor<br/>Livstil og kosthold</h1>
     <div class="buttons">
     <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
-    <button class="btn">Kan slette denne knappen senere</button>
+    <button class="btn" onClick="window.open('https://www.air.org')">AIR</button>
         </div>
   </section>
 
@@ -148,6 +153,33 @@
     });
   });
 
+function darkMode() {
+  const body = document.body;
+  const button = document.getElementById("themebutton");
+
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    button.textContent = "Lysemodus";
+    localStorage.setItem("darkMode", "enabled");
+  } else {
+    button.textContent = "Mørkemodus"; 
+    localStorage.setItem("darkMode", "disabled");
+  }
+}
+
+// Last inn lagret dark mode-innstilling når siden lastes
+function initDarkMode() {
+  const button = document.getElementById("themebutton");
+  const darkModeStatus = localStorage.getItem("darkMode");
+  
+  if (darkModeStatus === "enabled") {
+    document.body.classList.add("dark-mode");
+    button.textContent = "Lysemodus";
+  } else {
+    button.textContent = "Mørkemodus";
+  }
+}
 
 </script>
 

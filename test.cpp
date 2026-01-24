@@ -277,5 +277,98 @@ int main (){
     return 0;
 }
 
+
+
  
- 
+ #include <iostream>
+
+ using namespace std;
+ int main(){
+    string navn;
+    int alder;
+
+    cout << "Hva heter du?";
+    cin >> navn;
+
+    cout << "Hvor gammel er du?";
+    cin >> alder;
+
+    cout << "Hei, jeg heter" << navn << "og er " << alder "år gammel.";
+
+    return 0;
+ }
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int tall;
+
+    cout << "Hva er tallet ditt";
+    cin >> tall;
+
+    if (tall % 2 == 0){
+        cout << "Tallet er et partall";
+    } else {
+        cout << "Tallet er et oddetall";
+    }
+
+    return 0;
+    
+}
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int poengsum;
+    cout << "Hva er ditt poengsum";
+    cin >> poengsum;
+
+    if (poengsum >= 90 ){
+    cout << "A";
+}
+
+    if (poengsum >=80){
+        cout << "B";
+    }
+    if (poengsum >=70){
+        cout << "C";
+    }
+    if (poengsum >=60){
+        cout << "D";
+    }
+
+    else {
+        cout << "F";
+    }
+
+    return 0;
+}
+
+#include <iostream>
+
+using namespace std;
+
+int main (){
+    int person;
+    cout << "Hvor gammel er du";
+    cin >> person;
+
+    if (person < 13)
+    {
+        cout << "Du er barn";
+    }
+    if (person < 20)
+    {
+        cout << "Du er ungdom";
+    }
+    else {
+        cout << "Du er voksen";
+    }
+    
+    return 0;
+    
+}

@@ -14,6 +14,8 @@
 
   <header class="header">
     <div class="logo">✿ HelseFactor.</div>
+    <button id="themebutton" onclick="darkMode()">
+    </button>
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -97,6 +99,36 @@
       }
     });
   });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const button = document.getElementById("themebutton");
+
+  // Sikkerhetssjekk (valgfritt, men smart)
+  if (!button) {
+    console.error("Fant ikke themebutton");
+    return;
+  }
+
+  function updateTheme(isDark) {
+    body.classList.toggle("dark-mode", isDark);
+    button.textContent = isDark ? "Lysemodus" : "Mørkemodus";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+  }
+
+  function darkMode() {
+    const isDark = !body.classList.contains("dark-mode");
+    updateTheme(isDark);
+  }
+
+  function initDarkMode() {
+    const saved = localStorage.getItem("darkMode") === "enabled";
+    updateTheme(saved);
+  }
+
+  initDarkMode();
+  button.addEventListener("click", darkMode);
+});
 
 
 </script>
