@@ -100,6 +100,21 @@
   <p>Dette er en melding fra HelseFactor team. Du er en del av de første som besøker vår HelseFactor pre-release Beta versjon. Vi ønsker deg å ha en god opplevelse på nettsiden.</p>
 </div>
 
+<div class="popup" id="welcome">
+  <div class="close-btn" id="closeBtn">&times;</div>
+  <h1>Hei!</h1>
+  <input
+   type="text"
+   minlength="1"
+   maxlength="20"
+   placeholder="Vennligst skriv navn"
+   >
+  
+  <button id="sendBtn">Send</button>
+
+  <p id="text"></p>
+</div>
+
    
   <footer class="footer">
     HelseFactor 2026 © Alle rettigheter reservert.
@@ -174,6 +189,11 @@ setTimeout(function () {
     document.getElementById("popup").style.display = "none";
     document.body.classList.remove("no-scroll");
   });
+
+
+
+
+
 
 </script>
 

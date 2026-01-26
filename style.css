@@ -6,7 +6,6 @@
   --grad-2: linear-gradient(90deg, #6ee7b7, #93c5fd);
 }
 
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -63,7 +62,7 @@ body {
   font-size: 1.2rem;
 }
 
-/* Hamburger meny kan hende jeg bytter dette ut senere */
+
 .hamburger {
   width: 28px;
   height: 20px;
@@ -80,7 +79,6 @@ body {
   transition: 0.3s ease;
 }
 
-/* Navigation menu kan hende jeg må endre dette senere*/
 .nav {
   position: fixed;
   inset: 0;
@@ -106,8 +104,6 @@ body {
   text-decoration: none;
 }
 
-
-/* ===== SECTIONS ===== */
 section {
   min-height: 100vh;
   padding: clamp(1rem, 4vw, 3rem);
@@ -115,7 +111,6 @@ section {
   align-items: center;
 }
 
-/* ===== HERO ===== */
 .hero {
   background: radial-gradient(circle at top, #e6f7f1, #f5faf7);
   text-align: center;
@@ -140,7 +135,7 @@ section {
   gap: 1rem;
 }
 
-/* ===== BUTTON ===== */
+
 .btn {
   padding: 0.75rem 2rem;
   border-radius: 999px;
@@ -179,8 +174,6 @@ section {
   -webkit-text-fill-color: transparent;
 }
 
-    
-/* ===== FOOTER ===== */
 .footer {
   padding: 20px;
   margin-top: 20px;
@@ -191,10 +184,6 @@ section {
   border-radius: 10px;
 
 }
-
-/* ================================================= */
-/* ================= MOBILE FIX ==================== */
-/* ================================================= */
 
 @media (max-width: 768px) {
 
@@ -319,8 +308,7 @@ iframe {
 }
 
 #side3forsøk {
-
-  margin-top: -100px;
+ margin-top: -100px;
 }
 
 /* Section */
@@ -330,7 +318,7 @@ iframe {
   justify-content: center;
 }
 
-/* Table */
+
 .tabell table {
   width: 100%;
   max-width: 700px;
@@ -343,7 +331,7 @@ iframe {
   font-family: "Inter", sans-serif;
 }
 
-/* Table head */
+
 .tabell th {
   text-align: left;
   padding: 1.2rem 1.5rem;
@@ -354,32 +342,30 @@ iframe {
   text-transform: uppercase;
 }
 
-/* Table rows */
+
 .tabell td {
   padding: 1.2rem 1.5rem;
   font-size: 1rem;
   color: #1f2937;
 }
 
-/* Row divider */
+
 .tabell tr:not(:last-child) td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Hover effect */
+
 .tabell tr:hover td {
   background-color:#5f7f73;
   transition: background 0.2s ease;
 }
 
-/* Rating column */
+
 .tabell td:last-child {
   font-weight: 600;
   color:#0f2f24;
 }
 
-
-/* ===== HVORDAN DET FUNGERER (FORSØK) ===== */
 .forsøk {
   min-height: 100vh;
   display: flex;
@@ -428,9 +414,6 @@ iframe {
   line-height: 1.7;
 }
 
-/* ================================================= */
-/* ================= MOBILE FIX ==================== */
-/* ================================================= */
 
 @media (max-width: 900px) {
   .forsøk-container {
@@ -493,7 +476,11 @@ body.dark-mode a {
   color: white;
 }
 
-/* Testing av popup */
+body.dark-mode h1 {
+  color: white;
+}
+
+/* Testing av popup er litt usikker om den skal være med */
 
 .popup {
   position:fixed;
@@ -563,4 +550,21 @@ body.dark-mode .popup h1 {
 
 body.no-scroll {
   overflow: hidden;
+}
+
+#welcome button {
+  border-radius: 4px;
+  color: black;
+  font-size: medium;
+  font-weight: 600;
+  background-color:white;
+  border-color: transparent;
+
+}
+
+#welcome input {
+  border-radius: 4px;
+  color: black;
+  font-size: medium;
+  border-color: transparent;
 }
