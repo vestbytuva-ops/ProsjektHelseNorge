@@ -30,10 +30,12 @@
 <a href="index.html">Hjem</a>
 <a href="bmisite.html">BMI-indeks</a>
 <a href="livogkost.html">Livstil og kosthold</a>
+<a href="omoss.html">Om oss</a>
 </nav>
 
   <section class="hero">
     <h1>HelseFactor<br/>Livstil og kosthold</h1>
+    <p>Dette er en side med fokus på livstil og kosthold.</p>
     <div class="buttons">
     <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
     <button class="btn" onClick="window.open('https://www.air.org')">AIR</button>
@@ -118,7 +120,8 @@
     HelseFactor 2026 © Alle rettigheter reservert.
   </footer>
 
-   <script>
+  <script src="test.js"></script>
+  <script>
   const progress = document.getElementById('progress');
   const lines = document.querySelectorAll('.line');
   const hamburger = document.getElementById('hamburger');
@@ -153,6 +156,7 @@
     });
   });
 
+/*
 function darkMode() {
   const body = document.body;
   const button = document.getElementById("themebutton");
@@ -181,6 +185,32 @@ function initDarkMode() {
   }
 }
 
+  initDarkMode();
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const button = document.getElementById("themebutton");
+
+  function updateTheme(isDark) {
+    body.classList.toggle("dark-mode", isDark);
+    button.textContent = isDark ? "☾" : "☀ ";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+  }
+
+  function darkMode() {
+    const isDark = !body.classList.contains("dark-mode");
+    updateTheme(isDark);
+  }
+
+  function initDarkMode() {
+    const saved = localStorage.getItem("darkMode") === "enabled";
+    updateTheme(saved);
+  }
+
+  initDarkMode();
+  button.addEventListener("click", darkMode);
+});
 </script>
 
 

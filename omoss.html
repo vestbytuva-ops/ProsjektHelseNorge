@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelseFactor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel ="stylesheet" href="style.css" />
+
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="header">
+    <div class="logo">✿ HelseFactor.</div>
+        <button id="themebutton" onclick="darkMode()">
+      <span>
+        <img src="dark.png" alt="Lysemodus">
+      </span>
+    </button>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+      </div>
+  </header>
+
+  <nav class="nav" id="nav">
+<a href="index.html">Hjem</a>
+<a href="bmisite.html">BMI-indeks</a>
+<a href="livogkost.html">Livstil og kosthold</a>
+<a href="omoss.html">Om oss</a>
+</nav>
+
+<section class="hero">
+ <h1>HelseFactor<br/>Om oss</h1>
+ <p>Side om alle som står bak den fine nettsiden som du nå har fått tilgang til!</p>
+ <div class="buttons">
+ <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+ <button class="btn" onClick="window.open('https://www.air.org')">AIR</button>
+ </div>
+</section>
+
+<section class="forsøk">
+  <h1>Hvem står bak HelseFactor?</h1>
+  <p>HelseFactor ble lagt av Tuvarakan Thillainathan, han har lagd denne nettsiden til å hjelpe flere med å skaffe et sunnere kosthold og livstil.</p>
+
+<div class="forsøk-container">
+   <div class="forsøk-bilde">
+    <img src="Image (16).jpg" alt="Livsstil">
+  </div>
+   <div class="forsøk-tekst">
+  <h1>Tuvarakan Thillainathan</h1>
+   <p>CEO, Backend & Frontend dev med UI-components.</p>
+  </div>
+    </div>
+    <h1>Hvor og hvorfor ble HelseFactor laget?</h1>
+    <p>Helse Factor ble skapt med ett klart mål: å gjøre helse enklere, mer tilgjengelig og mer forståelig for alle. I en hverdag preget av høyt tempo, mye informasjon og stadig nye helsetrender, så vi behovet for en plattform som setter mennesker først – ikke stress, press eller perfeksjon. Helse Factor ble utviklet som en digital møteplass der kunnskap, balanse og livskvalitet står i sentrum. Plattformen er bygget på ønsket om å samle pålitelig informasjon, praktiske verktøy og moderne løsninger på ett sted, slik at brukerne kan ta gode valg for egen helse – på sine egne premisser. Vi tror at god helse handler om mer enn bare tall, planer og rutiner. Det handler om forståelse, trygghet og langsiktige valg. Helse Factor jobber for å være en pålitelig faktor i hverdagen din – enten du ønsker små forbedringer eller større endringer. Hos oss møter du en moderne tilnærming til helse, bygget på kunnskap, tilgjengelighet og respekt for individuelle behov. Helse Factor er her for å støtte, inspirere og gjøre veien mot bedre helse litt enklere.</p>
+</section>
+
+<section class="opensource">
+  <h1>Hvordan ble HelseFactor bygd?</h1>
+  <p>Du er kanskje nyskjerrig på hvordan denne nettsiden ble laget. Denne nettsiden er open-source prosjekt på GitHub og vi har skrevet en logg på hvordan vi har utført ting på nettsiden.</p>
+  <embed src="fil.pdf" type="pdf" width="100%" height="600px">
+    <p>Under konstruksjon</p>
+    <p>Vennligst vent</p>
+</section>
+
+
+
+   
+<footer class="footer">
+  HelseFactor 2026 © Alle rettigheter reservert.
+</footer>
+
+<script>
+  const progress = document.getElementById('progress');
+  const lines = document.querySelectorAll('.line');
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+
+  // Hamburger meny som også funker på pc men også mobil
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    document.body.style.overflow =
+      nav.classList.contains('open') ? 'hidden' : 'auto';
+  });
+
+  // Gjorde sånn at den lukkes hvis du trykker på den igjen
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  // Skrolleeffekter :) laget selv versjon
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    progress.style.width = `${(scrollTop / docHeight) * 100}%`;
+
+    lines.forEach(line => {
+      const rect = line.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.7) {
+        line.classList.add('active');
+      }
+    });
+  });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const button = document.getElementById("themebutton");
+
+  function updateTheme(isDark) {
+    body.classList.toggle("dark-mode", isDark);
+    button.textContent = isDark ? "☾" : "☀ ";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+  }
+
+  function darkMode() {
+    const isDark = !body.classList.contains("dark-mode");
+    updateTheme(isDark);
+  }
+
+  function initDarkMode() {
+    const saved = localStorage.getItem("darkMode") === "enabled";
+    updateTheme(saved);
+  }
+
+  initDarkMode();
+  button.addEventListener("click", darkMode);
+});
+
+setTimeout(function () {
+    document.getElementById("popup").style.display = "block";
+    document.body.classList.add("no-scroll");
+  }, 10000);
+
+  document.getElementById("closeBtn").addEventListener("click", function () {
+    document.getElementById("popup").style.display = "none";
+    document.body.classList.remove("no-scroll");
+  });
+</script>
+
+
+
+</body>
+</html>

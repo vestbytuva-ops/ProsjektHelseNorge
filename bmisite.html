@@ -31,6 +31,7 @@
 
   <section class="hero">
     <h1>HelseFactor<br/>BMI-Kalkulator</h1>
+    <p>Dette er en site med fokus på BMI</p>
     <div class="buttons">
     <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
     <button class="btn">Kan slette denne knappen senere</button>
@@ -111,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateTheme(isDark) {
     body.classList.toggle("dark-mode", isDark);
-    button.textContent = isDark ? "Lysemodus" : "Mørkemodus";
+    button.textContent = isDark ? "☾" : "☀";
     localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
   }
 

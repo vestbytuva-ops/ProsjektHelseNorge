@@ -316,6 +316,7 @@ iframe {
   padding: 4rem 1rem;
   display: flex;
   justify-content: center;
+
 }
 
 
@@ -436,18 +437,18 @@ body.dark-mode {
   color: #f1f1f1;
 }
 
-
 #themebutton {
   background: transparent;
   border:none;
   color: #0f2f24;
   margin-left:auto;
+  font-size:x-large;
+  cursor: pointer;
 }
 
 header.dark-mode {
   color: white;
 }
-
 
 body.dark-mode {
   background-color: black;
@@ -524,7 +525,6 @@ body.dark-mode h1 {
 .popup p {
   color: black;
   font-size: 17px;
-
 }
 
 body.dark-mode .popup p {
@@ -568,3 +568,15 @@ body.no-scroll {
   font-size: medium;
   border-color: transparent;
 }
+
+.opensource {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  text-align: center;
+}
+

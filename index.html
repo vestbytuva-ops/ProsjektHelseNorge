@@ -22,24 +22,23 @@
       <span></span>
       </div>
   </header>
-
-  <nav class="nav" id="nav">
+<nav class="nav" id="nav">
 <a href="index.html">Hjem</a>
 <a href="bmisite.html">BMI-indeks</a>
 <a href="livogkost.html">Livstil og kosthold</a>
+<a href="omoss.html">Om oss</a>
 </nav>
 
-  <section class="hero">
+<section class="hero">
     <h1>HelseFactor<br/>Lett. Forsøkt. Troverdig.</h1>
     <p>HelseFactor er en web-platform som hjelper mennesker med å forbedre livstil og kosthold. HelseFactor altså er oppfunnet av Tuvarakan Thillainathan. Fra 2008 har vi klart å redde mennesker fra å død ved å øke bruken av soya produkter i kostholdet til flere. Vi sammarbeider med resturanter, vår største samarbeidspartner er Azien Sushi og Wok Langhus.</p>
     <div class="buttons">
     <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
     <button class="btn" onClick="window.open('https://www.air.org')">AIR Organisation</button>
-      
     </div>
-  </section>
+</section>
 
-  <section>
+<section>
     <div class="mission">
       <p>MÅLET VÅRT</p>
       <span class="line">Forbered helsen din nå.</span>
@@ -54,7 +53,7 @@
       <br>
       <span class="line">HelseFactor Beta Version</span>
     </div>
-  </section>
+</section>
 
   <section class="forsøk">
   <div class="forsøk-container">
@@ -100,6 +99,7 @@
   <p>Dette er en melding fra HelseFactor team. Du er en del av de første som besøker vår HelseFactor pre-release Beta versjon. Vi ønsker deg å ha en god opplevelse på nettsiden.</p>
 </div>
 
+<!--Under konstruksjon -->
 <div class="popup" id="welcome">
   <div class="close-btn" id="closeBtn">&times;</div>
   <h1>Hei!</h1>
@@ -115,10 +115,11 @@
   <p id="text"></p>
 </div>
 
-   
-  <footer class="footer">
-    HelseFactor 2026 © Alle rettigheter reservert.
-  </footer>
+<!--Helt til hit-->
+
+<footer class="footer">
+  HelseFactor 2026 © Alle rettigheter reservert.
+</footer>
 
    <script>
   const progress = document.getElementById('progress');
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateTheme(isDark) {
     body.classList.toggle("dark-mode", isDark);
-    button.textContent = isDark ? "Lysemodus" : "Mørkemodus";
+    button.textContent = isDark ? "☾" : "☀ ";
     localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
   }
 
@@ -179,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
   button.addEventListener("click", darkMode);
 });
 
-
 setTimeout(function () {
     document.getElementById("popup").style.display = "block";
     document.body.classList.add("no-scroll");
@@ -190,10 +190,78 @@ setTimeout(function () {
     document.body.classList.remove("no-scroll");
   });
 
+/* const popup = document.querySelector("#welcome");
+const closeBtn = document.getElementById("closeBtn");
 
+window.addEventListener("load", () => {
+  popup.style.display = "block";
+  document.body.classList.add("no-scroll");
+});
 
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+  document.body.classList.remove("no-scroll");
+}); */
 
+/*
+document.addEventListener("keydown", (event) => {
 
+  if(event.ctrlKey && event.shiftKey && event.key === "A"){
+    openAdmin()
+  }
+  if(event.key === "Escape") {
+    closeAdmin()
+  }
+})
+
+function openAdmin(){
+  if(overlay.style.display==="flex") return;
+
+  fetch("admin.html")
+
+   .then(res => res.text())
+    .then(html => {
+      panel.innerHTML = html;
+      overlay.style.display = "block";
+    })
+    .catch(err => console.error("Feil ved lasting:", err));
+}
+
+function lukkAdmin() {
+  overlay.style.display = "none";
+}
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("admin-overlay");
+  const panel = document.getElementById("admin-panel");
+
+  document.addEventListener("keydown", (event) => {
+    if (event.ctrlKey && event.shiftKey && event.key === "A") {
+      openAdmin();
+    }
+
+    if (event.key === "Escape") {
+      closeAdmin();
+    }
+  });
+
+  function openAdmin() {
+    fetch("admin.html")
+      .then(res => console.log(res))
+      // .then(res => res.text())
+      .then(html => {
+        console.log(panel);
+        console.log(overlay);
+        panel.innerHTML = html;
+        overlay.style.display = "block";
+      });
+  }
+
+  function closeAdmin() {
+    overlay.style.display = "none";
+  }
+});
 
 </script>
 
