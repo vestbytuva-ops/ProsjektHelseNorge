@@ -26,3 +26,48 @@
 </section>
 
 --------------------------------
+
+
+
+const data = {
+  feber: {
+    title: "Fenber"
+    description: "ifjeij died eowrr twtwi rwrw"
+    whatToDo: "ewiw ewirn rew r wwr w"
+    doctor: "ew r er ew re tg v cskdw"
+  }
+
+  migrene: {
+    title: "Migrene"
+    description: "ifjeij died eowrr twtwi rwrw"
+    whatToDo: "ewiw ewirn rew r wwr w"
+    doctor: "ew r er ew re tg v cskdw"
+  }
+
+};
+
+const input = document.getElementById("searchInput");
+const button = document.getElementById("searchButton");
+const result = document.getElementById("result")
+
+button.addEventListener("click", search);
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") search();
+});
+
+function search() {
+  const query = input.value.trim().toLowerCase();
+  result.innerHTML = "";
+
+  if(!query) {
+    result.innerHTML = '<p class="helse-empty>
+      Skriv inn en skade eller sykdommen for at søkemotoren skal fungere.
+      </p>'
+  }
+}
+
+const d = data[query];
+
+result.innerHTML = 
+
+-----------------------------------------------

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HelseSøk</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #f5faf7;
+      --text-main: #0f2f24;
+      --muted: #5f7f73;
+      --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
+      --grad-2: linear-gradient(90deg, #6ee7b7, #93c5fd);
+      --error: #b45309;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ===========================
+       HELSESØK SECTION
+    =========================== */
+
+    .helse {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #e6f7f1, #f5faf7);
+    }
+
+    .helse-container {
+      max-width: 720px;
+      width: 100%;
+      text-align: center;
+      padding: 80px 20px;
+      animation: fadeUp 0.8s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .helse h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    .helse p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+
+    /* ===== SEARCH ===== */
+
+    .helse-search {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+      align-items: stretch;
+      margin-bottom: 3rem;
+    }
+
+    .helse-search input {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 47, 36, 0.15);
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+    }
+
+    .helse-search input:focus {
+      outline: none;
+      border-color: #34d399;
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15);
+    }
+
+    .helse-search button {
+      width: 100%;
+      max-width: 220px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      background: var(--grad-1);
+      color: #0f2f24;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      align-self: center;
+    }
+
+    .helse-search button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(52, 211, 153, 0.35);
+    }
+
+    /* ===== RESULT ===== */
+
+    .helse-result {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: left;
+      animation: fadeUp 0.5s ease;
+    }
+
+    .helse-result h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .helse-card {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 28px 30px;
+      box-shadow: 0 20px 40px rgba(15, 47, 36, 0.12);
+    }
+
+    .helse-card p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .helse-card strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .helse-disclaimer {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ===== STATES ===== */
+
+    .helse-empty,
+    .helse-error {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .helse-error {
+      color: var(--error);
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="helse">
+    <div class="helse-container">
+      <h1>HelseSøk</h1>
+      <p>
+        Søk etter skade eller sykdom og få kort, tydelig og pålitelig informasjon.
+      </p>
+
+      <div class="helse-search">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Syk? Skriv det du har!"
+        />
+        <button id="searchBtn">Søk</button>
+      </div>
+
+      <div id="result" class="helse-result"></div>
+    </div>
+  </section>
+
+  <script>
+    const data = {
+      feber: {
+        title: "Feber",
+        description:
+          "Feber oppstår når kroppstemperaturen din er høyere enn 38 grader celsius.",
+        whatToDo:
+          "Lurt å spise mye og drikke noe varmt, ta gjerne paracet ved behov.",
+        doctor:
+          "Ta kontakt med legen hvis temperaturen overstiger 39 grader celsius."
+      },
+      migrene: {
+        title: "Migrene",
+        description:
+          "Migrene er en nevrologisk hodepine som ofte gir pulserende smerter, kvalme og lysfølsomhet.",
+        whatToDo:
+          "Hvile i mørkt rom og bruk av anbefalte smertestillende kan lindre symptomene.",
+        doctor:
+          "Oppsøk lege ved hyppige anfall eller dersom symptomene endrer karakter."
+      }
+    };
+
+    const input = document.getElementById("searchInput");
+    const button = document.getElementById("searchBtn");
+    const result = document.getElementById("result");
+
+    button.addEventListener("click", search);
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") search();
+    });
+
+    function search() {
+      const query = input.value.trim().toLowerCase();
+      result.innerHTML = "";
+
+      if (!query) {
+        result.innerHTML = `
+          <p class="helse-empty">
+            Skriv inn en skade eller sykdom for å søke.
+          </p>
+        `;
+        return;
+      }
+
+      if (!data[query]) {
+        result.innerHTML = `
+          <p class="helse-error">
+            Ingen informasjon funnet for dette søket.
+          </p>
+        `;
+        return;
+      }
+
+      const d = data[query];
+
+      result.innerHTML = `
+        <h2>${d.title}</h2>
+        <div class="helse-card">
+          <p><strong>Beskrivelse</strong>${d.description}</p>
+          <p><strong>Tiltak</strong>${d.whatToDo}</p>
+          <p><strong>Når bør lege kontaktes</strong>${d.doctor}</p>
+          <p class="helse-disclaimer">
+            Informasjonen er generell og erstatter ikke vurdering fra helsepersonell.
+          </p>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
