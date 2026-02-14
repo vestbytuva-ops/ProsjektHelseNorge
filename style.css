@@ -796,3 +796,30 @@ body.dark-mode .download-btn{
   color: black;
   background-color: white;
 }
+
+body.dark-mode #searchInput {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .helse-card {
+  background: white;
+  color: black;
+}
+
+body.dark-mode #searchBtn {
+  background: white;
+  color: black; 
+}
+
+
+.helse-search input{
+ background-color: transparent;
+}
+
+.helse-search input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--text-main);
+  
+}

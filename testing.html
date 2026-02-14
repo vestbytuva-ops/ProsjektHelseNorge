@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelseFactor</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #f5faf7;
+      --text-main: #0f2f24;
+      --muted: #5f7f73;
+      --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
+      --grad-2: linear-gradient(90deg, #6ee7b7, #93c5fd);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 60px 20px;
+    }
+
+    .card {
+      width: 520px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 20px 40px rgba(15, 47, 36, 0.12);
+    }
+
+    .click-area {
+      height: 180px;
+      border-radius: 14px;
+      background: #950000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.25s ease;
+    }
+
+    .display-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+ 
+    canvas {
+      width: 520px !important;
+      height: 260px !important;
+    }
+
+    .message {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="click-area">
+    <div class="display-text">Start testen</div>
+  </div>
+
+  <div class="controls">
+  </div>
+</div>
+
+<canvas id="reactionChart"></canvas>
+
+<div class="message">
+  Klikk på det røde området for å starte. Etter en kort stund vil det bli grønt, og da må du klikke så raskt som mulig! Dine reaksjonstider vil vises i grafen over.
+</div>
+
+<script>
+const clickArea = document.querySelector(".click-area");
+const displayText = document.querySelector(".display-text");
+const averageButton = document.querySelector("button");
+
+const scoreHistory = [];
+
+const minimum_verdi = 3000;
+const maximum_verdi = 10000;
+
+let msSinceEpochOnTimeout = 0;
+let waitingForClick = false;
+
+
+const ctx = document.getElementById("reactionChart");
+
+const reactionChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: [],
+    datasets: [{
+      label: "Reaction Time",
+      data: [],
+      borderWidth: 2,
+      tension: 0.25,
+      pointRadius: 4
+    }]
+  },
+  options: {
+    responsive: false,
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        enabled: true
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false }
+      },
+      y: {
+        beginAtZero: true,
+        grid: { color: "#e5e7eb" }
+      }
+    }
+  }
+});
+
+function updateChart() {
+  reactionChart.data.labels = scoreHistory.map((_, i) => `R${i + 1}`);
+  reactionChart.data.datasets[0].data = scoreHistory;
+  reactionChart.update();
+}
+
+
+function play() {
+  const msTillChange =
+    Math.floor(Math.random() * (maximum_verdi - minimum_verdi)) + minimum_verdi;
+
+  clickArea.style.background = "#950000";
+  displayText.textContent = "vent litt nå, la systemet steke";
+
+  setTimeout(() => {
+    msSinceEpochOnTimeout = Date.now();
+    clickArea.style.background = "#009578";
+    displayText.textContent = "trykk kjapt!";
+    waitingForClick = true;
+  }, msTillChange);
+}
+
+clickArea.addEventListener("click", () => {
+  if (waitingForClick) {
+    const score = Date.now() - msSinceEpochOnTimeout;
+
+    waitingForClick = false;
+    clickArea.style.background = "#950000";
+    displayText.textContent = `${score} ms`;
+
+    scoreHistory.unshift(score);
+    updateChart();
+  } else {
+    play();
+  }
+});
+
+averageButton.addEventListener("click", calculateAverage);
+</script>
+
+</body>
+</html>

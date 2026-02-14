@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaction Test</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      gap: 20px;
+    }
+
+    .click-area {
+      width: 500px;
+      height: 200px;
+      background: #950000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    canvas {
+      width: 500px !important;
+      height: 250px !important;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="click-area">
+  <div class="display-text">Welcome. Click to start!</div>
+</div>
+
+<button>Gjennomsnitt</button>
+
+<canvas id="reactionChart"></canvas>
+
+<script>
+const clickArea = document.querySelector(".click-area");
+const displayText = document.querySelector(".display-text");
+const averageButton = document.querySelector("button");
+
+const scoreHistory = [];
+
+const minimum_verdi = 3000;
+const maximum_verdi = 10000;
+
+let msSinceEpochOnTimeout = 0;
+let waitingForClick = false;
+
+/* ✅ Chart setup */
+const ctx = document.getElementById("reactionChart");
+
+const reactionChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: [],
+    datasets: [{
+      data: [],
+      borderWidth: 2,
+      tension: 0.25,
+      pointRadius: 4
+    }]
+  },
+  options: {
+    responsive: false,
+    plugins: {
+      legend: {
+        display: false   // minimalistisk
+      },
+      tooltip: {
+        enabled: true    // hover info
+      }
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        beginAtZero: true,
+        grid: {
+          color: "#eeeeee"
+        }
+      }
+    }
+  }
+});
+
+function updateChart() {
+  reactionChart.data.labels = scoreHistory.map((_, i) => `R${i + 1}`);
+  reactionChart.data.datasets[0].data = scoreHistory;
+  reactionChart.update();
+}
+
+function calculateAverage() {
+  if (scoreHistory.length === 0) {
+    alert("Ingen scores enda");
+    return;
+  }
+
+  const sum = scoreHistory.reduce((acc, score) => acc + score, 0);
+  const avg = sum / scoreHistory.length;
+
+  alert(`Gjennomsnitt: ${avg.toFixed(2)} ms`);
+}
+
+function play() {
+  const msTillChange =
+    Math.floor(Math.random() * (maximum_verdi - minimum_verdi)) + minimum_verdi;
+
+  clickArea.style.backgroundColor = "#950000";
+  displayText.textContent = "Wait...";
+
+  setTimeout(() => {
+    msSinceEpochOnTimeout = Date.now();
+    clickArea.style.backgroundColor = "#009578";
+    displayText.textContent = "CLICK!";
+    waitingForClick = true;
+  }, msTillChange);
+}
+
+clickArea.addEventListener("click", () => {
+  if (waitingForClick) {
+    const score = Date.now() - msSinceEpochOnTimeout;
+
+    waitingForClick = false;
+    clickArea.style.backgroundColor = "#950000";
+    displayText.textContent = `${score} ms`;
+
+    scoreHistory.unshift(score);
+    updateChart();
+  } else {
+    play();
+  }
+});
+
+averageButton.addEventListener("click", calculateAverage);
+</script>
+
+</body>
+</html>
