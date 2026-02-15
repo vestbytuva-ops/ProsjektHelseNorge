@@ -62,7 +62,6 @@ body {
   font-size: 1.2rem;
 }
 
-
 .hamburger {
   width: 28px;
   height: 20px;
@@ -823,3 +822,217 @@ body.dark-mode #searchBtn {
   box-shadow: 0 0 10px var(--text-main);
   
 }
+
+/* Universell utforming av diagram og alt annet*/
+
+/* =========================
+   Reaction Time Section
+========================= */
+
+.reaction-section {
+  display: block;
+  width: 70%;
+  max-width: 750px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+/* Overskrift */
+.reaction-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 1rem;
+}
+
+/* Card */
+.reaction-section .card {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Klikk-området */
+.click-area {
+  width: 100%;
+  height: 130px;
+  background: #950000;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: 0.15s ease;
+}
+
+/* Liten hover-effekt (subtil) */
+.click-area:hover {
+  opacity: 0.9;
+}
+
+/* Tekst i boksen */
+.display-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Kontroller */
+.controls {
+  margin-top: 5px;
+}
+
+.controls button {
+  padding: 9px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+/* Graf */
+#reactionChart {
+  width: 100%;
+  height: 280px;   /* ← viktig */
+  margin: 30px auto;
+  display: block;
+}
+
+/* Forklaringstekst */
+.reaction-section .message {
+  margin-top: 18px;
+  font-size: 14px;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+
+  .reaction-section {
+    width: 90%;
+    margin: 40px auto;
+  }
+
+  .reaction-section h2 {
+    font-size: 22px;
+  }
+
+  .click-area {
+    height: 110px;
+  }
+
+  .display-text {
+    font-size: 18px;
+  }
+
+  .controls button {
+    width: 100%;
+  }
+
+  #reactionChart {
+    height: 220px;
+  }
+}
+
+.reaction-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* sentrerer alt horisontalt */
+  gap: 20px;            /* litt avstand mellom elementene */
+  padding: 40px 20px;
+}
+
+.card {
+  width: 300px;
+  text-align: center;
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#reactionChart {
+  width: 100%;          /* fyller tilgjengelig bredde */
+  max-width: 600px;     /* maks bredde */
+  height: 300px;        /* fast høyde */
+  display: block;       /* for å sikre at margin auto fungerer */
+  margin: 0 auto;       /* sentrerer canvas */
+}
+
+.reaction-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: #f5f5f5;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .dark-mode .card {
+      background: #2d2d2d;
+    }
+
+    .click-area {
+      width: 100%;
+      height: 150px;
+      background: #950000;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: background 0.1s;
+    }
+
+    .display-text {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      user-select: none;
+    }
+
+
+    .chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    height: 220px;
+  }
+}
+
+.reaction-section {
+  display: grid;
+  justify-items: center;
+  padding: 40px 20px;
+}
+
+.reaction-section {
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center; /* Sentrerer alt horisontalt */
+  text-align: center;
+  min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
+}
+

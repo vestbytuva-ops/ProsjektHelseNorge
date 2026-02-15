@@ -6,84 +6,45 @@
   <title>HelseFactor</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">  
 
-  <style>
-    :root {
-      --bg-dark: #f5faf7;
-      --text-main: #0f2f24;
-      --muted: #5f7f73;
-      --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
-      --grad-2: linear-gradient(90deg, #6ee7b7, #93c5fd);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: var(--bg-dark);
-      color: var(--text-main);
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-      padding: 60px 20px;
-    }
-
-    .card {
-      width: 520px;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(14px);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 20px 40px rgba(15, 47, 36, 0.12);
-    }
-
-    .click-area {
-      height: 180px;
-      border-radius: 14px;
-      background: #950000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.25s ease;
-    }
-
-    .display-text {
-      font-size: 22px;
-      font-weight: 600;
-      color: white;
-    }
-
-    .controls {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-    }
- 
-    canvas {
-      width: 520px !important;
-      height: 260px !important;
-    }
-
-    .message {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-  </style>
+  
 </head>
-
 <body>
+
+  <div id="progress"></div>
+
+  <header class="header">
+    <div class="logo">✿ HelseFactor.</div>
+    <button id="themebutton" onclick="darkMode()">
+        <img src="dark.png" alt="Lysemodus">
+    </button>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+      </div>
+  </header>
+<nav class="nav" id="nav">
+<a href="index.html">Hjem</a>
+<a href="bmisite.html">BMI-indeks</a>
+<a href="helsesøk.html">HelseSøk (NY!)</a>
+<a href="livogkost.html">Livstil og kosthold</a>
+<a href="omoss.html">Om oss</a>
+</nav>
+
+<section class="hero">
+    <h1>HelseFactor<br/>Reaction Time X</h1>
+    <p>Reaction Time X er et program som tester din reaksjonstid. Klikk på det røde området for å starte testen.</p>
+    <div class="buttons">
+    <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+    <button class="btn" onClick="window.open('https://www.air.org')">AIR Organisation</button>
+    </div>
+</section>
 
 <div class="card">
   <div class="click-area">
@@ -91,19 +52,21 @@
   </div>
 
   <div class="controls">
+    <button id="averageButton">Vis gjennomsnitt</button>
   </div>
 </div>
 
 <canvas id="reactionChart"></canvas>
 
 <div class="message">
-  Klikk på det røde området for å starte. Etter en kort stund vil det bli grønt, og da må du klikke så raskt som mulig! Dine reaksjonstider vil vises i grafen over.
+  Klikk på det røde området for å starte. Etter en kort stund vil det bli grønt,
+  og da må du klikke så raskt som mulig!
 </div>
 
 <script>
 const clickArea = document.querySelector(".click-area");
 const displayText = document.querySelector(".display-text");
-const averageButton = document.querySelector("button");
+const averageButton = document.getElementById("averageButton");
 
 const scoreHistory = [];
 
@@ -113,7 +76,7 @@ const maximum_verdi = 10000;
 let msSinceEpochOnTimeout = 0;
 let waitingForClick = false;
 
-
+/* ✅ Chart.js */
 const ctx = document.getElementById("reactionChart");
 
 const reactionChart = new Chart(ctx, {
@@ -131,17 +94,11 @@ const reactionChart = new Chart(ctx, {
   options: {
     responsive: false,
     plugins: {
-      legend: {
-        display: false
-      },
-      tooltip: {
-        enabled: true
-      }
+      legend: { display: false },
+      tooltip: { enabled: true }
     },
     scales: {
-      x: {
-        grid: { display: false }
-      },
+      x: { grid: { display: false } },
       y: {
         beginAtZero: true,
         grid: { color: "#e5e7eb" }
@@ -156,6 +113,17 @@ function updateChart() {
   reactionChart.update();
 }
 
+function calculateAverage() {
+  if (scoreHistory.length === 0) {
+    displayText.textContent = "No scores yet";
+    return;
+  }
+
+  const sum = scoreHistory.reduce((a, b) => a + b, 0);
+  const avg = Math.round(sum / scoreHistory.length);
+
+  displayText.textContent = `Average: ${avg} ms`;
+}
 
 function play() {
   const msTillChange =

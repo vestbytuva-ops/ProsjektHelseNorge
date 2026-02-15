@@ -1,129 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #app {
-  display: flex;
-  width: 500px;
-  height: 300px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-}
-
-.click-area {
-  flex-grow: 1;
-
-  display: flex;
-  align-items: center;
-
-  background: #950000;
-  cursor: pointer;
-}
-
-.display-text {
-  padding: 24px;
-  width: 100%;
-  text-align: center;
-  font-size: 24px;
-  color: #ffffff;
-}
-
-.recent-scores {
-  display: flex;
-  flex-direction: column;
-  width: 125px;
-  flex-shrink: 0;
-}
-
-.score {
-  flex-grow: 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 16px;
-}
-
-.score:nth-child(odd) {
-  background: #eeeeee;
-}
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelseFactor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="app">
-  <div class="click-area">
-    <div class="display-text">Welcome. Click to start!</div>
+<div id="progress"></div>
+
+<header class="header">
+  <div class="logo">✿ HelseFactor.</div>
+  <button id="themebutton">
+    <span><img src="dark.png" alt="Tema"></span>
+  </button>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
-  <div class="recent-scores">
-    <div class="score">-</div>
-    <div class="score">-</div>
-    <div class="score">-</div>
-    <div class="score">-</div>
-    <div class="score">-</div>
+</header>
+
+<nav class="nav" id="nav">
+  <a href="index.html">Hjem</a>
+  <a href="bmisite.html">BMI-indeks</a>
+  <a href="helsesøk.html">HelseSøk</a>
+  <a href="livogkost.html">Livstil og kosthold</a>
+  <a href="omoss.html">Om oss</a>
+</nav>
+
+<section class="hero">
+  <h1>HelseFactor<br/>Reaksjonstid Beta</h1>
+  <p>Dette er en side med fokus på livstil og kosthold.</p>
+  <div class="buttons">
+    <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+    <button class="btn" onClick="window.open('https://www.air.org')">AIR</button>
   </div>
+</section>
 
-  <button>Trykk her for å få gjennomsnitt score.</button>
+<section class="mcq-spørsmål">
+  <h1>Reaction Time X</h1>
 
-</div>
-    <script>
-        const clickArea = document.querySelector(".click-area");
-const displayText = document.querySelector(".display-text");
-const scoreElements = document.querySelectorAll(".score");
-const averageButton = document.querySelector("button");
+  <div class="card">
+    <div class="click-area">
+      <div class="display-text">Start testen</div>
+    </div>
 
-function calculateAverage() {
-  if (scoreHistory.length === 0) {
-    alert("No scores to average!");
-    return;
+    <div class="controls">
+      <button id="averageButton">Vis gjennomsnitt</button>
+    </div>
+  </div>
+  <div class="chart-container">
+  <canvas id="reactionChart"></canvas>
+  </div>
+  <p>
+    Klikk på det røde området for å starte. Etter en kort stund vil det bli grønt,
+    og da må du klikke så raskt som mulig!
+  </p>
+  </section>
+
+
+  <section class="mcq-spørsmål">
+  <h1>Hvor bra er reaksjonstiden din?</h1>
+  <p>Vi på HelseFactor har utviklet en tabell som kan brukes for å sjekke din reaksjonstid i forhold til aldersgrupper.</p>
+  <div class="tabell">
+  <table>
+      <tr>
+        <th>Alder</th>
+        <th>Gjennomsnitt</th>
+      </tr>
+      <tr>
+        <td>0-10 år</td>
+        <td>400 ms</td>
+      </tr>
+      <tr>
+        <td>11-20 år</td>
+        <td>250 ms</td>
+      </tr>
+      <tr>
+        <td>21-30 år</td>
+        <td>200 ms</td>
+      </tr>
+      <tr>
+        <td>31-40 år</td>
+        <td>400 ms</td>
+      </tr>
+      <tr>
+        <td>41 og eldre</td>
+        <td>800+ ms</td>
+      </tr>
+    </table>
+    </div>
+  <p>Dersom du har fått en score dårligere enn det som er oppgitt på tabellen betyr det at du har en forsinket reaksjonstid, noe som kan påvirke din evne til å reagere raskt i situasjoner som krever hurtig beslutningstagning.</p>
+  <p>En forsinket reaksjonstid kan være et tegn på underliggende helseproblemer, som for eksempel nevrologiske lidelser, søvnforstyrrelser eller kognitive svekkelser. Det kan også være et resultat av aldring, stress eller mangel på fysisk aktivitet.</p>
+  <h1>Forbered reaksjonstiden!</h1>
+  <p>Du er kanskje ute etter å foreberede reaksjonstiden din? Da er det lurt å se på denne videoen fra Bryan Johnson, han forklarer mye nyttig og han mener selv at systemet vårt er blant en av de beste i verden.</p>
+  <iframe src="https://www.youtube.com/embed/veJzV8iA6gg?si=NQrRkOxLL73acSBZ"></iframe>
+  </section>
+
+<footer class="footer">
+  HelseFactor 2026 © Alle rettigheter reservert.
+</footer>
+
+<script>
+const progress = document.getElementById('progress');
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+
+/* Hamburger meny */
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('open');
+  document.body.style.overflow =
+    nav.classList.contains('open') ? 'hidden' : 'auto';
+});
+
+/* Lukk meny ved klikk */
+document.querySelectorAll('.nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    document.body.style.overflow = 'auto';
+  });
+});
+
+/* Scroll progress bar */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  progress.style.width = `${(scrollTop / docHeight) * 100}%`;
+});
+
+/* Dark mode */
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const button = document.getElementById("themebutton");
+
+  function updateTheme(isDark) {
+    body.classList.toggle("dark-mode", isDark);
+    button.textContent = isDark ? "☾" : "☀";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
   }
 
-  const sum = scoreHistory.reduce((acc, score) => acc + score, 0);
-  const average = sum / scoreHistory.length;
+  function toggleDarkMode() {
+    const isDark = !body.classList.contains("dark-mode");
+    updateTheme(isDark);
+  }
 
-  alert(`Average score: ${average.toFixed(2)} ms`);
-}
+  const saved = localStorage.getItem("darkMode") === "enabled";
+  updateTheme(saved);
+
+  button.addEventListener("click", toggleDarkMode);
+});
+
+/* =========================
+   Reaction Time X
+========================= */
+
+const clickArea = document.querySelector(".click-area");
+const displayText = document.querySelector(".display-text");
+const averageButton = document.getElementById("averageButton");
 
 const scoreHistory = [];
-
-const minimumValue = 3000;
-const maximumValue = 10000;
+const minimum_verdi = 3000;
+const maximum_verdi = 10000;
 
 let msSinceEpochOnTimeout = 0;
 let waitingForClick = false;
 
+const ctx = document.getElementById("reactionChart");
+
+const reactionChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: [],
+    datasets: [{
+      data: [],
+      borderWidth: 2,
+      tension: 0.25,
+      pointRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        suggestedMax: 10
+      }
+    }
+  }
+});
+
+
+function updateChart() {
+  reactionChart.data.labels = scoreHistory.map((_, i) => `R${i + 1}`);
+  reactionChart.data.datasets[0].data = scoreHistory;
+  reactionChart.update();
+}
+
+function calculateAverage() {
+  if (scoreHistory.length === 0) {
+    displayText.textContent = "Ingen resultater enda";
+    return;
+  }
+
+  const sum = scoreHistory.reduce((a, b) => a + b, 0);
+  const avg = Math.round(sum / scoreHistory.length);
+
+  displayText.textContent = `Gjennomsnitt: ${avg} ms`;
+}
+
 function play() {
   const msTillChange =
-    Math.floor(
-      Math.random() * (maximumValue - minimumValue)
-    ) + minimumValue;
+    Math.floor(Math.random() * (maximum_verdi - minimum_verdi)) + minimum_verdi;
 
-  // Revert the colour back to red
-  clickArea.style.backgroundColor = null;
-
-  displayText.textContent = "";
+  clickArea.style.background = "#950000";
+  displayText.textContent = "Vent litt...";
 
   setTimeout(() => {
     msSinceEpochOnTimeout = Date.now();
-
-    clickArea.style.backgroundColor = "#009578";
+    clickArea.style.background = "#009578";
+    displayText.textContent = "TRYKK!";
     waitingForClick = true;
   }, msTillChange);
-}
-
-function addScore(score) {
-  // add score to array in index 0
-  scoreHistory.unshift(score);
-
-  for (let i = 0; i < Math.min(scoreHistory.length, 5); i++) {
-    const score = scoreHistory[i];
-
-    scoreElements[i].textContent = `${score} ms`;
-  }
 }
 
 clickArea.addEventListener("click", () => {
@@ -131,14 +235,18 @@ clickArea.addEventListener("click", () => {
     const score = Date.now() - msSinceEpochOnTimeout;
 
     waitingForClick = false;
-    displayText.textContent = `Your time was ${score} ms! Click to play again.`;
+    clickArea.style.background = "#950000";
+    displayText.textContent = `${score} ms`;
 
-    addScore(score);
+    scoreHistory.unshift(score);
+    updateChart();
   } else {
     play();
   }
 });
 
-    </script>
+averageButton.addEventListener("click", calculateAverage);
+</script>
+
 </body>
 </html>
