@@ -129,13 +129,13 @@ section {
   margin-bottom: 2rem;
 }
 
-.buttons {
+.button-group {
   display: flex;
   gap: 1rem;
 }
 
 
-.btn {
+.button {
   padding: 0.75rem 2rem;
   border-radius: 999px;
   background: white;
@@ -144,7 +144,7 @@ section {
   font-weight: 500;
 }
 
-.btn:hover {
+.button:hover {
   box-shadow: 0 0 15px #ffffffaa;
 }
 
@@ -220,7 +220,7 @@ section {
   }
 }
 
-.forsøk {
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -231,19 +231,19 @@ section {
   text-align: center;
 }
 
-.forsøk h1 {
+.info h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
 }
 
-.forsøk p {
+.info p {
   color: var(--muted);
   margin-bottom: 1rem;
   max-width: 600px;
 }
 
-.forsøk img {
+.info img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
@@ -251,11 +251,11 @@ section {
   box-shadow: 0 10px 30px rgba(15, 47, 36, 0.2);
 }
 
-#forsøk-fiks {
+#info-fiks {
   margin-top: 80px;
 }
 
-.mcq-spørsmål {
+.mcq-section {
   padding: 60px 20px;
   display: flex;
   flex-direction:column;
@@ -272,19 +272,19 @@ section {
   align-items: center;
 }
 
-.mcq-spørsmål h1 {
+.mcq-section h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 20px;
 }
 
-.mcq-spørsmål p {
+.mcq-section p {
   color: var(--muted);
   margin-bottom: 20px;
   max-width: 600px;
 }
 
-.mcq-spørsmål ul {
+.mcq-section ul {
   color: var(--muted);
   text-align: left; /* Gjør punktene lettere å lese */
   max-width: 500px; 
@@ -293,7 +293,7 @@ section {
   padding-left: 20px; /* Gir plass til kulepunktene */
 }
 
-.mcq-spørsmål button {
+.mcq-section button {
   margin-top: 0.75rem;
 }
 
@@ -306,18 +306,17 @@ iframe {
   width:100%;
 }
 
-#side3forsøk {
+#side3info {
  margin-top: -100px;
 }
 
-/* Section */
+
 .tabell {
   padding: 4rem 1rem;
   display: flex;
   justify-content: center;
 
 }
-
 
 .tabell table {
   width: 100%;
@@ -366,7 +365,7 @@ iframe {
   color:#0f2f24;
 }
 
-.forsøk {
+.info {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -374,18 +373,18 @@ iframe {
   padding: 80px 10%; /* Gir litt mer luft på sidene på PC */
 }
 
-.forsøk-bilde {
+.info-bilde {
   flex: 1; /* Tar 50% av plassen */
 }
 
-.forsøk-bilde img {
+.info-bilde img {
   width: 100%;
   height: auto;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(15, 47, 36, 0.15);
 }
 
-.forsøk-container {
+.info-container {
   display: flex;
   align-items: center;
   gap: 120px; /* Merkbart større mellomrom */
@@ -394,20 +393,20 @@ iframe {
   margin: 0 auto;
 }
 
-.forsøk-tekst {
+.info-tekst {
   flex: 1;
   text-align: left;
   max-width: 600px; /* Hindrer at tekstlinjene blir altfor lange og tunge å lese */
 }
 
-.forsøk-tekst h1 {
+.info-tekst h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
-.forsøk-tekst p {
+.info-tekst p {
   color: var(--muted);
   margin-bottom: 1.2rem;
   font-size: 1.1rem;
@@ -416,17 +415,17 @@ iframe {
 
 
 @media (max-width: 900px) {
-  .forsøk-container {
+  .info-container {
     flex-direction: column; /* Stabler bilde over tekst på mobil */
     text-align: center;
     gap: 30px;
   }
 
-  .forsøk-tekst {
+  .info-tekst {
     text-align: center; /* Senterer teksten på mobil */
   }
 
-  .forsøk {
+  .info {
     padding: 40px 20px;
   }
 }
@@ -500,7 +499,7 @@ body.dark-mode h1 {
   display: none;
 }
 
-.popup .close-btn {
+.popup .close-button {
   position: absolute;
   top:10px;
   right:10px;
@@ -568,7 +567,7 @@ body.no-scroll {
   border-color: transparent;
 }
 
-.opensource {
+.source {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -579,7 +578,7 @@ body.no-scroll {
   text-align: center;
 }
 
-.opensource {
+.source {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -590,20 +589,20 @@ body.no-scroll {
   text-align: center;
 }
 
-.opensource h1 {
+.source h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
 }
 
-.opensource p {
+.source p {
   color: var(--muted);
   margin-bottom: 1rem;
   max-width: 600px;
 }
 
   /* ===== SEARCH ===== */
-.helse {
+.health {
   display: block;
   text-align: center;
   max-width: 800px;
@@ -611,7 +610,7 @@ body.no-scroll {
   margin: 0 auto;
 }
 
-.helse-container {
+.health-container {
       max-width: 720px;
       width: 100%;
       text-align: center;
@@ -619,14 +618,14 @@ body.no-scroll {
       animation: fadeUp 0.8s ease;
     }
 
-.helse h1 {
+.health h1 {
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
     color: #1a2e2a;
     margin-bottom: 10px;
 }
 
-.helse p {
+.health p {
   margin-bottom: 10px;
 }
 
@@ -639,7 +638,7 @@ body.no-scroll {
 
 }
 
- .helse-search {
+ .health-search {
       display: flex;
       gap: 12px;
       justify-content: center;
@@ -647,7 +646,7 @@ body.no-scroll {
       flex-wrap: wrap;
     }
 
-    .helse-search input {
+    .health-search input {
       width: 100%;
       max-width: 420px;
       padding: 14px 18px;
@@ -659,7 +658,7 @@ body.no-scroll {
       transition: box-shadow 0.3s ease, border 0.3s ease;
     }
 
-      .helse-search button {
+      .health-search button {
       padding: 14px 28px;
       border-radius: 999px;
       border: none;
@@ -670,7 +669,7 @@ body.no-scroll {
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-#searchBtn {
+#searchButton {
     padding: 15px 35px;
     border-radius: 50px;
     border: none;
@@ -683,11 +682,11 @@ body.no-scroll {
     white-space: nowrap;
 }
 
-#searchBtn:hover {
+#searchButton:hover {
     transform: scale(1.02);
 }
 
-.helse-card {
+.health-card {
     background: white;
     margin-top: 40px;
     padding: 30px;
@@ -724,7 +723,7 @@ body.no-scroll {
     display: none;
 }
 
-.helse-disclaimer {
+.health-disclaimer {
     font-size: 0.85rem;
     color: #888;
     margin-top: 20px;
@@ -1035,4 +1034,6 @@ body.dark-mode #searchBtn {
   text-align: center;
   min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
 }
+
+
 

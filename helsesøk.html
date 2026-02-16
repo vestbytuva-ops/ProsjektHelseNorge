@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HelseFactor</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel ="stylesheet" href="style.css" />
+  <link rel ="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
@@ -14,7 +14,6 @@
   <header class="header">
     <div class="logo">✿ HelseFactor.</div>
     <button id="themebutton" onclick="darkMode()">
-     <img src="dark.png" alt="Lysemodus"> 
     </button>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -34,33 +33,33 @@
 <section class="hero">
     <h1>HelseFactor<br/>HelseSøk.</h1>
     <p>Vi har jobbet hardt for å få dette systemet på plass, vi som en start-up company har fått til ganske mye, men dette søket systemet har krevd mye innsats. Dette søke systemet som har blitt lagt til i denne siden kan brukes som en "hjelpemiddel" til ulike sykdommer, disse anbefalinger man får er sjekket av eksperte leger som har utdannet på Harvard.</p>
-    <div class="buttons">
-    <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
-    <button class="btn" onClick="window.open('https://www.air.org')">AIR Organisation</button>
+    <div class="button-group">
+    <button class="button" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+    <button class="button" onClick="window.open('https://www.air.org')">AIR Organisation</button>
     </div>
 </section>
 
-<section class="helse">
-  <div class="helse-container">
+<section class="health">
+  <div class="health-container">
     <h1>HelseSøk</h1>
     <p>Søk etter skade eller sykdom og få kort, tydelig og pålitelig informasjon.</p>
       
-  <div class="helse-search">
+  <div class="health-search">
         <input
           type="text"
           id="searchInput"
           placeholder="Sykdom eller skade"/>
-        <button id="searchBtn">Søk</button>
+        <button id="searchButton">Søk</button>
   </div>
 
     <p id="message"></p>
-    <div id="result" class="helse-card hidden">
+    <div id="result" class="health-card hidden">
       <h2 id="title"></h2>
       <p>Beskrivelse: <span id="description"></span></p>
       <p>Tiltak: <span id="whatToDo"></span></p>
       <p>Når bør lege kontaktes: <span id="doctor"></span></p>
       
-      <p class="helse-disclaimer">
+      <p class="health-disclaimer">
         Informasjonen er generell og erstatter ikke vurdering fra helsepersonell.
       </p>
     </div>
@@ -71,172 +70,7 @@
   HelseFactor 2026 © Alle rettigheter reservert.
 </footer>
 
-   <script>
-  const progress = document.getElementById('progress');
-  const lines = document.querySelectorAll('.line');
-  const hamburger = document.getElementById('hamburger');
-  const nav = document.getElementById('nav');
-
-  // Hamburger meny som også funker på pc men også mobil
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    document.body.style.overflow =
-      nav.classList.contains('open') ? 'hidden' : 'auto';
-  });
-
-  // Gjorde sånn at den lukkes hvis du trykker på den igjen
-  document.querySelectorAll('.nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      document.body.style.overflow = 'auto';
-    });
-  });
-
-  // Skrolleeffekter :)
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    progress.style.width = `${(scrollTop / docHeight) * 100}%`;
-
-    lines.forEach(line => {
-      const rect = line.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.7) {
-        line.classList.add('active');
-      }
-    });
-  });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
-  const button = document.getElementById("themebutton");
-
-  function updateTheme(isDark) {
-    body.classList.toggle("dark-mode", isDark);
-    button.textContent = isDark ? "☾" : "☀ ";
-    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
-  }
-
-  function darkMode() {
-    const isDark = !body.classList.contains("dark-mode");
-    updateTheme(isDark);
-  }
-
-  function initDarkMode() {
-    const saved = localStorage.getItem("darkMode") === "enabled";
-    updateTheme(saved);
-  }
-
-  initDarkMode();
-  button.addEventListener("click", darkMode);
-});
-
-
-// Søke motor som jeg lagde nå
-
-    const data = {
-      feber: {
-        title: "Feber",
-        description:
-          "Feber oppstår når kroppstemperaturen din er mer enn 38 grader celsius.",
-        whatToDo:
-          "Lurt å spise mye og drikke noe varmt, ta gjerne paracet ved behov.",
-        doctor:
-          "Ta kontakt med legen hvis temperaturen overstiger 39 grader celsius."
-      },
-      migrene: {
-        title: "Migrene",
-        description:
-          "Migrene er en nevrologisk hodepine som ofte gir pulserende smerter, kvalme og lysfølsomhet.",
-        whatToDo:
-          "Hvile i mørkt rom og bruk av anbefalte smertestillende kan lindre symptomene.",
-        doctor:
-          "Oppsøk lege ved hyppige anfall eller dersom symptomene endrer karakter."
-      },
-      
-      
-      hodepine: {
-        title: "Hodepine",
-        description:
-          "Hodepine er en vanlig tilstand som kan skyldes stress, spenninger eller dehydrering.",
-        whatToDo:
-          "Drikk rikelig med vann, ta pauser og bruk smertestillende ved behov.",
-        doctor:
-          "Kontakt lege hvis hodepinen er intens, vedvarende eller ledsaget av andre symptomer."
-      },
-
-      asthma: {
-        title: "Astma",
-        description:
-          "Astma er en kronisk lungesykdom som forårsaker betennelse og innsnevring av luftveiene.",
-        whatToDo:
-          "Bruk foreskrevne inhalatorer, unngå triggere og følg behandlingsplanen din.",
-        doctor:
-          "Oppsøk lege ved hyppige astmaanfall eller hvis symptomene forverres."
-      },
-
-      diabetes: {
-        title: "Diabetes",
-        description:
-          "Diabetes er en kronisk sykdom som påvirker kroppens evne til å regulere blodsukkeret.",
-        whatToDo:
-          "Følg et sunt kosthold, vær fysisk aktiv og ta medisiner som foreskrevet.",
-        doctor:
-          "Kontakt lege for regelmessige kontroller og hvis du opplever symptomer som økt tørste eller hyppig vannlating."
-      },
-      influensa: {
-        title: "Influensa",
-        description:
-          "Influensa er en smittsom luftveisinfeksjon som forårsaker feber, hoste og muskelsmerter.",
-        whatToDo:
-          "Hvile, drikk rikelig med væske og bruk smertestillende ved behov.",
-        doctor:
-          "Oppsøk lege hvis du har høy feber, pustevansker eller hvis symptomene forverres."
-      },
-    };
-
-    const input = document.getElementById("searchInput");
-    const button = document.getElementById("searchBtn");
-
-    const result = document.getElementById("result");
-    const message = document.getElementById("message");
-
-    const titleEl = document.getElementById("title");
-    const descEl = document.getElementById("description");
-    const whatToDoEl = document.getElementById("whatToDo");
-    const doctorEl = document.getElementById("doctor");
-
-    button.addEventListener("click", search);
-    input.addEventListener("keydown", e => {
-      if (e.key === "Enter") search();
-    });
-
-    function search() {
-    const query = input.value.trim().toLowerCase();
-
-      message.textContent = "";
-       
-      result.classList.add("hidden");
-
-
-      if (!query) {
-        message.textContent = "Skriv inn en skade eller sykdom for å søke.";
-        return;
-      }
-
-      if (!data[query]) {
-        message.textContent = "Ingen informasjon funnet for dette søket.";
-        return;
-      }
-
-      const d = data[query];
-
-      titleEl.textContent = d.title;
-      descEl.textContent = d.description;
-      whatToDoEl.textContent = d.whatToDo;
-      doctorEl.textContent = d.doctor;
-
-      result.classList.remove("hidden");
-    }
-</script>
+<script src="js/script.js"></script>
+<script src="js/search.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HelseFactor</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel ="stylesheet" href="style.css" />
+  <link rel ="stylesheet" href="/css/style.css" />
 
 </head>
 <body>
@@ -35,13 +35,13 @@
   <section class="hero">
     <h1>HelseFactor<br/>BMI-Kalkulator</h1>
     <p>Dette er en site med fokus på BMI</p>
-    <div class="buttons">
-    <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
-    <button class="btn">Kan slette denne knappen senere</button>
+    <div class="button-group">
+    <button class="button" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+    <button class="button">Kan slette denne knappen senere</button>
   </div>
   </section>
 
-  <section class="forsøk">
+  <section class="info">
     <h1>Hva er BMI?</h1>
     <p>BMI står for Body Mass Index (kroppsmasseindeks). Det er et tall som brukes for å vurdere om kroppsvekten din er lav, normal eller høy i forhold til høyden din. 
     </p>
@@ -49,7 +49,7 @@
     <p>Dette bildet forteller oss hvordan BMI er delt i ulike grad.</p>
   </section>
 
-  <section class="mcq-spørsmål">
+  <section class="mcq-section">
     <h1>Sjekk ut hva din BMI er:</h1>
     <p>Vi anbefaler alle sammen å gjøre noen ting før du tar testen:</p>
     <ul>
@@ -59,84 +59,15 @@
       <li>Vær ærlig med deg selv når du svarer på spørsmålene for å få mest mulig nøyaktige resultater.</li>
       <li>Sist men ikke minst vi anbefaler deg å sjekke din Fitness App for å svare på spørsmål angående aktivitet.</li>
     </ul>
-    <button class="btn" id="mcqknapp" onClick="window.open('mcq.html')">Kan hende jeg må slette dette senere.</button>
     <iframe src="bmi.html"></iframe>
   </section>
+
+
    
+<footer class="footer">
+   HelseFactor 2026 © Alle rettigheter reservert.
+</footer>
 
-  <footer class="footer">
-    HelseFactor 2026 © Alle rettigheter reservert.
-  </footer>
-
-   <script>
-  const progress = document.getElementById('progress');
-  const lines = document.querySelectorAll('.line');
-  const hamburger = document.getElementById('hamburger');
-  const nav = document.getElementById('nav');
-
-  // Hamburger meny som også funker på pc men også mobil
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    document.body.style.overflow =
-      nav.classList.contains('open') ? 'hidden' : 'auto';
-  });
-
-  // Close menu when clicking a link
-  document.querySelectorAll('.nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      document.body.style.overflow = 'auto';
-    });
-  });
-
-  // Skrolleeffekter :)
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    progress.style.width = `${(scrollTop / docHeight) * 100}%`;
-
-    lines.forEach(line => {
-      const rect = line.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.7) {
-        line.classList.add('active');
-      }
-    });
-  });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
-  const button = document.getElementById("themebutton");
-
-  // Sikkerhetssjekk (valgfritt, men smart)
-  if (!button) {
-    console.error("Fant ikke themebutton");
-    return;
-  }
-
-  function updateTheme(isDark) {
-    body.classList.toggle("dark-mode", isDark);
-    button.textContent = isDark ? "☾" : "☀";
-    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
-  }
-
-  function darkMode() {
-    const isDark = !body.classList.contains("dark-mode");
-    updateTheme(isDark);
-  }
-
-  function initDarkMode() {
-    const saved = localStorage.getItem("darkMode") === "enabled";
-    updateTheme(saved);
-  }
-
-  initDarkMode();
-  button.addEventListener("click", darkMode);
-});
-
-
-</script>
-
-
-
+<script src="js/script.js"></script>
 </body>
 </html>

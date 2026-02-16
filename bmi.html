@@ -4,163 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        input{
-            margin: 10px;
-            padding: 5px;
-        }
-
-        button{
-            padding: 10px 15px;
-            margin: 10px;
-            cursor: pointer;
-        }
-
-        .score-circle {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  font-weight: 600;
-  background-color: rgb(255, 255, 255);
-  color: #0f2f24;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  margin: 20px auto;
-
-}
-
- 
-  
- 
-
-.kalkulator {
-    background-color: #5f7f73;
-    border-radius: 20px;
-    padding: 30px;
-}
-
-.kalkulator h1, .kalkulator label, .kalkulator p {
-    color: white;
-}
-
-.kalkulator input {
-    border-radius: 5px;
-    border: none;
-    padding: 8px;
-    width: 100px;
-    flex-direction: row;
-}
-
-.kalkulator button {
-    background-color: #464646;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 10px;
-    display: grid;
-
-}
-.kalkulator button:hover {
-    background-color: rgb(27, 27, 27);
-}
-
-    </style>
+    <link rel="stylesheet" href="css/bmi.css">
 </head>
-
 <body>
-
 <section class="kalkulator">
-    <div class="score-circle" id="scoreCircle">
+    <div class="bmi-circle" id="scoreCircle">
   <span id="scoreText">0</span>
 </div>
+<h1>BMI Kalkulator</h1>
+<p>Håndlaget i Norge</p>
 
+<div class="input-group">
+    <label for="weight">Vekt (kg)</label>
+    <input type="number" id="weight" min="0" placeholder="70kg">
+</div>
 
-    <h1>BMI Kalkulator</h1>
-    <p>Håndlaget i Norge</p>
-    <label for="weight">Vekt (kg):</label>
-    <input type="number" id="weight" min="0">
-    <label for="height">Høyde (cm):</label>
-    <input type="number" id="height" min="0">
-    <button onclick="calculateBMI()">Beregn BMI</button>
-    <button onclick="reload()">Tilbakestill</button>
+<div class="input-group">
+    <label for="height">Høyde (cm)</label>
+    <input type="number" id="height" min="0" placeholder="180cm">
+</div>
+<button onclick="calculateBMI()">Beregn BMI</button>
+<button onclick="reload()">Tilbakestill</button>
 
     <h1 id="heading"></h1>
     <p id="bmi-output"></p>
     <p id="message"></p>
 </section>
 
-<script>
-        function calculateBMI(){
-            let weight=document.getElementById("weight").value
-            let height=document.getElementById("height").value
-             
-            let bmi = (weight / ((height/100) * (height/100)))
-
-            document.getElementById("heading").innerText="Din BMI er "
-            document.getElementById("bmi-output").innerText = bmi.toFixed(2)
-
-             updateCircle(bmi);
-
-            if (bmi < 18.5){
-                document.getElementById("message").innerText="Du er undervektig"
-            }
-            else if (bmi >= 18.5 && bmi < 24.9){
-                document.getElementById("message").innerText="Du har normal vekt"
-            }
-            else if (bmi >= 25 && bmi < 29.9){
-                document.getElementById("message").innerText="Du er overvektig"
-            }
-            else{
-                document.getElementById("message").innerText="Du er fedme"
-            }
-
-        }
-
-        function updateCircle(value) {
-  const circle = document.getElementById("scoreCircle");
-  const text = document.getElementById("scoreText");
-
-  // Skjul alle feedback-tekster først   
-
-  if (value < 18.5) {
-    circle.style.backgroundColor = "#f47f20"; 
-  } else if (value < 25) {
-    circle.style.backgroundColor = "#4dae50"; 
-  } else if (value < 30) {
-    circle.style.backgroundColor = "#ffb300";
-  } else {
-    circle.style.backgroundColor = "#c72a29"; 
-  }
-
-  // Animasjon på sirkelen
-  let current = 0;
-  const step = value / 40;
-
-  const interval = setInterval(() => {
-    current += step;
-    if (current >= value) {
-      current = value;
-      clearInterval(interval);
-    }
-    text.textContent = current.toFixed(1);
-  }, 20);
-}
-
-function reload(){
-     window.location.reload();
-}
-
-    </script>
-    
+<script src="js/bmi.js"></script>
 </body>
 </html>

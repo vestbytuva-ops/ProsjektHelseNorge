@@ -6,15 +6,14 @@
   <title>HelseFactor</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 <div id="progress"></div>
 
 <header class="header">
   <div class="logo">✿ HelseFactor.</div>
-  <button id="themebutton">
-    <span><img src="dark.png" alt="Tema"></span>
+  <button id="themebutton" onclick="darkMode()">
   </button>
   <div class="hamburger" id="hamburger">
     <span></span>
@@ -34,13 +33,13 @@
 <section class="hero">
   <h1>HelseFactor<br/>Reaksjonstid Beta</h1>
   <p>Dette er en side med fokus på livstil og kosthold.</p>
-  <div class="buttons">
-    <button class="btn" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
-    <button class="btn" onClick="window.open('https://www.air.org')">AIR</button>
+  <div class="button-group">
+    <button class="button" onClick="window.open('https://helsenorge.no')">HelseNorge</button>
+    <button class="button" onClick="window.open('https://www.air.org')">AIR</button>
   </div>
 </section>
 
-<section class="mcq-spørsmål">
+<section class="mcq-section">
   <h1>Reaction Time X</h1>
 
   <div class="card">
@@ -62,7 +61,7 @@
   </section>
 
 
-  <section class="mcq-spørsmål">
+  <section class="mcq-section">
   <h1>Hvor bra er reaksjonstiden din?</h1>
   <p>Vi på HelseFactor har utviklet en tabell som kan brukes for å sjekke din reaksjonstid i forhold til aldersgrupper.</p>
   <div class="tabell">
@@ -104,149 +103,7 @@
   HelseFactor 2026 © Alle rettigheter reservert.
 </footer>
 
-<script>
-const progress = document.getElementById('progress');
-const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('nav');
-
-/* Hamburger meny */
-hamburger.addEventListener('click', () => {
-  nav.classList.toggle('open');
-  document.body.style.overflow =
-    nav.classList.contains('open') ? 'hidden' : 'auto';
-});
-
-/* Lukk meny ved klikk */
-document.querySelectorAll('.nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    document.body.style.overflow = 'auto';
-  });
-});
-
-/* Scroll progress bar */
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.body.scrollHeight - window.innerHeight;
-  progress.style.width = `${(scrollTop / docHeight) * 100}%`;
-});
-
-/* Dark mode */
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
-  const button = document.getElementById("themebutton");
-
-  function updateTheme(isDark) {
-    body.classList.toggle("dark-mode", isDark);
-    button.textContent = isDark ? "☾" : "☀";
-    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
-  }
-
-  function toggleDarkMode() {
-    const isDark = !body.classList.contains("dark-mode");
-    updateTheme(isDark);
-  }
-
-  const saved = localStorage.getItem("darkMode") === "enabled";
-  updateTheme(saved);
-
-  button.addEventListener("click", toggleDarkMode);
-});
-
-/* =========================
-   Reaction Time X
-========================= */
-
-const clickArea = document.querySelector(".click-area");
-const displayText = document.querySelector(".display-text");
-const averageButton = document.getElementById("averageButton");
-
-const scoreHistory = [];
-const minimum_verdi = 3000;
-const maximum_verdi = 10000;
-
-let msSinceEpochOnTimeout = 0;
-let waitingForClick = false;
-
-const ctx = document.getElementById("reactionChart");
-
-const reactionChart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: [],
-    datasets: [{
-      data: [],
-      borderWidth: 2,
-      tension: 0.25,
-      pointRadius: 4
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        suggestedMax: 10
-      }
-    }
-  }
-});
-
-
-function updateChart() {
-  reactionChart.data.labels = scoreHistory.map((_, i) => `R${i + 1}`);
-  reactionChart.data.datasets[0].data = scoreHistory;
-  reactionChart.update();
-}
-
-function calculateAverage() {
-  if (scoreHistory.length === 0) {
-    displayText.textContent = "Ingen resultater enda";
-    return;
-  }
-
-  const sum = scoreHistory.reduce((a, b) => a + b, 0);
-  const avg = Math.round(sum / scoreHistory.length);
-
-  displayText.textContent = `Gjennomsnitt: ${avg} ms`;
-}
-
-function play() {
-  const msTillChange =
-    Math.floor(Math.random() * (maximum_verdi - minimum_verdi)) + minimum_verdi;
-
-  clickArea.style.background = "#950000";
-  displayText.textContent = "Vent litt...";
-
-  setTimeout(() => {
-    msSinceEpochOnTimeout = Date.now();
-    clickArea.style.background = "#009578";
-    displayText.textContent = "TRYKK!";
-    waitingForClick = true;
-  }, msTillChange);
-}
-
-clickArea.addEventListener("click", () => {
-  if (waitingForClick) {
-    const score = Date.now() - msSinceEpochOnTimeout;
-
-    waitingForClick = false;
-    clickArea.style.background = "#950000";
-    displayText.textContent = `${score} ms`;
-
-    scoreHistory.unshift(score);
-    updateChart();
-  } else {
-    play();
-  }
-});
-
-averageButton.addEventListener("click", calculateAverage);
-</script>
-
+<script src="js/script.js"></script>
+<script src="js/reaction.js"></script>
 </body>
 </html>
