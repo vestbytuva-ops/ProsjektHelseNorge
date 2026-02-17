@@ -3,14 +3,14 @@ const lines = document.querySelectorAll('.line');
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
 
-  // Hamburger meny som også funker på pc men også mobil
+// Hamburger meny som også funker på pc men også mobil
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('open');
     document.body.style.overflow =
       nav.classList.contains('open') ? 'hidden' : 'auto';
   });
 
-  // Gjorde sånn at den lukkes hvis du trykker på den igjen
+// Gjorde sånn at den lukkes hvis du trykker på den igjen
   document.querySelectorAll('.nav a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
@@ -18,7 +18,7 @@ const nav = document.getElementById('nav');
     });
   });
 
-  // Skrolleeffekter :)
+// Skrolle effekter
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const docHeight = document.body.scrollHeight - window.innerHeight;
@@ -32,6 +32,7 @@ const nav = document.getElementById('nav');
     });
   });
 
+// Mørkmodus og lysmodus
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const button = document.getElementById("themebutton");
@@ -55,3 +56,15 @@ document.addEventListener("DOMContentLoaded", () => {
   initDarkMode();
   button.addEventListener("click", darkMode);
 });
+
+// Popup 
+
+setTimeout(function () {
+    document.getElementById("popup").style.display = "block";
+    document.body.classList.add("no-scroll");
+  }, 10000);
+
+  document.getElementById("closeBtn").addEventListener("click", function () {
+    document.getElementById("popup").style.display = "none";
+    document.body.classList.remove("no-scroll");
+  });

@@ -61,12 +61,12 @@ function play() {
     Math.floor(Math.random() * (maximum_verdi - minimum_verdi)) + minimum_verdi;
 
   clickArea.style.background = "#950000";
-  displayText.textContent = "Vent litt...";
+  displayText.textContent = "Vent litt";
 
   setTimeout(() => {
     msSinceEpochOnTimeout = Date.now();
     clickArea.style.background = "#009578";
-    displayText.textContent = "TRYKK!";
+    displayText.textContent = "Trykk!";
     waitingForClick = true;
   }, msTillChange);
 }
@@ -87,3 +87,7 @@ clickArea.addEventListener("click", () => {
 });
 
 averageButton.addEventListener("click", calculateAverage);
+
+function reload(){
+  window.location.reload();
+}

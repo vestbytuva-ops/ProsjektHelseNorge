@@ -5,9 +5,24 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 40px;
+
 }
 
-.kalkulator {
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    background-image: url(https://images.unsplash.com/photo-1770983438128-f4065cf02752?q=80&w=797&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;        /* fyller hele skjermen */
+  background-position: center;   /* sentrerer bildet */
+  background-repeat: no-repeat;  /* unngår fliser */
+  background-attachment: fixed;  /* (valgfritt) parallax-effekt */
+    
+}
+
+.calculator-section{
     background-color: #5f7f73;
     border-radius: 24px;
     padding: 40px 50px;
@@ -15,13 +30,20 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.kalkulator h1 {
-    color: white;
+.calculator-section{
+  background: rgba(255, 255, 255, 0.15);   /* semi-transparent */
+  backdrop-filter: blur(12px);              /* frosted glass */
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+.calculator-section h1 {
+    color: rgb(0, 0, 0);
     margin-bottom: 5px;
 }
 
-.kalkulator p {
-    color: rgba(255,255,255,0.8);
+.calculator-section p {
+    color: rgba(0, 0, 0, 0.8);
     margin-top: 0;
     margin-bottom: 25px;
 }
@@ -47,7 +69,7 @@ body {
 
 label {
     display: block;
-    color: white;
+    color: rgb(0, 0, 0);
     margin-bottom: 5px;
     font-size: 0.9rem;
 }
@@ -84,8 +106,10 @@ button:first-of-type:hover {
 }
 
 button:last-of-type {
-    background-color: rgba(255,255,255,0.2);
-    color: white;
+ background-color: rgba(255,255,255,0.2);
+ backdrop-filter: blur(10px);              /* frosted glass */
+ -webkit-backdrop-filter: blur(10px);
+  color:black;
 }
 
 button:last-of-type:hover {
@@ -95,5 +119,5 @@ button:last-of-type:hover {
 #message {
     margin-top: 20px;
     font-weight: 500;
-    color: white;
+    color: rgb(0, 0, 0);
 }
