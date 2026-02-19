@@ -1,0 +1,46 @@
+Date : 2026-02-18 21:47:04
+Directory : c:\Users\vestb\Downloads\ProsjektHelseNorge
+Total : 16 files,  2284 codes, 31 comments, 408 blanks, all 2723 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| PostCSS    |          2 |      1,025 |         22 |        207 |      1,254 |
+| HTML       |          9 |        996 |          1 |        140 |      1,137 |
+| JavaScript |          4 |        262 |          8 |         60 |        330 |
+| Markdown   |          1 |          1 |          0 |          1 |          2 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                        | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                           |         16 |      2,284 |         31 |        408 |      2,723 |
+| . (Files)                                                   |         10 |        997 |          1 |        141 |      1,139 |
+| css                                                         |          2 |      1,025 |         22 |        207 |      1,254 |
+| js                                                          |          4 |        262 |          8 |         60 |        330 |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                    | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\README.md       | Markdown   |          1 |          0 |          1 |          2 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\bmisite.html    | HTML       |         62 |          0 |         12 |         74 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\calculator.html | HTML       |         32 |          0 |          5 |         37 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\css\bmi.css     | PostCSS    |        105 |          0 |         19 |        124 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\css\style.css   | PostCSS    |        920 |         22 |        188 |      1,130 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\helsesøk.html   | HTML       |         67 |          0 |         10 |         77 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\index.html      | HTML       |        107 |          0 |         11 |        118 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\js\bmi.js       | JavaScript |         46 |          2 |         12 |         60 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\js\reaction.js  | JavaScript |         76 |          0 |         17 |         93 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\js\script.js    | JavaScript |         53 |          5 |         13 |         71 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\js\search.js    | JavaScript |         87 |          1 |         18 |        106 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\kcal.html       | HTML       |         87 |          0 |         26 |        113 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\livogkost.html  | HTML       |        110 |          0 |         15 |        125 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\mcqsystem.html  | HTML       |        362 |          1 |         39 |        402 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\omoss.html      | HTML       |         68 |          0 |         12 |         80 |
+| c:\Users\vestb\Downloads\ProsjektHelseNorge\reaction.html   | HTML       |        101 |          0 |         10 |        111 |
+| Total                                                       |            |      2,284 |         31 |        408 |      2,723 |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+

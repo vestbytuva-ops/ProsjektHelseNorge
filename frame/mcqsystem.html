@@ -8,6 +8,8 @@
 
     :root {
       --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
+      --btnColor: #4dae50;
+      
     }
     body {
       display: flex;
@@ -24,9 +26,10 @@
       margin: 0;
     }
     h2 {
-      font-weight: 400 !important;
+      font-weight: 400;
       font-size: 1.8rem;
       margin: 0 0 0.5em 0;
+      margin-bottom: 0.5rem;
     }
     p {
       margin: 0;
@@ -136,8 +139,8 @@
     }
     .restart-btn {
       margin-top: 20px;
-      padding: 14px 28px !important;
-      text-align: center !important;
+      padding: 14px 28px;
+      text-align: center;
       font-weight: 500;
     }
     .feedback-text {
@@ -244,56 +247,56 @@
       
     
       <div class="feedback-text" id="feedback-80">
-        <h3>Lorem</h3>
-        <p>Lorem</p>
+        <h3>Her er fire tips for å fortsette slik:</h3>
+        <p>Det er fantastisk at du har så gode helsevaner! Her er noen tips for å beholde det:</p>
         <ul>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
+          <li>Fortsett med din nåværende treningsskikkelighet.</li>
+          <li>Hold deg til et balansert kosthold med mye frukt og grønnsaker.</li>
+          <li>Sørg for å få nok søvn hver natt.</li>
         </ul>
       </div>
       
       <div class="feedback-text" id="feedback-60">
-        <h3>Lorem</h3>
-        <p>Lorem</p>
+        <h3>Godt jobbet!</h3>
+        <p>Du har noen gode helsevaner, men det er plass til forbedring. Her er noen tips:</p>
         <ul>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
+          <li>Øk din fysisk aktivitet litt.</li>
+          <li>Prøv å spise mer frukt og grønnsaker.</li>
+          <li>Sørg for å få nok søvn hver natt.</li>
         </ul>
       </div>
       
       <div class="feedback-text" id="feedback-40">
-        <h3>Lorem</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat tempore amet exercitationem minima aperiam. Atque blanditiis voluptatem nisi eligendi, illo laboriosam qui id quam ratione voluptatibus quod, quas, quis accusamus!</p>
+        <h3>Det er ikke så dårlig!</h3>
+        <p>Du har noen gode helsevaner, men det er plass til forbedring. Her er noen tips:</p>
         <ul>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
+          <li>Øk din fysisk aktivitet litt.</li>
+          <li>Prøv å spise mer frukt og grønnsaker.</li>
+          <li>Sørg for å få nok søvn hver natt.</li>
+          <li>Drikk mer vann hver dag.</li>
         </ul>
       </div>
       
       <div class="feedback-text" id="feedback-20">
-        <h3>Lorem</h3>
-        <p>Lorem</p>
+        <h3>Det er ikke så dårlig!</h3>
+        <p>Du har noen gode helsevaner, men det er plass til forbedring. Her er noen tips:</p>
         <ul>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
+          <li>Øk din fysisk aktivitet litt.</li>
+          <li>Prøv å spise mer frukt og grønnsaker.</li>
+          <li>Sørg for å få nok søvn hver natt.</li>
+          <li>Drikk mer vann hver dag.</li>
         </ul>
       </div>
       
       <div class="feedback-text" id="feedback-0">
-        <h3>Må fylle inn dette</h3>
-        <p>Lorem</p>
+        <h3>Det er ikke så bra!</h3>
+        <p>Du har ikke så gode helsevaner. Her er noen tips for å forbedre:</p>
         <ul>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
-          <li>Lorem</li>
+          <li>Øk din fysisk aktivitet litt.</li>
+          <li>Prøv å spise mer frukt og grønnsaker.</li>
+          <li>Sørg for å få nok søvn hver natt.</li>
+          <li>Drikk mer vann hver dag.</li>
+          <li>Unngå bruk av sterk koffein.</li>
         </ul>
       </div>
       
@@ -301,103 +304,6 @@
     </div>
   </div>
 
-  <script>
-    const totalQuestions = 5;
-    const maxPointsPerQuestion = 4;
-    const minPointsPerQuestion = 1;
-    
-    let currentQuestion = 1;
-    let totalScore = 0;
-    let maxPossibleScore = totalQuestions * maxPointsPerQuestion;
-    let minPossibleScore = totalQuestions * minPointsPerQuestion;
-
-    function answer(questionNum, points) {
-      totalScore += points;
-      
-      // Skjul nåværende spørsmål
-      document.querySelector(`.question-container[data-question="${questionNum}"]`).classList.remove('active');
-      
-      if (currentQuestion < totalQuestions) {
-        // Vis neste spørsmål
-        currentQuestion++;
-        document.querySelector(`.question-container[data-question="${currentQuestion}"]`).classList.add('active');
-      } else {
-        // Vis resultat
-        showResult();
-      }
-    }
-
-    function showResult() {
-      document.getElementById('quiz-container').style.display = 'none';
-      document.getElementById('result').classList.add('active');
-      
-      // Beregn prosent (tar hensyn til at minimum er 5 poeng, ikke 0)
-      const percentage = Math.round(((totalScore - minPossibleScore) / (maxPossibleScore - minPossibleScore)) * 100);
-      
-      // Animert telling til prosentskår
-      animateScore(percentage);
-      
-      // Sett farge og melding basert på score
-      const scoreCircle = document.getElementById('score-circle');
-      const resultMessage = document.getElementById('result-message');
-      
-      // Skjul alle feedback-tekster først
-      document.querySelectorAll('.feedback-text').forEach(f => f.style.display = 'none');
-      
-      if (percentage >= 80) {
-        scoreCircle.style.backgroundColor = '#4dae50';
-        resultMessage.textContent = 'Utmerket! Du har svært gode helsevaner.';
-        document.getElementById('feedback-80').style.display = 'block';
-        
-      } else if (percentage >= 60) {
-        scoreCircle.style.backgroundColor = '#a1c15a';
-        resultMessage.textContent = 'Bra jobbet! Du er på rett vei.';
-        document.getElementById('feedback-60').style.display = 'block';
-        
-      } else if (percentage >= 40) {
-        scoreCircle.style.backgroundColor = '#ffb300';
-        resultMessage.textContent = 'Det er rom for forbedring. Små endringer kan gjøre stor forskjell.';
-        document.getElementById('feedback-40').style.display = 'block';
-        
-      } else if (percentage >= 20) {
-        scoreCircle.style.backgroundColor = '#f47f20';
-        resultMessage.textContent = 'Det kan være lurt å fokusere mer på helsevaner.';
-        document.getElementById('feedback-20').style.display = 'block';
-        
-      } else {
-        scoreCircle.style.backgroundColor = '#c72a29';
-        resultMessage.textContent = 'Det er viktig å prioritere helsen din. Små steg fremover teller!';
-        document.getElementById('feedback-0').style.display = 'block';
-      }
-    }
-
-    function animateScore(targetPercentage) {
-      const scoreText = document.getElementById('score-text');
-      let current = 0;
-      const increment = targetPercentage / 50;
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= targetPercentage) {
-          current = targetPercentage;
-          clearInterval(timer);
-        }
-        scoreText.textContent = Math.round(current) + '%';
-      }, 20);
-    }
-
-    function restart() {
-      currentQuestion = 1;
-      totalScore = 0;
-      
-      document.getElementById('result').classList.remove('active');
-      document.getElementById('quiz-container').style.display = 'flex';
-      
-      // Skjul alle feedback-tekster
-      document.querySelectorAll('.feedback-text').forEach(f => f.style.display = 'none');
-      
-      document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
-      document.querySelector('.question-container[data-question="1"]').classList.add('active');
-    }
-  </script>
+  <script src="/js/mcq.js"></script>
 </body>
 </html>

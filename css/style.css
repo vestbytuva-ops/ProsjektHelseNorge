@@ -308,6 +308,7 @@ iframe {
   overflow: hidden;
   height:600px;
   width:100%;
+  max-width: 700px;
 }
 
 #side3info {
@@ -1057,4 +1058,316 @@ body.dark-mode #searchBtn {
 #calculator {
   height: 120vh;
   width: 80vw;
+}
+
+
+#trusted-brands h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 35px;
+  color: var(--text-main);
+}
+
+.brand-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.brand-logos img {
+  height: 40px;
+  width: auto;
+  opacity: 0.7;
+  transition: 0.25s ease;
+  filter: grayscale(100%);
+}
+
+#trusted-brands {
+ /* Fjern 100vh og padding-topp for å dytte den opp */
+  min-height: auto; 
+  padding: 25px 20px 40px 20px; /* Mer luft i bunnen, mindre på toppen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+#trusted-brands h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.brand-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+/* Resten av koden din er fin! */
+.brand-logos img {
+  height: 40px;
+  width: auto;
+  opacity: 0.7;
+  transition: 0.25s ease;
+  filter: grayscale(100%);
+}
+
+.dark-mode .brand-logos {
+  background-color: white;
+}
+
+.dark-mode #trusted-brands h1 {
+  color: white;
+}
+
+.kcal-section {
+    font-family: 'Playfair Display', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
+  margin: 0;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 15px;
+  margin: auto;
+  
+/* Bakgrunnsbilde */
+  background-image: url("https://images.unsplash.com/photo-1744744041774-4485eb2492ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.kcal-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 24px;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.kcal-container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000;
+}
+
+#label {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.kcal-section label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #000;
+}
+
+.kcal-section input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.input-group button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease;
+
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.kcal-section button:hover {
+  background-color: black;
+  transform: translateY(-1px);
+}
+
+#kcal-result {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #2c2c2c;
+}
+
+/* Responsivt */
+@media (max-width: 600px) {
+  .kcal-section {
+    padding: 30px 20px;
+      width: 92%;  
+  }
+
+  #label {
+    flex-direction: column;
+  }
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  color: #000;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BMI KALKULATOR */
+
+.calculator-section {
+    font-family: 'Playfair Display', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
+  margin: 0;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 15px;
+  margin: auto;
+  
+/* Bakgrunnsbilde */
+  background-image: url("https://images.unsplash.com/photo-1770983438128-f4065cf02752?q=80&w=797&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.calculator-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 24px;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.calculator-container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.calculator-container p {
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.bmi-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 600;
+    background-color: white;
+    color: #0f2f24;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin: 0 auto 20px auto;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: rgb(0, 0, 0);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.calculator-section input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+
+#message {
+    margin-top: 20px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+}
+
+.calculator-section button {
+      width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s ease;
+    background-color: #2c2c2c;
+    color: white;
+}
+
+#calculator-result {
+  padding-top: 20px;
+    display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #2c2c2c;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+
+  .calculator-section {
+    padding: 30px 20px;
+      width: 92%;  
+  }
+
 }

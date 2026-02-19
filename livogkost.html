@@ -75,50 +75,56 @@
     </div>
 </section>
 
+<section class="mcq-section">
+    <h1>Regn ut ditt daglige kaloribehov:</h1>
+    <p>Fyll inn dine detaljer for å finne ut hvor mange kalorier du trenger hver dag for å opprettholde din nåværende vekt.</p>
+    <iframe src="/frame/kcal.html" frameborder="0"></iframe>
+</section>
 
 
-  <section class="mcq-section">
-    <h1>Hvorfor bør du velge HelseFactor over annet?</h1>
-    <p>Her er to grunner til å velge oss!</p>
-    <ul>
-    <li>Alt på ett sted: HelseFactor samler kalkulatorer, quiz, personlige vurderinger og konkrete forbedringstips på én plattform – så du slipper å hoppe mellom flere nettsider.</li>
-    <li>Personlige og forståelige råd: I stedet for bare tall og resultater får du forklaringer og forslag som faktisk gir mening, og som er enkle å bruke i hverdagen.</li>
-    </ul>
+<section class="kcal-section">
+  <div class="kcal-container">
 
-  <div class="tabell" id="nettsider-ranks">
-  <table>
-      <tr>
-        <th>Nettside</th>
-        <th>Ratings</th>
-      </tr>
-      <tr>
-        <td>Helsekalkulator.com</td>
-        <td>8/10</td>
-      </tr>
-      <tr>
-        <td>WeighWisely</td>
-        <td>9/10</td>
-      </tr>
-      <tr>
-        <td>MyBMI.net</td>
-        <td>7/10</td>
-      </tr>
-      <tr>
-        <td>WebMD</td>
-        <td>9/10</td>
-      </tr>
-      <tr>
-        <td>HelseFactor</td>
-        <td>10/10</td>
-      </tr>
-    </table>
-    </div>
-  </section>
-   
+      <h1>Kalorie kalkulator</h1>
+
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="gender" id="male">
+          <span>Mann</span>
+        </label>
+
+        <label>
+          <input type="radio" name="gender" id="female">
+          <span>Kvinne</span>
+        </label>
+      </div>
+
+      <div class="input-group">
+        <input type="number" id="weight" placeholder="Vekt (kg)">
+        <input type="number" id="height" placeholder="Høyde (cm)">
+        <input type="number" id="age" placeholder="Alder (år)">
+        <select class="training" id="training">
+    <option value="">Hvor ofte trener du?</option>
+    <option value="nothing">Lite eller ingen trening</option>
+    <option value="light">Lett trening</option>
+    <option value="moderate">Moderat trening</option>
+    <option value="heavy">Mye trening</option>
+    </select>
+
+
+        <button onclick="calculateCalories()">Regn ut</button>
+        <button onclick="reload()">Prøv igjen</button>
+      </div>
+
+      <span id="kcal-result"></span>
+  </div>
+</section>
+
 <footer class="footer">
   HelseFactor 2026 © Alle rettigheter reservert.
 </footer>
 
 <script src="js/script.js"></script>
+<script src="js/calorie.js"></script>
  </body>
 </html>

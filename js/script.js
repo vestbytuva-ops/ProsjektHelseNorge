@@ -59,12 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Popup 
 
-setTimeout(function () {
+  setTimeout(function () {
     document.getElementById("popup").style.display = "block";
     document.body.classList.add("no-scroll");
   }, 10000);
 
-  document.getElementById("closeBtn").addEventListener("click", function () {
+  document.getElementById("close-button").addEventListener("click", function () {
     document.getElementById("popup").style.display = "none";
     document.body.classList.remove("no-scroll");
   });
