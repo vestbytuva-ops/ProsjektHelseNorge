@@ -1245,6 +1245,11 @@ select {
   justify-content: center;
 }
 
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 /* BMI KALKULATOR */
 
 .bmi-calculator {
