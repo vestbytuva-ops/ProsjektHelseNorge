@@ -1,0 +1,14 @@
+"filename", "language", "HTML", "PostCSS", "JavaScript", "comment", "blank", "total"
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\bmisite.html", "HTML", 24, 0, 0, 0, 3, 27
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\css\bmi.css", "PostCSS", 0, -105, 0, 0, -19, -124
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\css\kcal.css", "PostCSS", 0, -79, 0, 0, -15, -94
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\css\mcq.css", "PostCSS", 0, 0, 0, 0, 1, 1
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\css\style.css", "PostCSS", 0, 237, 0, 6, 34, 277
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\frame\calculator.html", "HTML", -32, 0, 0, 0, -5, -37
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\frame\kcal.html", "HTML", -31, 0, 0, 0, -10, -41
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\frame\mcqsystem.html", "HTML", -73, 0, 0, 0, -16, -89
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\index.html", "HTML", 1, 0, 0, 0, 0, 1
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\js\calorie.js", "JavaScript", 0, 0, 19, 0, 1, 20
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\js\mcq.js", "JavaScript", 0, 0, 69, 5, 21, 95
+"c:\Users\vestb\Downloads\ProsjektHelseNorge\livogkost.html", "HTML", 30, 0, 0, 0, 8, 38
+"Total", "-", -81, 53, 88, 11, 3, 74
