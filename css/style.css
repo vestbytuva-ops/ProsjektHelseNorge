@@ -316,14 +316,14 @@ iframe {
 }
 
 
-.tabell {
+.table-wrapper {
   padding: 1rem;
   display: flex;
   justify-content: center;
   width: 100vw;
 }
 
-.tabell table {
+.table-wrapper table {
   width: 100%;
   max-width: 700px;
   border-collapse: collapse;
@@ -335,8 +335,7 @@ iframe {
   font-family: "Inter", sans-serif;
 }
 
-
-.tabell th {
+.table-wrapper th {
   text-align: center;
   padding: 1.2rem 1.5rem;
   background: #0f2f24;
@@ -346,26 +345,22 @@ iframe {
   text-transform: uppercase;
 }
 
-
-.tabell td {
+.table-wrapper td {
   padding: 1.2rem 1.5rem;
   font-size: 1rem;
   color: #1f2937;
 }
 
-
-.tabell tr:not(:last-child) td {
+.table-wrapper tr:not(:last-child) td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-
-.tabell tr:hover td {
+.table-wrapper tr:hover td {
   background-color:#5f7f73;
   transition: background 0.2s ease;
 }
 
-
-.tabell td:last-child {
+.table-wrapper td:last-child {
   font-weight: 600;
   color:#0f2f24;
 }
@@ -1252,8 +1247,8 @@ select {
 
 /* BMI KALKULATOR */
 
-.calculator-section {
-    font-family: 'Playfair Display', serif;
+.bmi-calculator {
+  font-family: 'Playfair Display', serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1263,13 +1258,13 @@ select {
   width: 100%;
   border-radius: 15px;
   margin: auto;
+  padding: 30px; /* Gir litt mer luft rundt innholdet */
   
 /* Bakgrunnsbilde */
   background-image: url("https://images.unsplash.com/photo-1770983438128-f4065cf02752?q=80&w=797&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
 }
 
 .calculator-container {
@@ -1323,7 +1318,7 @@ label {
     font-size: 0.9rem;
 }
 
-.calculator-section input {
+.bmi-calculator input {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
@@ -1339,7 +1334,7 @@ label {
     color: rgb(0, 0, 0);
 }
 
-.calculator-section button {
+.bmi-calculator button {
       width: 100%;
     padding: 12px;
     border-radius: 12px;
@@ -1365,9 +1360,47 @@ label {
 
 @media (max-width: 600px) {
 
-  .calculator-section {
+  .bmi-calculator {
     padding: 30px 20px;
       width: 92%;  
   }
 
+}
+
+.bmi-section {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction:column;
+  align-items: center; /* Sentrerer alt horisontalt */
+  text-align: center;
+  min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
+}
+
+.bmi-container {
+  max-width: 800px; /* Holder innholdet samlet */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bmi-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+.bmi-section p {
+  color: var(--muted);
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.bmi-section ul {
+  color: var(--muted);
+  text-align: left; /* Gjør punktene lettere å lese */
+  max-width: 500px; 
+  width: 90%; /* Sikrer at den ikke går utenfor på små skjermer */
+  margin: 0 auto 30px auto;
+  padding-left: 20px; /* Gir plass til kulepunktene */
 }
