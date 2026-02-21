@@ -1,4 +1,4 @@
- const totalQuestions = 5;
+const totalQuestions = 5;
     const maxPointsPerQuestion = 4;
     const minPointsPerQuestion = 1;
     

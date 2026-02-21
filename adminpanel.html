@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelseFactor Admin Panel</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="admin-panel">
+<section id="password-container">
+   <div id="password-card">
+        <h1>HelseFactor Admin Panel</h1>
+        <p>Ikke ansatt hos HelseFactor? Vennligst lukk denne fanen.</p>
+        <input type="password" id="admin-password" placeholder="Skriv inn passordet" />
+        <button id="submit-password">Logg inn</button>
+        <button onclick="window.location.href = 'index.html';">Hovedside</button>
+        <p id="error-message" style="color: red; display: none;">Feil passord. Prøv igjen.</p>
+    </div>
+</section>
+
+    <div class="note-card" style="display: none;">
+    <h2>Admin Notatblokk</h2>
+    <div class="pen-library">
+        <button class="pen" data-cmd="bold">Fet skrift</button>
+        <button class="pen" data-cmd="italic">Kursiv</button>
+        <button class="pen" data-cmd="underline">Underlinje</button>
+    </div>
+    <div id="note" contenteditable="true" placeholder="Hei admin! Skriv her..."
+         style="min-height:150px; border:1px solid #ccc; padding:10px; border-radius:8px;"></div>
+        </div>
+
+    <div id="mood-library" style="display: none;">
+        <button class="mood" id="school">Skole</button>
+        <button class="mood" id="job">Jobb</button>
+        <button class="mood" id="hobby">Fritid</button>
+        <button class="mood" id="reset">Reset</button>
+    </div>
+
+
+<script src="/js/adminpanel.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>
+
+

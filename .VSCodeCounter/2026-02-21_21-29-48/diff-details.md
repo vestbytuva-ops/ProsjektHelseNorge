@@ -1,17 +1,18 @@
 # Diff Details
 
-Date : 2026-02-18 21:47:04
+Date : 2026-02-21 21:29:48
 
 Directory c:\\Users\\vestb\\Downloads\\ProsjektHelseNorge
 
-Total : 2 files,  84 codes, 0 comments, 26 blanks, all 110 lines
+Total : 3 files,  124 codes, 3 comments, 27 blanks, all 154 lines
 
 [Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details
 
 ## Files
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| [kcal.html](/kcal.html) | HTML | 87 | 0 | 26 | 113 |
-| [mcqsystem.html](/mcqsystem.html) | HTML | -3 | 0 | 0 | -3 |
+| [adminpanel.html](/adminpanel.html) | HTML | 7 | -1 | 6 | 12 |
+| [css/style.css](/css/style.css) | PostCSS | 109 | 2 | 21 | 132 |
+| [js/adminpanel.js](/js/adminpanel.js) | JavaScript | 8 | 2 | 0 | 10 |
 
 [Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details

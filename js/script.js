@@ -68,3 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("popup").style.display = "none";
     document.body.classList.remove("no-scroll");
   });
+
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.shiftKey && event.key === "H") {
+    window.location.href = "adminpanel.html";
+  }
+});

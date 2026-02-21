@@ -12,13 +12,13 @@
   padding: 0;
 }
 
+
 body {
   background: var(--bg-dark);
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
-
 
 #progress {
   position: fixed;
@@ -1231,7 +1231,7 @@ select {
       width: 92%;  
   }
 
-  #label {
+  .radio-group label {
     flex-direction: column;
   }
 
@@ -1252,11 +1252,20 @@ select {
   justify-content: center;
 }
 
-.radio-item {
+#male #female {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Avstand mellom sirkelen og ordet */
+  cursor: pointer;
+  white-space: nowrap; /* Hindrer at tekst hopper til ny linje */
+}
+
 /* BMI KALKULATOR */
 
 .bmi-calculator {
@@ -1415,4 +1424,198 @@ label {
   width: 90%; /* Sikrer at den ikke går utenfor på små skjermer */
   margin: 0 auto 30px auto;
   padding-left: 20px; /* Gir plass til kulepunktene */
+}
+
+/* ADMIN PANEL */
+
+#password-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-family:"Betania Patmos In GDL", cursive;
+
+}
+
+#password-card h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  color: #000;
+}
+#password-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: none;
+}
+#password-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease;
+  background-color: #2c2c2c;
+  color: white;
+}
+
+#password-card p {
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+}
+
+.admin-panel {
+  display: flex;
+  align-items: center; /* Sentrerer alt horisontalt */
+  text-align: center;
+    background-image: url("https://images.unsplash.com/photo-1734784547175-e02d14fff45c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: center;
+
+}
+
+.note-card {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+
+}
+
+#password-container {
+
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 12px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  resize: none;  /* ingen resizing */
+}
+
+.note-card {
+  display: none;               /* skjult til login */
+  position: absolute;           /* overlapper passordkortet */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfekt midtstilling */
+  max-width: 700px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.note-card h2 {
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+textarea#note {
+  width: 100%;
+  min-height: 150px;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #9EB0A0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+}
+
+textarea#note:focus {
+  outline: none;
+  border-color: #9EB0A0;
+}
+
+.note-card {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  width: 90%;
+
+  background: rgba(255, 255, 255, 0.15); /* gjennomsiktig */
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(12px);           /* glass blur */
+  -webkit-backdrop-filter: blur(12px);
+
+  padding: 20px;
+  z-index: 1000;
+}
+
+#mood-library {
+  background-color: black;
+  color: white;
+  display: ;
+}
+
+/* Selve footer-diven */
+#mood-library {
+  position: fixed;          /* alltid på skjermen */
+  bottom: 20px;             /* litt avstand fra nederst */
+  left: 50%;                /* sentrert horisontalt */
+  transform: translateX(-50%); /* perfekt midtstilling */
+  
+  background: rgba(255, 255, 255, 0.15); /* glass-look */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  
+  padding: 10px 20px;
+  display: flex;
+  gap: 15px;                /* mellomrom mellom knappene */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* Style på knappene */
+#mood-library button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.25);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#mood-library button:hover {
+  background-color: rgba(255,255,255,0.35);
+  transform: scale(1.05);
 }
