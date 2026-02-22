@@ -217,42 +217,6 @@ section {
 
 }
 
-@media (max-width: 768px) {
-
-  /* Stack image and text */
-  .fiks > section {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  /* Disable sticky on mobile */
-  .sticky-container {
-    position: static;
-    width: 100%;
-  }
-
-  /* Full-width content */
-  .content {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
-
-  /* Better mobile typography */
-  .content-block.highlight h2 {
-    font-size: 2.1rem;
-  }
-
-  .content-block p {
-    font-size: 1rem;
-  }
-
-  /* Softer dividers */
-  .divider {
-    margin: 3rem 0;
-    opacity: 0.4;
-  }
-}
-
 .info {
   display: flex;
   flex-direction: column;
@@ -288,7 +252,7 @@ section {
   margin-top: 80px;
 }
 
-.mcq-section {
+.quiz-section {
   padding: 60px 20px;
   display: flex;
   flex-direction:column;
@@ -297,7 +261,7 @@ section {
   min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
 }
 
-.mcq-container {
+.quiz-container {
   max-width: 800px; /* Holder innholdet samlet */
   width: 100%;
   display: flex;
@@ -305,19 +269,19 @@ section {
   align-items: center;
 }
 
-.mcq-section h1 {
+.quiz-section h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 20px;
 }
 
-.mcq-section p {
+.quiz-section p {
   color: var(--muted);
   margin-bottom: 20px;
   max-width: 600px;
 }
 
-.mcq-section ul {
+.quiz-section ul {
   color: var(--muted);
   text-align: left; /* Gjør punktene lettere å lese */
   max-width: 500px; 
@@ -326,7 +290,7 @@ section {
   padding-left: 20px; /* Gir plass til kulepunktene */
 }
 
-.mcq-section button {
+.quiz-section button {
   margin-top: 0.75rem;
 }
 
@@ -347,10 +311,6 @@ iframe {
   min-height: 130vh;
   width:100%;
   max-width: 700px;
-}
-
-#side3info {
- margin-top: -100px;
 }
 
 .table-wrapper {
@@ -410,11 +370,11 @@ iframe {
   padding: 80px 10%; /* Gir litt mer luft på sidene på PC */
 }
 
-.info-bilde {
+.info-mdia {
   flex: 1; /* Tar 50% av plassen */
 }
 
-.info-bilde img {
+.info-media img {
   width: 100%;
   height: auto;
   border-radius: 20px;
@@ -430,20 +390,20 @@ iframe {
   margin: 0 auto;
 }
 
-.info-tekst {
+.info-text {
   flex: 1;
   text-align: left;
   max-width: 600px; /* Hindrer at tekstlinjene blir altfor lange og tunge å lese */
 }
 
-.info-tekst h1 {
+.info-text h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
-.info-tekst p {
+.info-text p {
   color: var(--muted);
   margin-bottom: 1.2rem;
   font-size: 1.1rem;
@@ -458,7 +418,7 @@ iframe {
     gap: 30px;
   }
 
-  .info-tekst {
+  .info-text {
     text-align: center; /* Senterer teksten på mobil */
   }
 
@@ -587,34 +547,6 @@ body.no-scroll {
   overflow: hidden;
 }
 
-#welcome button {
-  border-radius: 4px;
-  color: black;
-  font-size: medium;
-  font-weight: 600;
-  background-color:white;
-  border-color: transparent;
-
-}
-
-#welcome input {
-  border-radius: 4px;
-  color: black;
-  font-size: medium;
-  border-color: transparent;
-}
-
-.source {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: var(--text-main);
-  text-align: center;
-}
-
 .source {
   display: flex;
   flex-direction: column;
@@ -654,6 +586,15 @@ body.no-scroll {
       padding: 80px 20px;
       animation: fadeUp 0.8s ease;
     }
+
+.health-card {
+    background: white;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: left;
+}
 
 .health h1 {
     font-family: 'Playfair Display', serif;
@@ -723,14 +664,7 @@ body.no-scroll {
     transform: scale(1.02);
 }
 
-.health-card {
-    background: white;
-    margin-top: 40px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    text-align: left;
-}
+
 
     #result {
       max-width: 620px;
@@ -748,13 +682,6 @@ body.no-scroll {
       -webkit-text-fill-color: transparent;
     }
 
-.helse-card {       
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(14px);
-      border-radius: 20px;
-      padding: 28px 30px;
-      box-shadow: 0 20px 40px rgba(15, 47, 36, 0.12);
-            }
 
 .hidden {
     display: none;
@@ -838,10 +765,6 @@ body.dark-mode #searchInput {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-body.dark-mode .helse-card {
-  background: white;
-  color: black;
-}
 
 body.dark-mode #searchBtn {
   background: white;
@@ -849,39 +772,39 @@ body.dark-mode #searchBtn {
 }
 
 
-.helse-search input{
- background-color: transparent;
-}
-
-.helse-search input:focus {
-  outline: none;
-  box-shadow: 0 0 10px var(--text-main);
-  
-}
-
 /* Universell utforming av diagram og alt annet*/
 
-/* =========================
-   Reaction Time Section
-========================= */
-
-.reaction-section {
-  display: block;
-  width: 70%;
-  max-width: 750px;
-  margin: 60px auto;
+.reaction {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  min-height: auto;
 }
 
-/* Overskrift */
-.reaction-section h1 {
+.reaction-container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reaction h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+.reaction p {
+  color: var(--muted);
+  margin-bottom: 20px;
+  max-width: 600px;
 }
 
 /* Card */
-.reaction-section .card {
+.card {
   background: #ffffff;
   padding: 22px;
   border-radius: 12px;
@@ -929,16 +852,8 @@ body.dark-mode #searchBtn {
   cursor: pointer;
 }
 
-/* Graf */
-#reactionChart {
-  width: 100%;
-  height: 280px;   /* ← viktig */
-  margin: 30px auto;
-  display: block;
-}
-
 /* Forklaringstekst */
-.reaction-section .message {
+.message {
   margin-top: 18px;
   font-size: 14px;
   opacity: 0.7;
@@ -973,15 +888,6 @@ body.dark-mode #searchBtn {
   }
 }
 
-.reaction-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* sentrerer alt horisontalt */
-  gap: 20px;            /* litt avstand mellom elementene */
-  padding: 40px 20px;
-}
-
-
 #reactionChart {
   width: 100%;          /* fyller tilgjengelig bredde */
   max-width: 600px;     /* maks bredde */
@@ -990,16 +896,6 @@ body.dark-mode #searchBtn {
   align-items: center;
   justify-content: center;   /* sentrerer canvas */
 }
-
-.reaction-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
 
     .card {
       width: 100%;
@@ -1050,29 +946,6 @@ body.dark-mode #searchBtn {
   }
 }
 
-.reaction-section {
-  display: grid;
-  justify-items: center;
-  padding: 40px 20px;
-}
-
-.reaction-section {
-  padding: 60px 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center; /* Sentrerer alt horisontalt */
-  text-align: center;
-  min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
-}
-
-
-#reactionChart {
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  display: flex;
-}
-
 #reload {
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
@@ -1086,12 +959,6 @@ body.dark-mode #searchBtn {
   padding: 8px 16px;
   border-radius: 20px;
 }
-
-#calculator {
-  height: 120vh;
-  width: 80vw;
-}
-
 
 #trusted-brands h1 {
   font-family: 'Playfair Display', serif;
@@ -1656,11 +1523,6 @@ textarea#note:focus {
   transform: scale(1.05);
 }
 
-
-.pen.active {
-    background-color: #333;
-    color: white;
-}
 
 #do-list {
   display: flex;
