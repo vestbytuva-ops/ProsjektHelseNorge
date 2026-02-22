@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="admin-panel">
+
 <section id="password-container">
    <div id="password-card">
         <h1>HelseFactor Admin Panel</h1>
@@ -25,10 +26,21 @@
         <button class="pen" data-cmd="italic">Kursiv</button>
         <button class="pen" data-cmd="underline">Underlinje</button>
         <button class="pen">Normal</button>
+        <button class="reset">Reset</button>
     </div>
     <div id="note" contenteditable="true" placeholder="Hei admin! Skriv her..."
          style="min-height:150px; border:1px solid #ccc; padding:10px; border-radius:8px;"></div>
         </div>
+
+    <div class="do-list" style="display:none">
+        <h2>Admin to do list</h2>
+        <input placeholder="Hei admin! Har du noen tanker?" type="text" id="taskInput">
+        <button id="addTask">Legg til</button>
+
+        <ul id="taskList">
+
+        </ul>
+    </div>
 
     <div id="mood-library" style="display: none;">
         <button class="mood" id="school">Skole</button>

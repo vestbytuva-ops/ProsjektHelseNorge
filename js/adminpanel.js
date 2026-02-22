@@ -5,6 +5,8 @@ const adminErrorMessage = document.getElementById("error-message");
 const noteCard = document.querySelector(".note-card");
 const passwordCard = document.getElementById("password-card");
 const moodLibrary = document.getElementById("mood-library");
+const toDoList = document.getElementById("do-list");
+const resetButton = document.getElementByClassName("reset");
 
 // Login knapp
 adminSubmitButton.addEventListener("click", () => {
@@ -17,6 +19,8 @@ adminSubmitButton.addEventListener("click", () => {
         passwordCard.style.display = "none";
         adminPanel.style.background = "#707D72";
         adminPasswordInput.value = "";
+        toDoList.style.display="block";
+
     } else {
         adminErrorMessage.style.display = "block";
         adminPasswordInput.value = "";
@@ -131,3 +135,32 @@ document.addEventListener("keydown", function (event) {
         window.location.href = "index.html";
     }
 });
+
+const addButton = document.getElementById("addTask");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+
+function addTask () {
+    const task = taskInput.value.trim();
+
+    if(task){
+        createTaskElement(task);
+
+        taskInput.value = "";
+
+    } else {
+        alert("Hei Admin! Har du glemt å skrive noe på inputen?")
+    }
+}
+
+addButton.addEventListener("click", addTask);
+
+
+function createTaskElement(task){
+    const listItem = document.createElement("li");
+    listItem.textContent = task;
+}
+
+
+
