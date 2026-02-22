@@ -25,8 +25,10 @@ adminSubmitButton.addEventListener("click", () => {
 
 const note = document.getElementById("note");
 
+// Last inn lagret notat
 note.innerHTML = localStorage.getItem("myNote") || "";
 
+// Lagre notat
 note.addEventListener("input", () => {
     localStorage.setItem("myNote", note.innerHTML);
 });
@@ -35,7 +37,7 @@ const moodButtons = document.querySelectorAll(".mood");
 
 moodButtons.forEach(button => {
     button.addEventListener("click", () => {
-        if (noteCard.style.display === "block") {
+        if (getComputedStyle(noteCard).display === "block") {
             const mood = button.id;
 
             switch(mood) {
@@ -58,46 +60,74 @@ moodButtons.forEach(button => {
 });
 
 const penButtons = document.querySelectorAll(".pen");
-let activeFormat = null;
+let activeFormats = new Set();
 
+// Toggle formatting buttons
 penButtons.forEach(button => {
     button.addEventListener("click", () => {
         const format = button.dataset.cmd;
 
-        penButtons.forEach(b => b.classList.remove("active"));
-
-        if (activeFormat === format) {
-            activeFormat = null;
+        if (format === "normal") {
+            activeFormats.clear();
+            penButtons.forEach(b => b.classList.remove("active"));
             return;
         }
 
-        activeFormat = format;
-        button.classList.add("active");
+        if (activeFormats.has(format)) {
+            activeFormats.delete(format);
+            button.classList.remove("active");
+        } else {
+            activeFormats.add(format);
+            button.classList.add("active");
+        }
     });
 });
 
+// Typing with formatting
 note.addEventListener("keydown", (e) => {
-    if (!activeFormat) return;
+    if (activeFormats.size === 0) return;
 
     if (e.key.length === 1) {
         e.preventDefault();
 
-        const tag = activeFormat === "bold" ? "strong" : activeFormat === "italic" ? "em" : "u";
-        const wrapper = document.createElement(tag);
-        wrapper.textContent = e.key;
-
         const selection = window.getSelection();
+        if (!selection.rangeCount) return;
+
         const range = selection.getRangeAt(0);
+
+        let wrapper = document.createTextNode(e.key);
+
+        if (activeFormats.has("bold")) {
+            const strong = document.createElement("strong");
+            strong.appendChild(wrapper);
+            wrapper = strong;
+        }
+
+        if (activeFormats.has("italic")) {
+            const em = document.createElement("em");
+            em.appendChild(wrapper);
+            wrapper = em;
+        }
+
+        if (activeFormats.has("underline")) {
+            const u = document.createElement("u");
+            u.appendChild(wrapper);
+            wrapper = u;
+        }
+
         range.insertNode(wrapper);
         range.setStartAfter(wrapper);
         range.collapse(true);
+
         selection.removeAllRanges();
         selection.addRange(range);
     }
 });
 
+// Shortcut tilbake til index
 document.addEventListener("keydown", function (event) {
     if (event.ctrlKey && event.shiftKey && event.key === "H") {
+        event.preventDefault();
         window.location.href = "index.html";
     }
 });
