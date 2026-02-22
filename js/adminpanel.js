@@ -58,7 +58,13 @@ moodButtons.forEach(button => {
 });
 
 const penButtons = document.querySelectorAll(".pen");
+const normalButton = document.querySelector(".pen-normal");
 let activeFormat = null;
+
+normalButton.addEventListener("click", () => {
+    activeFormat = null;
+    penButtons.forEach(b => b.classList.remove("active"));
+});
 
 penButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -66,7 +72,7 @@ penButtons.forEach(button => {
 
         penButtons.forEach(b => b.classList.remove("active"));
 
-        if (activeFormat === format || format === "normal") {
+        if (activeFormat === format) {
             activeFormat = null;
             return;
         }
@@ -77,7 +83,7 @@ penButtons.forEach(button => {
 });
 
 note.addEventListener("keydown", (e) => {
-    if (!activeFormat || activeFormat === "normal") return;
+    if (!activeFormat) return;
 
     if (e.key.length === 1) {
         e.preventDefault();
