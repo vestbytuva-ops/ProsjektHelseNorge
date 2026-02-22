@@ -27,16 +27,6 @@ adminSubmitButton.addEventListener("click", () => {
     }
 });
 
-const note = document.getElementById("note");
-
-// Last inn lagret notat
-note.innerHTML = localStorage.getItem("myNote") || "";
-
-// Lagre notat
-note.addEventListener("input", () => {
-    localStorage.setItem("myNote", note.innerHTML);
-});
-
 const moodButtons = document.querySelectorAll(".mood");
 
 moodButtons.forEach(button => {
@@ -107,11 +97,12 @@ function createTaskElement(task){
 
     deleteButton.addEventListener("click", function(){
         taskList.removeChild(listItem);
+        saveTasks();
 
     })
 }
 
-fucnction saveTasks(){
+function saveTasks(){
     let tasks = [];
     taskList.querySelector("li").forEach(function(item){
     tasks.push(item.textContent.replace("Delete", "").trim());
