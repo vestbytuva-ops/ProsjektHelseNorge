@@ -63,70 +63,6 @@ moodButtons.forEach(button => {
     });
 });
 
-const penButtons = document.querySelectorAll(".pen");
-let activeFormats = new Set();
-
-// Toggle formatting buttons
-penButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const format = button.dataset.cmd;
-
-        if (format === "normal") {
-            activeFormats.clear();
-            penButtons.forEach(b => b.classList.remove("active"));
-            return;
-        }
-
-        if (activeFormats.has(format)) {
-            activeFormats.delete(format);
-            button.classList.remove("active");
-        } else {
-            activeFormats.add(format);
-            button.classList.add("active");
-        }
-    });
-});
-
-// Typing with formatting
-note.addEventListener("keydown", (e) => {
-    if (activeFormats.size === 0) return;
-
-    if (e.key.length === 1) {
-        e.preventDefault();
-
-        const selection = window.getSelection();
-        if (!selection.rangeCount) return;
-
-        const range = selection.getRangeAt(0);
-
-        let wrapper = document.createTextNode(e.key);
-
-        if (activeFormats.has("bold")) {
-            const strong = document.createElement("strong");
-            strong.appendChild(wrapper);
-            wrapper = strong;
-        }
-
-        if (activeFormats.has("italic")) {
-            const em = document.createElement("em");
-            em.appendChild(wrapper);
-            wrapper = em;
-        }
-
-        if (activeFormats.has("underline")) {
-            const u = document.createElement("u");
-            u.appendChild(wrapper);
-            wrapper = u;
-        }
-
-        range.insertNode(wrapper);
-        range.setStartAfter(wrapper);
-        range.collapse(true);
-
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
-});
 
 // Shortcut tilbake til index
 document.addEventListener("keydown", function (event) {
@@ -140,6 +76,7 @@ const addButton = document.getElementById("addTask");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
+loadTasks();
 
 function addTask () {
     const task = taskInput.value.trim();
@@ -160,7 +97,36 @@ addButton.addEventListener("click", addTask);
 function createTaskElement(task){
     const listItem = document.createElement("li");
     listItem.textContent = task;
+
+    taskList.appendChild(listItem);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.className = "deleteTask"
+    listItem.appendChild(deleteButton);
+
+    deleteButton.addEventListener("click", function(){
+        taskList.removeChild(listItem);
+
+    })
+}
+
+fucnction saveTasks(){
+    let tasks = [];
+    taskList.querySelector("li").forEach(function(item){
+    tasks.push(item.textContent.replace("Delete", "").trim());
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+
 }
 
 
+function loadTasks() {
+    const tasks= JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks.forEach(createTaskElement);
+
+}
 
