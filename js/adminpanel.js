@@ -2,18 +2,19 @@ const adminPanel = document.querySelector(".admin-panel");
 const adminPasswordInput = document.getElementById("admin-password");
 const adminSubmitButton = document.getElementById("submit-password");
 const adminErrorMessage = document.getElementById("error-message");
-const noteCard = document.querySelector(".note-card");
 const passwordCard = document.getElementById("password-card");
 const moodLibrary = document.getElementById("mood-library");
+const addButton = document.getElementById("addTask");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
 const toDoList = document.getElementById("do-list");
-const resetButton = document.getElementByClassName("reset");
+
 
 // Login knapp
 adminSubmitButton.addEventListener("click", () => {
     const password = adminPasswordInput.value.trim();
 
     if (password === "1234") {
-        noteCard.style.display = "block";
         moodLibrary.style.display = "flex";
         adminErrorMessage.style.display = "none";
         passwordCard.style.display = "none";
@@ -62,9 +63,7 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-const addButton = document.getElementById("addTask");
-const taskInput = document.getElementById("taskInput");
-const taskList = document.getElementById("taskList");
+
 
 loadTasks();
 
