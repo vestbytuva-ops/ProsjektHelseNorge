@@ -8,6 +8,7 @@ const addButton = document.getElementById("addTask");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 const toDoList = document.getElementById("do-list");
+const logOut = document.getElementById("logout")
 
 
 // Login knapp
@@ -21,6 +22,8 @@ adminSubmitButton.addEventListener("click", () => {
         adminPanel.style.background = "#707D72";
         adminPasswordInput.value = "";
         toDoList.style.display="block";
+        logOut.style.display="block";
+
 
     } else {
         adminErrorMessage.style.display = "block";
@@ -62,7 +65,6 @@ document.addEventListener("keydown", function (event) {
         window.location.href = "index.html";
     }
 });
-
 
 
 loadTasks();
@@ -140,3 +142,8 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
+
+
+logOut.addEventListener("click", () => {
+    window.location.href="adminpanel.html";
+});

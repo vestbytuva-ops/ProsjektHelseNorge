@@ -1,10 +1,10 @@
 # Details
 
-Date : 2026-02-21 13:00:28
+Date : 2026-02-22 14:08:21
 
 Directory c:\\Users\\vestb\\Downloads\\ProsjektHelseNorge
 
-Total : 21 files,  2596 codes, 57 comments, 450 blanks, all 3103 lines
+Total : 21 files,  2883 codes, 57 comments, 523 blanks, all 3463 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -12,16 +12,16 @@ Total : 21 files,  2596 codes, 57 comments, 450 blanks, all 3103 lines
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
 | [README.md](/README.md) | Markdown | 1 | 0 | 1 | 2 |
-| [adminpanel.html](/adminpanel.html) | HTML | 26 | 1 | 3 | 30 |
+| [adminpanel.html](/adminpanel.html) | HTML | 44 | 0 | 11 | 55 |
 | [assets/images/site.webmanifest](/assets/images/site.webmanifest) | JSON | 1 | 0 | 0 | 1 |
 | [bmisite.html](/bmisite.html) | HTML | 90 | 0 | 15 | 105 |
 | [css/mcq.css](/css/mcq.css) | PostCSS | 160 | 1 | 2 | 163 |
-| [css/style.css](/css/style.css) | PostCSS | 1,229 | 29 | 231 | 1,489 |
+| [css/style.css](/css/style.css) | PostCSS | 1,430 | 31 | 269 | 1,730 |
 | [frame/mcqsystem.html](/frame/mcqsystem.html) | HTML | 123 | 1 | 19 | 143 |
 | [helsesøk.html](/helses%C3%B8k.html) | HTML | 71 | 0 | 10 | 81 |
 | [index.html](/index.html) | HTML | 149 | 0 | 13 | 162 |
 | [js/admin.js](/js/admin.js) | JavaScript | 28 | 9 | 7 | 44 |
-| [js/adminpanel.js](/js/adminpanel.js) | JavaScript | 39 | 3 | 9 | 51 |
+| [js/adminpanel.js](/js/adminpanel.js) | JavaScript | 107 | 2 | 36 | 145 |
 | [js/bmi.js](/js/bmi.js) | JavaScript | 46 | 2 | 12 | 60 |
 | [js/calorie.js](/js/calorie.js) | JavaScript | 43 | 0 | 8 | 51 |
 | [js/mcq.js](/js/mcq.js) | JavaScript | 69 | 5 | 21 | 95 |

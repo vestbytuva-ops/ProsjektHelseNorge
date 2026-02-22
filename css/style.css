@@ -57,6 +57,14 @@ body {
   cursor: pointer;
 }
 
+.header button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-main);
+  display: none;
+  cursor: pointer;
+}
+
 .logo {
   font-weight: 600;
   font-size: 1.2rem;
@@ -1718,5 +1726,32 @@ textarea#note:focus {
 
 .deleteTask:hover {
     color: #e74c3c;
+}
+
+body.admin-panel {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+}
+
+#password-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#do-list {
+    flex: 1;
+    margin: auto;
+}
+
+#do-list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
