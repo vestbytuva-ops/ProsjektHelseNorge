@@ -3,7 +3,7 @@
   --text-main: #0f2f24;
   --muted: #5f7f73;
   --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
-  --grad-2: linear-gradient(90deg, #6ee7b7, #93c5fd);
+  --grad-2: linear-gradient(90deg, #3ba379, #93c5fd);
 }
 
 * {
@@ -30,7 +30,7 @@ body {
   z-index: 9999;
 }
 
-.header {
+header {
   position: fixed;
   top: 2px; /* kanskje jeg burde endre denne senere */
   left: 50%;
@@ -51,13 +51,34 @@ body {
   gap: 20px; /* Tok denne linjen her for å få mellomrom mellom theme button og nav button */
 }
 
-.header img {
+.admin-panel header {
+  position: fixed;
+  top: 2px; /* kanskje jeg burde endre denne senere */
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  height: 72px;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  z-index: 1000;
+  gap: 20px; /* Tok denne linjen her for å få mellomrom mellom theme button og nav button */
+}
+
+header img {
   width: 24px;
   height: 24px;
   cursor: pointer;
 }
 
-.header button {
+.admin-header button {
   background-color: transparent;
   border: none;
   color: var(--text-main);
@@ -313,8 +334,17 @@ iframe {
   border-radius:20px;
   box-shadow:#0f2f24;
   border:none;
-  overflow: hidden;
   height:600px;
+  width:100%;
+  max-width: 700px;
+}
+
+#mcq-frame {
+  border-radius:20px;
+  box-shadow:#0f2f24;
+  border:none;
+  height: auto;
+  min-height: 130vh;
   width:100%;
   max-width: 700px;
 }
@@ -322,7 +352,6 @@ iframe {
 #side3info {
  margin-top: -100px;
 }
-
 
 .table-wrapper {
   padding: 1rem;
@@ -1449,8 +1478,6 @@ label {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  font-family:"Betania Patmos In GDL", cursive;
-
 }
 
 #password-card h2 {
@@ -1499,6 +1526,7 @@ label {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow: hidden;
 
 }
 
@@ -1508,10 +1536,6 @@ label {
   width: 100vw;
   height: 100vh;
   text-align: center;
-
-}
-
-#password-container {
 
 }
 
@@ -1741,6 +1765,7 @@ body.admin-panel {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 60px;
 }
 
 #do-list {

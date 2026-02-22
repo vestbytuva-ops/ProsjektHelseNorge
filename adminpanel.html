@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelseFactor Admin</title>
-      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-     <link rel="manifest" href="/assets/images/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/site.webmanifest">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="admin-panel">
-<header class="header">
+<header class="admin-header">
     <div class="logo">✿ HelseFactor.</div>
     <button id="logout">Logg ut</button>
 </header>
@@ -29,24 +29,26 @@
     </div>
 </section>
 
-    <div id="do-list" style="display:none">
-        <h2>Vårt mål til uke 8</h2>
-        <input placeholder="Hei admin! Har du noen tanker?" type="text" id="taskInput">
-        <button id="addTask">Legg til</button>
-        <ul id="taskList">
-        </ul>
-    </div>
+<div id="do-list" style="display:none">
+    <h2>Vårt mål til uke 8</h2>
+    <input placeholder="Hei admin! Har du noen tanker?" type="text" id="taskInput">
+     <button id="addTask">Legg til</button>
+      <ul id="taskList">
 
-    <div id="done-folder" style="display: none;">
-        <h2>Oppgaver som har allerede blitt gjort</h2>
-    </div>
+      </ul>
 
-    <div id="mood-library" style="display: none;">
-        <button class="mood" id="school">Skole</button>
-        <button class="mood" id="job">Jobb</button>
-        <button class="mood" id="hobby">Fritid</button>
-        <button class="mood" id="reset">Reset</button>
-    </div>
+</div>
+
+<div id="done-folder" style="display: none;">
+ <h2>Oppgaver som har allerede blitt gjort</h2>
+</div>
+
+<div id="mood-library" style="display: none;">
+    <button class="mood" id="school">Skole</button>
+    <button class="mood" id="job">Jobb</button>
+    <button class="mood" id="hobby">Fritid</button>
+    <button class="mood" id="reset">Reset</button>
+</div>
 
 
 <script src="/js/adminpanel.js"></script>

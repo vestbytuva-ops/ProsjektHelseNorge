@@ -14,11 +14,11 @@ const totalQuestions = 5;
       document.querySelector(`.question-container[data-question="${questionNum}"]`).classList.remove('active');
       
       if (currentQuestion < totalQuestions) {
-        // Vis neste spørsmål
+
         currentQuestion++;
         document.querySelector(`.question-container[data-question="${currentQuestion}"]`).classList.add('active');
       } else {
-        // Vis resultat
+
         showResult();
       }
     }
@@ -84,9 +84,11 @@ const totalQuestions = 5;
       totalScore = 0;
       
       document.getElementById('result').classList.remove('active');
-      document.getElementById('quiz-container').style.display = 'flex';
+      document.getElementById('quiz-container').style.display = 'block';
 
-      
+      document.getElementById('score-text').textContent = '0%';
+      document.getElementById('score-circle').style.backgroundColor = '';
+
       // Skjul alle feedback-tekster
       document.querySelectorAll('.feedback-text').forEach(f => f.style.display = 'none');
       

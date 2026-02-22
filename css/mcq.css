@@ -1,7 +1,8 @@
     body {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* Jeg velger flex-start her fordi da starter den på helt på toppen av bodyen til framen. */
+      padding-top: 40px;
       min-height: 100vh;
       font-family: "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-weight: 400;
@@ -12,6 +13,14 @@
       padding: 20px;
       margin: 0;
     }
+
+    :root{
+      --bc-red:#c72a29;
+      --bc-orange:#f47f20;
+      --bc-yellow:#ffb300;
+      --bc-green:#4dea50;
+    }
+
     h2 {
       font-weight: 400;
       font-size: 1.8rem;
@@ -161,3 +170,4 @@
       line-height: 1.5;
       text-align: left;
     }
+    

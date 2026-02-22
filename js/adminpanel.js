@@ -92,7 +92,7 @@ function createTaskElement(task){
     taskList.appendChild(listItem);
 
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
+    deleteButton.textContent = "Slett";
     deleteButton.className = "deleteTask";
     listItem.appendChild(deleteButton);
 
@@ -111,7 +111,7 @@ function createTaskElement(task){
 function saveTasks(){
     let tasks = [];
     taskList.querySelectorAll("li").forEach(function(item){
-    tasks.push(item.textContent.replace("Delete", "").trim());
+    tasks.push(item.textContent.replace("Slett", "").trim());
     });
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
