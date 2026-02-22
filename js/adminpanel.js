@@ -58,13 +58,7 @@ moodButtons.forEach(button => {
 });
 
 const penButtons = document.querySelectorAll(".pen");
-const normalButton = document.querySelector(".pen-normal");
 let activeFormat = null;
-
-normalButton.addEventListener("click", () => {
-    activeFormat = null;
-    penButtons.forEach(b => b.classList.remove("active"));
-});
 
 penButtons.forEach(button => {
     button.addEventListener("click", () => {
