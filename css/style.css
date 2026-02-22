@@ -1486,6 +1486,11 @@ label {
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 
 }
 
@@ -1624,3 +1629,94 @@ textarea#note:focus {
     background-color: #333;
     color: white;
 }
+
+#do-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #fafafa;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    margin: 40px auto; /* dette alene sentrerer horisontalt */
+}
+
+
+#do-list h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #333;
+    margin: 0 0 28px 0;
+}
+
+#do-list input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+#do-list input:focus {
+    border-bottom-color: #333;
+}
+
+#addTask {
+
+    margin-top: 16px;
+    padding: 8px 20px;
+    background: #333;
+    color: #fafafa;
+    border: none;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#addTask:hover {
+    background: #111;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0 0;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.deleteTask {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 0.8rem;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+}
+
+.deleteTask:hover {
+    color: #e74c3c;
+}
+

@@ -32,7 +32,7 @@ const moodButtons = document.querySelectorAll(".mood");
 
 moodButtons.forEach(button => {
     button.addEventListener("click", () => {
-        if (getComputedStyle(noteCard).display === "block") {
+        if (getComputedStyle(toDoList).display === "block") {
             const mood = button.id;
 
             switch(mood) {
@@ -91,19 +91,29 @@ function createTaskElement(task){
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
-    deleteButton.className = "deleteTask"
+    deleteButton.className = "deleteTask";
     listItem.appendChild(deleteButton);
 
     deleteButton.addEventListener("click", function(){
         taskList.removeChild(listItem);
         saveTasks();
 
-    })
+    const doneButton = document.createElement("button");
+    doneButton.textContent = "Remove";
+    doneButton.className = "doneTask";
+    listItem.appendChild(doneButton);
+
+    deleteButton.addEventListener("click", function(){
+        taskList.removeChild(listItem);
+    } )
+    });
+
+    saveTasks(); // lagre hver gang en task legges til
 }
 
 function saveTasks(){
     let tasks = [];
-    taskList.querySelector("li").forEach(function(item){
+    taskList.querySelectorAll("li").forEach(function(item){
     tasks.push(item.textContent.replace("Delete", "").trim());
     });
 
@@ -120,3 +130,18 @@ function loadTasks() {
 
 }
 
+function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const year = now.getFullYear();
+
+    document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds}`;
+    document.getElementById("date").textContent = `${day}.${month}.${year}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
