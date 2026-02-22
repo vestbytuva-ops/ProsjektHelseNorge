@@ -370,7 +370,7 @@ iframe {
   padding: 80px 10%; /* Gir litt mer luft på sidene på PC */
 }
 
-.info-mdia {
+.info-media {
   flex: 1; /* Tar 50% av plassen */
 }
 
@@ -607,15 +607,6 @@ body.no-scroll {
   margin-bottom: 10px;
 }
 
-.search-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-
-}
-
  .health-search {
       display: flex;
       gap: 12px;
@@ -711,26 +702,10 @@ body.no-scroll {
     h1 {
         font-size: 2.5rem;
     }
-    
-    .search-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
+
     #searchInput {
         max-width: 100%;
     }
-}
-
-.opensource iframe {
-  width: 100%;
-  max-width: 900px;      /* pent på PC */
-  margin: 0 auto;        /* sentrerer */
-  aspect-ratio: 3 / 4;   /* perfekt for PDF */
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  background: #f4f4f4;
 }
 
 .download-btn {
@@ -1301,14 +1276,6 @@ label {
   min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
 }
 
-.bmi-container {
-  max-width: 800px; /* Holder innholdet samlet */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .bmi-section h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -1397,88 +1364,6 @@ label {
 
 }
 
-.note-card {
-  display: grid;
-  place-items: center;
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-
-}
-
-textarea {
-  width: 100%;
-  min-height: 150px;
-  padding: 12px 15px;
-  font-size: 15px;
-  border: none;
-  border-radius: 12px;
-  background-color: #f0f0f0;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-  transition: background-color 0.3s, box-shadow 0.3s;
-  resize: none;  /* ingen resizing */
-}
-
-.note-card {
-  display: none;               /* skjult til login */
-  position: absolute;           /* overlapper passordkortet */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* perfekt midtstilling */
-  max-width: 700px;
-  width: 90%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  z-index: 1000;
-}
-
-.note-card h2 {
-  margin-bottom: 10px;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-textarea#note {
-  width: 100%;
-  min-height: 150px;
-  padding: 12px;
-  font-size: 15px;
-  border: 1px solid #9EB0A0;
-  border-radius: 8px;
-  box-sizing: border-box;
-  resize: vertical;
-  font-family: Arial, sans-serif;
-}
-
-textarea#note:focus {
-  outline: none;
-  border-color: #9EB0A0;
-}
-
-.note-card {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 700px;
-  width: 90%;
-
-  background: rgba(255, 255, 255, 0.15); /* gjennomsiktig */
-
-  border-radius: 12px;
-
-  backdrop-filter: blur(12px);           /* glass blur */
-  -webkit-backdrop-filter: blur(12px);
-
-  padding: 20px;
-  z-index: 1000;
-}
 
 #mood-library {
   background-color: black;
