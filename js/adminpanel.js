@@ -67,11 +67,12 @@ penButtons.forEach(button => {
         if (activeFormat === format) {
             activeFormat = null;
             button.classList.remove("active");
-        } else {
-            penButtons.forEach(b => b.classList.remove("active"));
-            activeFormat = format;
-            button.classList.add("active");
+            return;
         }
+
+        penButtons.forEach(b => b.classList.remove("active"));
+        activeFormat = format;
+        button.classList.add("active");
 
         const selection = window.getSelection();
         if (!selection.rangeCount || selection.isCollapsed) return;
@@ -80,20 +81,16 @@ penButtons.forEach(button => {
         let wrapper;
 
         switch(format) {
-            case "bold":
-                wrapper = document.createElement("strong");
-                break;
-            case "italic":
-                wrapper = document.createElement("em");
-                break;
-            case "underline":
-                wrapper = document.createElement("u");
-                break;
+            case "bold": wrapper = document.createElement("strong"); break;
+            case "italic": wrapper = document.createElement("em"); break;
+            case "underline": wrapper = document.createElement("u"); break;
         }
 
         if (wrapper) {
             range.surroundContents(wrapper);
             selection.removeAllRanges();
+            activeFormat = null;
+            button.classList.remove("active");
         }
     });
 });
