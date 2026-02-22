@@ -64,39 +64,20 @@ penButtons.forEach(button => {
     button.addEventListener("click", () => {
         const format = button.dataset.cmd;
 
-        if (activeFormat === format) {
+        penButtons.forEach(b => b.classList.remove("active"));
+
+        if (activeFormat === format || format === "normal") {
             activeFormat = null;
-            button.classList.remove("active");
             return;
         }
 
-        penButtons.forEach(b => b.classList.remove("active"));
         activeFormat = format;
         button.classList.add("active");
-
-        const selection = window.getSelection();
-        if (!selection.rangeCount || selection.isCollapsed) return;
-
-        const range = selection.getRangeAt(0);
-        let wrapper;
-
-        switch(format) {
-            case "bold": wrapper = document.createElement("strong"); break;
-            case "italic": wrapper = document.createElement("em"); break;
-            case "underline": wrapper = document.createElement("u"); break;
-        }
-
-        if (wrapper) {
-            range.surroundContents(wrapper);
-            selection.removeAllRanges();
-            activeFormat = null;
-            button.classList.remove("active");
-        }
     });
 });
 
 note.addEventListener("keydown", (e) => {
-    if (!activeFormat) return;
+    if (!activeFormat || activeFormat === "normal") return;
 
     if (e.key.length === 1) {
         e.preventDefault();
