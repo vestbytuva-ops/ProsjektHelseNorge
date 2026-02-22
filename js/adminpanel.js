@@ -90,3 +90,48 @@ penButtons.forEach(button => {
         }
     });
 });
+
+
+let activeFormat = null;
+
+penButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const format = button.dataset.cmd;
+
+        if (activeFormat === format) {
+            activeFormat = null;
+            button.classList.remove("active");
+        } else {
+            penButtons.forEach(b => b.classList.remove("active"));
+            activeFormat = format;
+            button.classList.add("active");
+        }
+    });
+});
+
+note.addEventListener("keydown", (e) => {
+    if (!activeFormat) return;
+
+    if (e.key.length === 1) {
+        e.preventDefault();
+
+        const tag = activeFormat === "bold" ? "strong" : activeFormat === "italic" ? "em" : "u";
+        const wrapper = document.createElement(tag);
+        wrapper.textContent = e.key;
+
+        const selection = window.getSelection();
+        const range = selection.getRangeAt(0);
+        range.insertNode(wrapper);
+        range.setStartAfter(wrapper);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+});
+
+
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.shiftKey && event.key === "H") {
+    window.location.href = "index.html";
+  }
+});

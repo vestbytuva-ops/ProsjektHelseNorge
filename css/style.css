@@ -1579,7 +1579,6 @@ textarea#note:focus {
 #mood-library {
   background-color: black;
   color: white;
-  display: ;
 }
 
 /* Selve footer-diven */
@@ -1618,4 +1617,10 @@ textarea#note:focus {
 #mood-library button:hover {
   background-color: rgba(255,255,255,0.35);
   transform: scale(1.05);
+}
+
+
+.pen.active {
+    background-color: #333;
+    color: white;
 }
