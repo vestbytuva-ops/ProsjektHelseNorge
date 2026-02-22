@@ -98,11 +98,6 @@ function createTaskElement(task){
         taskList.removeChild(listItem);
         saveTasks();
 
-    const doneButton = document.createElement("button");
-    doneButton.textContent = "Remove";
-    doneButton.className = "doneTask";
-    listItem.appendChild(doneButton);
-
     deleteButton.addEventListener("click", function(){
         taskList.removeChild(listItem);
     } )
