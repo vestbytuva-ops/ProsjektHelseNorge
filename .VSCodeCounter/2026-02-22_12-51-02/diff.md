@@ -1,27 +1,24 @@
 # Diff Summary
 
-Date : 2026-02-20 20:23:27
+Date : 2026-02-22 12:51:02
 
 Directory c:\\Users\\vestb\\Downloads\\ProsjektHelseNorge
 
-Total : 12 files,  60 codes, 11 comments, 3 blanks, all 74 lines
+Total : 2 files,  -13 codes, 1 comments, 13 blanks, all 1 lines
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| JavaScript | 2 | 88 | 5 | 22 | 115 |
-| PostCSS | 4 | 53 | 6 | 1 | 60 |
-| HTML | 6 | -81 | 0 | -20 | -101 |
+| HTML | 1 | -4 | 0 | 3 | -1 |
+| JavaScript | 1 | -9 | 1 | 10 | 2 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 12 | 60 | 11 | 3 | 74 |
-| . (Files) | 3 | 55 | 0 | 11 | 66 |
-| css | 4 | 53 | 6 | 1 | 60 |
-| frame | 3 | -136 | 0 | -31 | -167 |
-| js | 2 | 88 | 5 | 22 | 115 |
+| . | 2 | -13 | 1 | 13 | 1 |
+| . (Files) | 1 | -4 | 0 | 3 | -1 |
+| js | 1 | -9 | 1 | 10 | 2 |
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
