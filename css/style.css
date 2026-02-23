@@ -1526,3 +1526,39 @@ body.admin-panel {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/* Testing av CSS for type effekt kanskje fjerne senere */
+
+        #greeting h1 {
+            font-size: 2rem;
+            color: white;
+            font-weight: 600;
+            position: relative;
+        }
+
+        #greeting h1 span {
+            color: rgb(140, 255, 0);
+            position: relative;
+        }
+
+        #greeting h1 span::after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            height: 30px;
+            width: 2px;
+            background: blue;
+            transform: translateY(-45%);
+            animation: blink 0.7s infinite;
+        }
+
+        #greeting h1 span.stop-blinking::after {
+            animation: none;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }

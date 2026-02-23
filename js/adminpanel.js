@@ -147,3 +147,46 @@ updateClock();
 logOut.addEventListener("click", () => {
     window.location.href="adminpanel.html";
 });
+
+        const getGreeting = () => {
+            const hour = new Date().getHours();
+            if (hour >= 5 && hour < 12) return "God morgen ";
+            if (hour >= 12 && hour < 18) return "God ettermiddag ";
+            if (hour >= 18 && hour < 22) return "God aften ";
+            return "Good natt ";
+        }
+
+        const h1 = document.getElementById("greeting");
+        const dynamicText = document.getElementById("dynamic");
+
+        // Litt usikker om den skal være med men jeg må sjekke med admin panel
+        h1.insertBefore(document.createTextNode(getGreeting()), dynamicText);
+
+        const words = ["Thillainathan", "Tuvarakan"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typeEffect = () => {
+            const currentWord = words[wordIndex];
+            const currentChar = currentWord.substring(0, charIndex);
+            dynamicText.textContent = currentChar;
+            dynamicText.classList.remove("stop-blinking");
+
+            if (!isDeleting && charIndex < currentWord.length) {
+                charIndex++;
+                setTimeout(typeEffect, 200);
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(typeEffect, 100);
+            } else {
+                isDeleting = !isDeleting;
+                dynamicText.classList.add("stop-blinking");
+                wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+                setTimeout(typeEffect, 1200);
+            }
+        }
+
+        typeEffect();
+
+        
