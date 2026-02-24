@@ -95,3 +95,5 @@ const totalQuestions = 5;
       document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
       document.querySelector('.question-container[data-question="1"]').classList.add('active');
     }
+
+

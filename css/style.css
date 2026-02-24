@@ -202,7 +202,7 @@ section {
   -webkit-text-fill-color: transparent;
 }
 
-.footer {
+footer {
   padding: 20px;
   margin-top: 20px;
   color: var(--muted);
@@ -210,8 +210,7 @@ section {
   text-align: center;
   background-color:#0f2f24;
   border-radius: 10px;
-
-    background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   border-radius: 20px;
 
@@ -303,7 +302,7 @@ iframe {
   max-width: 700px;
 }
 
-#mcq-frame {
+ #mcq-frame {
   border-radius:20px;
   box-shadow:#0f2f24;
   border:none;
@@ -311,7 +310,7 @@ iframe {
   min-height: 130vh;
   width:100%;
   max-width: 700px;
-}
+} 
 
 .table-wrapper {
   padding: 1rem;
@@ -361,6 +360,7 @@ iframe {
   font-weight: 600;
   color:#0f2f24;
 }
+
 
 .info {
   min-height: 100vh;
@@ -428,7 +428,7 @@ iframe {
 }
 
 body.dark-mode {
-  background-color: black;
+  background-color: #2d2d30;
   color: #f1f1f1;
 }
 
@@ -446,7 +446,7 @@ header.dark-mode {
 }
 
 body.dark-mode {
-  background-color: black;
+  background-color: #2d2d30;
 }
 
 body.dark-mode .logo,
@@ -459,12 +459,12 @@ body.dark-mode .hamburger span {
 }
 
 body.dark-mode .hero {
-  background: black;
+  background: #2d2d30;
   color: #f1f1f1;            
 }
 
 body.dark-mode .nav  {
-  background: black;
+  background: #2d2d30;
   color: white;
 }
 
@@ -585,7 +585,7 @@ body.no-scroll {
       text-align: center;
       padding: 80px 20px;
       animation: fadeUp 0.8s ease;
-    }
+}
 
 .health-card {
     background: white;
@@ -883,7 +883,7 @@ body.dark-mode #searchBtn {
     }
 
     .dark-mode .card {
-      background: #2d2d2d;
+      background: #2d2d30;
     }
 
     .click-area {
@@ -959,9 +959,8 @@ body.dark-mode #searchBtn {
 }
 
 #trusted-brands {
- /* Fjern 100vh og padding-topp for å dytte den opp */
   min-height: auto; 
-  padding: 25px 20px 40px 20px; /* Mer luft i bunnen, mindre på toppen */
+  padding: 25px 20px 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -995,6 +994,7 @@ body.dark-mode #searchBtn {
 
 .dark-mode .brand-logos {
   background-color: white;
+  border-radius: 10px;
 }
 
 .dark-mode #trusted-brands h1 {
@@ -1529,36 +1529,36 @@ body.admin-panel {
 
 /* Testing av CSS for type effekt kanskje fjerne senere */
 
-        #greeting h1 {
-            font-size: 2rem;
-            color: white;
-            font-weight: 600;
-            position: relative;
+#greeting h1 {
+font-size: 2rem;
+color: white;
+font-weight: 600;
+position: relative;
+}
+
+#greeting h1 span {
+color: rgb(140, 255, 0);
+position: relative;
+}
+
+#greeting h1 span::after {
+content: "";
+position: absolute;
+right: -8px;
+top: 50%;
+height: 30px;
+width: 2px;
+background: blue;
+transform: translateY(-45%);
+animation: blink 0.7s infinite;
         }
 
-        #greeting h1 span {
-            color: rgb(140, 255, 0);
-            position: relative;
-        }
+#greeting h1 span.stop-blinking::after {
+  animation: none;
+}
 
-        #greeting h1 span::after {
-            content: "";
-            position: absolute;
-            right: -8px;
-            top: 50%;
-            height: 30px;
-            width: 2px;
-            background: blue;
-            transform: translateY(-45%);
-            animation: blink 0.7s infinite;
-        }
-
-        #greeting h1 span.stop-blinking::after {
-            animation: none;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
+@keyframes blink {
+  50% {
+      opacity: 0;
             }
-        }
+}

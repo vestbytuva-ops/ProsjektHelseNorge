@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateTheme(isDark) {
     body.classList.toggle("dark-mode", isDark);
-    button.textContent = isDark ? "☾" : "☀ ";
+    button.textContent = isDark ? "☾" : "☀";
     localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
   }
 
