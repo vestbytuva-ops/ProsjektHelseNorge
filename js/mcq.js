@@ -10,7 +10,7 @@ const totalQuestions = 5;
     function answer(questionNum, points) {
       totalScore += points;
       
-      // Skjul nåværende spørsmål
+      
       document.querySelector(`.question-container[data-question="${questionNum}"]`).classList.remove('active');
       
       if (currentQuestion < totalQuestions) {
@@ -26,6 +26,7 @@ const totalQuestions = 5;
     function showResult() {
       document.getElementById('quiz-container').style.display = 'none';
       document.getElementById('result').classList.add('active');
+      window.parent.document.getElementById('mcq-frame').style.height = '850px';
 
       
       const percentage = Math.round(((totalScore - minPossibleScore) / (maxPossibleScore - minPossibleScore)) * 100);
@@ -95,12 +96,7 @@ const totalQuestions = 5;
       
       document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
       document.querySelector('.question-container[data-question="1"]').classList.add('active');
+       window.parent.document.getElementById('mcq-frame').style.height = '400px';
     }
 
 
-function showFrame() {
-
-  const showResultFrame = document.getElementById("quiz-result")
-  
-
-}
