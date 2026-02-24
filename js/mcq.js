@@ -26,6 +26,7 @@ const totalQuestions = 5;
     function showResult() {
       document.getElementById('quiz-container').style.display = 'none';
       document.getElementById('result').classList.add('active');
+
       
       const percentage = Math.round(((totalScore - minPossibleScore) / (maxPossibleScore - minPossibleScore)) * 100);
       
@@ -34,7 +35,7 @@ const totalQuestions = 5;
       const scoreCircle = document.getElementById('score-circle');
       const resultMessage = document.getElementById('result-message');
       
-      // Skjul alle feedback-tekster først
+      // Dette under hjelper med å skjule den selvom jeg har den gjennom CSS
       document.querySelectorAll('.feedback-text').forEach(f => f.style.display = 'none');
       
       if (percentage >= 80) {
@@ -97,3 +98,9 @@ const totalQuestions = 5;
     }
 
 
+function showFrame() {
+
+  const showResultFrame = document.getElementById("quiz-result")
+  
+
+}
