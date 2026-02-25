@@ -101,6 +101,7 @@ function showResult() {
   document.getElementById('score-circle').style.backgroundColor = f.color;
   document.getElementById('result-message').textContent = f.message;
 
+  document.querySelector('.feedback-text').style.display = 'block';
   document.getElementById('feedback-title').textContent = f.title;
   document.getElementById('feedback-text').textContent = f.text;
 
