@@ -1,17 +1,16 @@
 # Diff Details
 
-Date : 2026-02-22 12:51:02
+Date : 2026-02-25 13:27:59
 
 Directory c:\\Users\\vestb\\Downloads\\ProsjektHelseNorge
 
-Total : 2 files,  -13 codes, 1 comments, 13 blanks, all 1 lines
+Total : 1 files,  0 codes, 0 comments, 2 blanks, all 2 lines
 
 [Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details
 
 ## Files
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| [adminpanel.html](/adminpanel.html) | HTML | -4 | 0 | 3 | -1 |
-| [js/adminpanel.js](/js/adminpanel.js) | JavaScript | -9 | 1 | 10 | 2 |
+| [js/search.js](/js/search.js) | JavaScript | 0 | 0 | 2 | 2 |
 
 [Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details

@@ -1,26 +1,27 @@
 # Diff Summary
 
-Date : 2026-02-22 11:03:36
+Date : 2026-02-25 12:01:09
 
 Directory c:\\Users\\vestb\\Downloads\\ProsjektHelseNorge
 
-Total : 3 files,  29 codes, -1 comments, 8 blanks, all 36 lines
+Total : 2 files,  19 codes, -2 comments, -18 blanks, all -1 lines
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| JavaScript | 1 | 25 | -1 | 6 | 30 |
-| PostCSS | 1 | 3 | 0 | 2 | 5 |
-| HTML | 1 | 1 | 0 | 0 | 1 |
+| JavaScript | 1 | 63 | -2 | -9 | 52 |
+| HTML | 1 | -44 | 0 | -9 | -53 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 3 | 29 | -1 | 8 | 36 |
-| . (Files) | 1 | 1 | 0 | 0 | 1 |
-| css | 1 | 3 | 0 | 2 | 5 |
-| js | 1 | 25 | -1 | 6 | 30 |
+| . | 2 | 19 | -2 | -18 | -1 |
+| asset | 1 | -44 | 0 | -9 | -53 |
+| asset\\image | 1 | -44 | 0 | -9 | -53 |
+| asset\\image\\pdf | 1 | -44 | 0 | -9 | -53 |
+| asset\\image\\pdf\\frame | 1 | -44 | 0 | -9 | -53 |
+| js | 1 | 63 | -2 | -9 | 52 |
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
