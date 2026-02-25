@@ -100,3 +100,76 @@ const totalQuestions = 5;
     }
 
 
+const feedback {
+
+ 80: {
+    color: '#4dae50',
+    message: 'Utmerket! Du har svært gode helsevaner.',
+    title: 'Her er fire tips for å fortsette slik:',
+    text: 'Det er fantastisk at du har så gode helsevaner! Her er noen tips for å beholde det:',
+    tips: [
+      'Fortsett med din nåværende treningsskikkelighet.',
+      'Hold deg til et balansert kosthold med mye frukt og grønnsaker.',
+      'Sørg for å få nok søvn hver natt.'
+    ]
+  },
+  60: {
+    color: '#a1c15a',
+    message: 'Bra jobbet! Du er på rett vei.',
+    title: 'Godt jobbet!',
+    text: 'Du har noen gode helsevaner, men det er plass til forbedring. Her er noen tips:',
+    tips: [
+      'Øk din fysiske aktivitet litt.',
+      'Prøv å spise mer frukt og grønnsaker.',
+      'Sørg for å få nok søvn hver natt.'
+    ]
+  },
+  40: {
+    color: '#ffb300',
+    message: 'Det er rom for forbedring. Små endringer kan gjøre stor forskjell.',
+    title: 'Det er ikke så dårlig!',
+    text: 'Du har noen gode helsevaner, men det er plass til forbedring. Her er noen tips:',
+    tips: [
+      'Øk din fysiske aktivitet litt.',
+      'Prøv å spise mer frukt og grønnsaker.',
+      'Sørg for å få nok søvn hver natt.',
+      'Drikk mer vann hver dag.'
+    ]
+  },
+  20: {
+    color: '#f47f20',
+    message: 'Det kan være lurt å fokusere mer på helsevaner.',
+    title: 'Det er ikke så dårlig!',
+    text: 'Du har noen gode helsevaner, men det er plass til forbedring. Her er noen tips:',
+    tips: [
+      'Øk din fysiske aktivitet litt.',
+      'Prøv å spise mer frukt og grønnsaker.',
+      'Sørg for å få nok søvn hver natt.',
+      'Drikk mer vann hver dag.'
+    ]
+  },
+  0: {
+    color: '#c72a29',
+    message: 'Det er viktig å prioritere helsen din. Små steg fremover teller!',
+    title: 'Det er ikke så bra!',
+    text: 'Du har ikke så gode helsevaner. Her er noen tips for å forbedre:',
+    tips: [
+      'Øk din fysiske aktivitet litt.',
+      'Prøv å spise mer frukt og grønnsaker.',
+      'Sørg for å få nok søvn hver natt.',
+      'Drikk mer vann hver dag.',
+      'Unngå bruk av sterk koffein.'
+    ]
+  }
+};
+
+const f = feedback[query];
+
+titleEl.textContent= f.title;
+messageEl.textContent= f.message;
+textEl.textContent = f.text;
+tipsEl.textContent = f.tips;
+circleEl.backgroundColor = f.color;
+
+
+
