@@ -1,6 +1,4 @@
-// Søke motor som jeg lagde nå
-
-    const data = {
+const data = {
       feber: {
         title: "Feber",
         description:

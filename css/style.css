@@ -5,6 +5,8 @@
   --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
   --grad-2: linear-gradient(90deg, #3ba379, #93c5fd);
   --dark-mode: #2d2d30;
+  --progress:white;
+  --line: white;
 }
 
 * {
@@ -427,11 +429,6 @@ iframe {
   }
 }
 
-body.dark-mode {
-  background-color: var(--dark-mode);
-  color: #f1f1f1;
-}
-
 #themebutton {
   background: transparent;
   border:none;
@@ -447,6 +444,7 @@ header.dark-mode {
 
 body.dark-mode {
   background-color: var(--dark-mode);
+  color: #f1f1f1;
 }
 
 body.dark-mode .logo,
@@ -617,36 +615,36 @@ body.no-scroll {
   margin-bottom: 10px;
 }
 
- .health-search {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
+.health-search {
+ display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
 
-    .health-search input {
-      width: 100%;
-      max-width: 420px;
-      padding: 14px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(15, 47, 36, 0.15);
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      transition: box-shadow 0.3s ease, border 0.3s ease;
-    }
+.health-search input {
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 47, 36, 0.15);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
 
-      .health-search button {
-      padding: 14px 28px;
-      border-radius: 999px;
-      border: none;
-      font-weight: 500;
-      cursor: pointer;
-      background: var(--grad-1);
-      color: #0f2f24;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+.health-search button {
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--grad-1);
+  color: #0f2f24;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
 #searchButton {
     padding: 15px 35px;
@@ -665,23 +663,21 @@ body.no-scroll {
     transform: scale(1.02);
 }
 
+#result {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: left;
+  animation: fadeUp 0.5s ease;
+}
 
-
-    #result {
-      max-width: 620px;
-      margin: 0 auto;
-      text-align: left;
-      animation: fadeUp 0.5s ease;
-    }
-
-    #result h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      background: var(--text-main);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+#result h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: var(--text-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 
 .hidden {
@@ -945,7 +941,6 @@ body.dark-mode #searchBtn {
   padding: 8px 16px;
   border-radius: 20px;
 }
-
 
 .brand-logos {
   display: flex;
@@ -1524,6 +1519,12 @@ body.admin-panel {
 }
 
 /* Testing av CSS for type effekt kanskje fjerne senere */
+#greeting {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+   font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
 
 #greeting h1 {
 font-size: 2rem;
