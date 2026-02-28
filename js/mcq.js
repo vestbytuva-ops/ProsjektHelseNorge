@@ -1,11 +1,55 @@
-const totalQuestions = 5;
-const maxPointsPerQuestion = 4;
-const minPointsPerQuestion = 1;
-
-let currentQuestion = 1;
-let totalScore = 0;
-let maxPossibleScore = totalQuestions * maxPointsPerQuestion;
-let minPossibleScore = totalQuestions * minPointsPerQuestion;
+const questions = [
+  {
+    title: 'Fysisk aktivitet',
+    text: 'Hvor ofte trener du per uke?',
+    options: [
+      { text: 'Aldri',      color: '#c72a29', points: 1 },
+      { text: '1-2 ganger', color: '#f47f20', points: 2 },
+      { text: '3-4 ganger', color: '#ffb300', points: 3 },
+      { text: '5+ ganger',  color: '#4dae50', points: 4 }
+    ]
+  },
+  {
+    title: 'Søvnkvalitet',
+    text: 'Hvor mange timer sover du i gjennomsnitt per natt?',
+    options: [
+      { text: 'Under 5 timer', color: '#c72a29', points: 1 },
+      { text: '5-6 timer',     color: '#f47f20', points: 2 },
+      { text: '6-7 timer',     color: '#ffb300', points: 3 },
+      { text: '7-9 timer',     color: '#4dae50', points: 4 }
+    ]
+  },
+  {
+    title: 'Kosthold',
+    text: 'Hvor ofte spiser du grønnsaker og frukt?',
+    options: [
+      { text: 'Sjelden/aldri',      color: '#c72a29', points: 1 },
+      { text: '1-2 ganger per dag', color: '#f47f20', points: 2 },
+      { text: '3-4 ganger per dag', color: '#ffb300', points: 3 },
+      { text: '5+ porsjoner daglig',color: '#4dae50', points: 4 }
+    ]
+  },
+  {
+    title: 'Stressnivå',
+    text: 'Hvordan vil du beskrive ditt daglige stressnivå?',
+    options: [
+      { text: 'Veldig høyt, konstant stresset',  color: '#c72a29', points: 1 },
+      { text: 'Høyt, ofte stresset',             color: '#f47f20', points: 2 },
+      { text: 'Moderat, noen ganger stresset',   color: '#ffb300', points: 3 },
+      { text: 'Lavt, sjelden stresset',          color: '#4dae50', points: 4 }
+    ]
+  },
+  {
+    title: 'Vanninntak',
+    text: 'Hvor mye vann drikker du daglig?',
+    options: [
+      { text: 'Under 1 liter',  color: '#c72a29', points: 1 },
+      { text: '1-1.5 liter',    color: '#f47f20', points: 2 },
+      { text: '1.5-2 liter',    color: '#ffb300', points: 3 },
+      { text: 'Over 2 liter',   color: '#4dae50', points: 4 }
+    ]
+  }
+];
 
 const feedback = {
   80: {
@@ -69,6 +113,36 @@ const feedback = {
   }
 };
 
+let currentQuestion = 0;
+let totalScore = 0;
+const maxPossibleScore = questions.length * 4;
+const minPossibleScore = questions.length * 1;
+
+function renderQuestion() {
+  const q = questions[currentQuestion];
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = `
+    <div class="progress">Spørsmål ${currentQuestion + 1} av ${questions.length}</div>
+    <h2>${q.title}</h2>
+    <p>${q.text}</p>
+    ${q.options.map(o => `
+      <button style="--btnColor:${o.color}" onclick="answer(${o.points})">${o.text}</button>
+    `).join('')}
+    <sup>Velg det alternativet som passer best</sup>
+  `;
+}
+
+function answer(points) {
+  totalScore += points;
+  currentQuestion++;
+
+  if (currentQuestion < questions.length) {
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
 function getFeedbackLevel(percentage) {
   if (percentage >= 80) return 80;
   if (percentage >= 60) return 60;
@@ -77,33 +151,19 @@ function getFeedbackLevel(percentage) {
   return 0;
 }
 
-function answer(questionNum, points) {
-  totalScore += points;
-
-  document.querySelector(`.question-container[data-question="${questionNum}"]`).classList.remove('active');
-
-  if (currentQuestion < totalQuestions) {
-    currentQuestion++;
-    document.querySelector(`.question-container[data-question="${currentQuestion}"]`).classList.add('active');
-  } else {
-    showResult();
-  }
-}
-
 function showResult() {
   document.getElementById('quiz-container').style.display = 'none';
   document.getElementById('result').classList.add('active');
 
   const percentage = Math.round(((totalScore - minPossibleScore) / (maxPossibleScore - minPossibleScore)) * 100);
-  const level = getFeedbackLevel(percentage);
-  const f = feedback[level];
+  const f = feedback[getFeedbackLevel(percentage)];
 
   document.getElementById('score-circle').style.backgroundColor = f.color;
   document.getElementById('result-message').textContent = f.message;
 
   document.querySelector('.feedback-text').style.display = 'block';
   document.getElementById('feedback-title').textContent = f.title;
-  document.getElementById('feedback-text').textContent = f.text;
+  document.getElementById('feedback-body').textContent = f.text;
 
   const tipsList = document.getElementById('feedback-tips');
   tipsList.innerHTML = '';
@@ -136,20 +196,21 @@ function animateScore(targetPercentage) {
 }
 
 function restart() {
-  currentQuestion = 1;
+  currentQuestion = 0;
   totalScore = 0;
 
   document.getElementById('result').classList.remove('active');
   document.getElementById('quiz-container').style.display = 'block';
-
   document.getElementById('score-text').textContent = '0%';
   document.getElementById('score-circle').style.backgroundColor = '';
+  document.querySelector('.feedback-text').style.display = 'none';
 
-  document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
-  document.querySelector('.question-container[data-question="1"]').classList.add('active');
+  renderQuestion();
 
   setTimeout(() => {
     const height = document.getElementById('wrapper').scrollHeight;
     window.parent.document.getElementById('mcq-frame').style.height = height + 40 + 'px';
   }, 50);
 }
+
+renderQuestion();
