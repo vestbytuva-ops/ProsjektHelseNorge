@@ -4,6 +4,7 @@
   --muted: #5f7f73;
   --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
   --grad-2: linear-gradient(90deg, #3ba379, #93c5fd);
+  --dark-mode: #2d2d30;
 }
 
 * {
@@ -427,7 +428,7 @@ iframe {
 }
 
 body.dark-mode {
-  background-color: #2d2d30;
+  background-color: var(--dark-mode);
   color: #f1f1f1;
 }
 
@@ -445,7 +446,7 @@ header.dark-mode {
 }
 
 body.dark-mode {
-  background-color: #2d2d30;
+  background-color: var(--dark-mode);
 }
 
 body.dark-mode .logo,
@@ -458,12 +459,12 @@ body.dark-mode .hamburger span {
 }
 
 body.dark-mode .hero {
-  background: #2d2d30;
+  background: var(--dark-mode);
   color: #f1f1f1;            
 }
 
 body.dark-mode .nav  {
-  background: #2d2d30;
+  background: var(--dark-mode);
   color: white;
 }
 
@@ -474,6 +475,16 @@ body.dark-mode a {
 body.dark-mode h1 {
   color: white;
 }
+
+body.dark-mode .health-card {
+  color: white;
+  background-color: var(--dark-mode);
+}
+
+body.dark-mode .health-card h2 {
+  color: white;
+}
+
 
 /* Testing av popup er litt usikker om den skal være med */
 

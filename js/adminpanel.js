@@ -115,16 +115,12 @@ function saveTasks(){
     });
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
-
-
 }
 
 
 function loadTasks() {
     const tasks= JSON.parse(localStorage.getItem("tasks")) || [];
-
     tasks.forEach(createTaskElement);
-
 }
 
 function updateClock() {
