@@ -125,9 +125,11 @@ function renderQuestion() {
     <div class="progress">Spørsmål ${currentQuestion + 1} av ${questions.length}</div>
     <h2>${q.title}</h2>
     <p>${q.text}</p>
-    ${q.options.map(o => `
-      <button style="--btnColor:${o.color}" onclick="answer(${o.points})">${o.text}</button>
-    `).join('')}
+    <div class="options">
+      ${q.options.map(o => `
+        <button style="--btnColor:${o.color}" onclick="answer(${o.points})">${o.text}</button>
+      `).join('')}
+    </div>
     <sup>Velg det alternativet som passer best</sup>
   `;
 }
@@ -175,10 +177,6 @@ function showResult() {
 
   animateScore(percentage);
 
-  setTimeout(() => {
-    const height = document.getElementById('wrapper').scrollHeight;
-    window.parent.document.getElementById('mcq-frame').style.height = height + 40 + 'px';
-  }, 50);
 }
 
 function animateScore(targetPercentage) {
@@ -206,11 +204,8 @@ function restart() {
   document.querySelector('.feedback-text').style.display = 'none';
 
   renderQuestion();
-
-  setTimeout(() => {
-    const height = document.getElementById('wrapper').scrollHeight;
-    window.parent.document.getElementById('mcq-frame').style.height = height + 40 + 'px';
-  }, 50);
 }
 
-renderQuestion();
+document.addEventListener('DOMContentLoaded', () => {
+  renderQuestion();
+});

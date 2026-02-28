@@ -10,6 +10,7 @@
   <link rel="manifest" href="/asset/image/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel ="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/mcq.css">
 </head>
 <body>
 
@@ -95,7 +96,25 @@
       <li>Vær ærlig med deg selv når du svarer på spørsmålene for å få mest mulig nøyaktige resultater.</li>
       <li>Sist men ikke minst vi anbefaler deg å sjekke din Fitness App for å svare på spørsmål angående aktivitet.</li>
     </ul>
-    <iframe id="mcq-frame"src="/asset/image/pdf/frame/mcqsystem.html" frameborder="0" scrolling="no"></iframe>
+    
+    <div id="quiz-container"></div>
+    <div class="result-container" id="result">
+      <h2>Resultat</h2>
+      <div class="score-circle" id="score-circle">
+        <span id="score-text">0%</span>
+      </div>
+      <p id="result-message"></p>
+      <div class="feedback-text">
+        <h3 id="feedback-title"></h3>
+        <p id="feedback-body"></p>
+        <p id="feedback-text"></p>
+        <ul id="feedback-tips"></ul>
+      </div>
+
+      <button class="restart-btn" style="--btnColor:#3a3b3a;" onclick="restart()">Start på nytt</button>
+    </div>
+  </div>
+
     </div>
   </section>
 

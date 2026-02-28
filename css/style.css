@@ -1146,12 +1146,10 @@ select {
 .radio-group label {
   display: flex;
   align-items: center;
-  gap: 8px; /* Avstand mellom sirkelen og ordet */
+  gap: 8px;
   cursor: pointer;
-  white-space: nowrap; /* Hindrer at tekst hopper til ny linje */
+  white-space: nowrap;
 }
-
-/* BMI KALKULATOR */
 
 .bmi-calculator {
   font-family: 'Playfair Display', serif;
@@ -1164,9 +1162,8 @@ select {
   width: 100%;
   border-radius: 15px;
   margin: auto;
-  padding: 30px; /* Gir litt mer luft rundt innholdet */
+  padding: 30px;
   
-/* Bakgrunnsbilde */
   background-image: url("https://images.unsplash.com/photo-1770983438128-f4065cf02752?q=80&w=797&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
@@ -1178,8 +1175,6 @@ select {
   max-width: 420px;
   padding: 40px;
   border-radius: 24px;
-
-  /* Glassmorphism */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1277,9 +1272,9 @@ label {
   padding: 60px 20px;
   display: flex;
   flex-direction:column;
-  align-items: center; /* Sentrerer alt horisontalt */
+  align-items: center; 
   text-align: center;
-  min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
+  min-height: auto; 
 }
 
 .bmi-section h1 {
@@ -1296,14 +1291,14 @@ label {
 
 .bmi-section ul {
   color: var(--muted);
-  text-align: left; /* Gjør punktene lettere å lese */
+  text-align: left; 
   max-width: 500px; 
-  width: 90%; /* Sikrer at den ikke går utenfor på små skjermer */
+  width: 90%; 
   margin: 0 auto 30px auto;
-  padding-left: 20px; /* Gir plass til kulepunktene */
+  padding-left: 20px; 
 }
 
-/* ADMIN PANEL */
+/* admin panel side */ 
 
 #password-card {
   background: rgba(255, 255, 255, 0.15);
@@ -1354,19 +1349,19 @@ label {
 
 .admin-panel {
   display: flex;
-  align-items: center; /* Sentrerer alt horisontalt */
+  align-items: center; 
   text-align: center;
-    background-image: url("https://images.unsplash.com/photo-1734784547175-e02d14fff45c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("https://images.unsplash.com/photo-1734784547175-e02d14fff45c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
 
 }
 
@@ -1378,26 +1373,22 @@ label {
 
 /* Selve footer-diven */
 #mood-library {
-  position: fixed;          /* alltid på skjermen */
-  bottom: 20px;             /* litt avstand fra nederst */
-  left: 50%;                /* sentrert horisontalt */
-  transform: translateX(-50%); /* perfekt midtstilling */
-  
-  background: rgba(255, 255, 255, 0.15); /* glass-look */
+  position: fixed;          
+  bottom: 20px;             
+  left: 50%;                
+  transform: translateX(-50%); 
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 12px;
-  
   padding: 10px 20px;
   display: flex;
-  gap: 15px;                /* mellomrom mellom knappene */
+  gap: 15px;                
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   z-index: 1000;
 }
 
-/* Style på knappene */
 #mood-library button {
   padding: 10px 20px;
   border: none;
@@ -1426,7 +1417,7 @@ label {
   background: #fafafa;
   border: 1px solid #e8e8e8;
   border-radius: 4px;
-  margin: 40px auto; /* dette alene sentrerer horisontalt */
+  margin: 40px auto; 
 }
 
 
