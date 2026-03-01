@@ -34,6 +34,13 @@ const nav = document.getElementById('nav');
 
 // Mørkmodus og lysmodus
 document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.querySelector(".logo");
+  if (logo) {
+    logo.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  }
+
   const body = document.body;
   const button = document.getElementById("themebutton");
 
@@ -62,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(function () {
     document.getElementById("popup").style.display = "block";
     document.body.classList.add("no-scroll");
-  }, 10000);
+  }, 100000);
 
   document.getElementById("close-button").addEventListener("click", function () {
     document.getElementById("popup").style.display = "none";
@@ -74,3 +81,4 @@ document.addEventListener("keydown", function (event) {
     window.location.href = "adminpanel.html";
   }
 });
+

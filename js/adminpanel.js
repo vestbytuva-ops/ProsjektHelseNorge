@@ -11,7 +11,6 @@ const toDoList = document.getElementById("do-list");
 const logOut = document.getElementById("logout")
 
 
-// Login knapp
 adminSubmitButton.addEventListener("click", () => {
     const password = adminPasswordInput.value.trim();
 
@@ -51,21 +50,17 @@ moodButtons.forEach(button => {
                 case "reset":
                     adminPanel.style.backgroundColor = "#707D72";
             }
-        } else {
-            console.log("Du kan kun bytte bakgrunn når notatkortet er synlig.");
         }
     });
 });
 
 
-// Shortcut tilbake til index
 document.addEventListener("keydown", function (event) {
     if (event.ctrlKey && event.shiftKey && event.key === "H") {
         event.preventDefault();
         window.location.href = "index.html";
     }
 });
-
 
 loadTasks();
 
@@ -105,7 +100,7 @@ function createTaskElement(task){
     } )
     });
 
-    saveTasks(); // lagre hver gang en task legges til
+    saveTasks();
 }
 
 function saveTasks(){
@@ -116,7 +111,6 @@ function saveTasks(){
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
 
 function loadTasks() {
     const tasks= JSON.parse(localStorage.getItem("tasks")) || [];
@@ -155,7 +149,6 @@ logOut.addEventListener("click", () => {
         const h1 = document.getElementById("greeting");
         const dynamicText = document.getElementById("dynamic");
 
-        // Litt usikker om den skal være med men jeg må sjekke med admin panel
         h1.insertBefore(document.createTextNode(getGreeting()), dynamicText);
 
         const words = ["Thillainathan", "Tuvarakan"];

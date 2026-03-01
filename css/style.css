@@ -1,12 +1,22 @@
+/* ===== VARIABLER ===== */
+/* Variabelnavnene er oppdatert fra --bg-dark/--text-main til --bg/--text */
+/* slik at dark-mode arver automatisk via body.dark-mode */
+
 :root {
-  --bg-dark: #f5faf7;
-  --text-main: #0f2f24;
+  --bg: #f5faf7;
+  --text: #0f2f24;
   --muted: #5f7f73;
   --grad-1: linear-gradient(90deg, #34d399, #60a5fa);
   --grad-2: linear-gradient(90deg, #3ba379, #93c5fd);
   --dark-mode: #2d2d30;
-  --progress:white;
+  --progress: white;
   --line: white;
+}
+
+body.dark-mode {
+  --bg: #2d2d30;
+  --text: #f1f1f1;
+  --muted: #aaaaaa;
 }
 
 * {
@@ -15,10 +25,9 @@
   padding: 0;
 }
 
-
 body {
-  background: var(--bg-dark);
-  color: var(--text-main);
+  background: var(--bg);
+  color: var(--text);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
@@ -35,56 +44,40 @@ body {
 
 header {
   position: fixed;
-  top: 2px; /* kanskje jeg burde endre denne senere */
+  top: 2px;
   left: 50%;
   transform: translateX(-50%);
-
   width: 100%;
   height: 72px;
   padding: 0 32px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   z-index: 1000;
-  gap: 20px; /* Tok denne linjen her for å få mellomrom mellom theme button og nav button */
+  gap: 20px;
 }
 
-.admin-panel header {
-  position: fixed;
-  top: 2px; /* kanskje jeg burde endre denne senere */
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 100%;
-  height: 72px;
-  padding: 0 32px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  z-index: 1000;
-  gap: 20px; /* Tok denne linjen her for å få mellomrom mellom theme button og nav button */
-}
-
-header img {
-  width: 24px;
-  height: 24px;
+#logout {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
   cursor: pointer;
+  margin-left: auto;
+  display: none;
+}
+
+.admin-panel .hamburger {
+  display: none;
 }
 
 .admin-header button {
   background-color: transparent;
   border: none;
-  color: var(--text-main);
+  color: var(--text);
   display: none;
   cursor: pointer;
 }
@@ -92,6 +85,7 @@ header img {
 .logo {
   font-weight: 600;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -105,7 +99,7 @@ header img {
 
 .hamburger span {
   height: 2px;
-  background: var(--text-main);
+  background: var(--text);
   border-radius: 2px;
   transition: 0.3s ease;
 }
@@ -131,7 +125,7 @@ header img {
 .nav a {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
-  color: var(--text-main);
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -166,7 +160,6 @@ section {
   gap: 1rem;
 }
 
-
 .button {
   padding: 0.75rem 2rem;
   border-radius: 999px;
@@ -179,7 +172,6 @@ section {
 .button:hover {
   box-shadow: 0 0 15px #ffffffaa;
 }
-
 
 .mission {
   font-family: 'Playfair Display', serif;
@@ -211,12 +203,9 @@ footer {
   color: var(--muted);
   font-size: 0.85rem;
   text-align: center;
-  background-color:#0f2f24;
-  border-radius: 10px;
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-
 }
 
 .info {
@@ -226,7 +215,7 @@ footer {
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
-  color: var(--text-main);
+  color: var(--text);
   text-align: center;
 }
 
@@ -257,14 +246,14 @@ footer {
 .quiz-section {
   padding: 60px 20px;
   display: flex;
-  flex-direction:column;
-  align-items: center; /* Sentrerer alt horisontalt */
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  min-height: auto; /* Endret fra 100vh så den ikke blir unaturlig lang */
+  min-height: auto;
 }
 
 .quiz-container {
-  max-width: 800px; /* Holder innholdet samlet */
+  max-width: 800px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -285,11 +274,11 @@ footer {
 
 .quiz-section ul {
   color: var(--muted);
-  text-align: left; /* Gjør punktene lettere å lese */
-  max-width: 500px; 
-  width: 90%; /* Sikrer at den ikke går utenfor på små skjermer */
+  text-align: left;
+  max-width: 500px;
+  width: 90%;
   margin: 0 auto 30px auto;
-  padding-left: 20px; /* Gir plass til kulepunktene */
+  padding-left: 20px;
 }
 
 .quiz-section button {
@@ -297,33 +286,26 @@ footer {
 }
 
 iframe {
-  border-radius:20px;
-  box-shadow:#0f2f24;
-  border:none;
-  height:600px;
-  width:100%;
+  border-radius: 20px;
+  box-shadow: #0f2f24;
+  border: none;
+  height: 600px;
+  width: 100%;
   max-width: 700px;
 }
 
- #mcq-frame {
-  border-radius:20px;
-  box-shadow:#0f2f24;
-  border:none;
-  width:100%;
-  max-width: 700px;
+#mcq-frame {
+  border-radius: 20px;
+  box-shadow: #0f2f24;
+  border: none;
   width: 100%;
-} 
-
-.table-wrapper {
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  width: 100vw;
+  max-width: 700px;
 }
 
-.table-wrapper table {
+table {
   width: 100%;
   max-width: 700px;
+  margin: 0 auto;
   border-collapse: collapse;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
@@ -333,7 +315,7 @@ iframe {
   font-family: "Inter", sans-serif;
 }
 
-.table-wrapper th {
+th {
   text-align: center;
   padding: 1.2rem 1.5rem;
   background: #0f2f24;
@@ -343,37 +325,35 @@ iframe {
   text-transform: uppercase;
 }
 
-.table-wrapper td {
+td {
   padding: 1.2rem 1.5rem;
   font-size: 1rem;
   color: #1f2937;
 }
 
-.table-wrapper tr:not(:last-child) td {
+tr:not(:last-child) td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.table-wrapper tr:hover td {
-  background-color:#5f7f73;
-  transition: background 0.2s ease;
+tr:hover td {
+  background-color: #5f7f73;
 }
 
-.table-wrapper td:last-child {
+td:last-child {
   font-weight: 600;
-  color:#0f2f24;
+  color: #0f2f24;
 }
-
 
 .info {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 10%; /* Gir litt mer luft på sidene på PC */
+  padding: 80px 10%;
 }
 
 .info-media {
-  flex: 1; /* Tar 50% av plassen */
+  flex: 1;
 }
 
 .info-media img {
@@ -386,8 +366,8 @@ iframe {
 .info-container {
   display: flex;
   align-items: center;
-  gap: 120px; /* Merkbart større mellomrom */
-  max-width: 1400px; /* Tillater litt bredere layout på store skjermer */
+  gap: 120px;
+  max-width: 1400px;
   width: 90%;
   margin: 0 auto;
 }
@@ -395,7 +375,7 @@ iframe {
 .info-text {
   flex: 1;
   text-align: left;
-  max-width: 600px; /* Hindrer at tekstlinjene blir altfor lange og tunge å lese */
+  max-width: 600px;
 }
 
 .info-text h1 {
@@ -412,18 +392,15 @@ iframe {
   line-height: 1.7;
 }
 
-
 @media (max-width: 900px) {
   .info-container {
-    flex-direction: column; /* Stabler bilde over tekst på mobil */
+    flex-direction: column;
     text-align: center;
     gap: 30px;
   }
-
   .info-text {
-    text-align: center; /* Senterer teksten på mobil */
+    text-align: center;
   }
-
   .info {
     padding: 40px 20px;
   }
@@ -431,47 +408,20 @@ iframe {
 
 #themebutton {
   background: transparent;
-  border:none;
-  color: #0f2f24;
-  margin-left:auto;
-  font-size:x-large;
+  border: none;
+  color: var(--text);
+  margin-left: auto;
+  font-size: x-large;
   cursor: pointer;
 }
 
-header.dark-mode {
-  color: white;
-}
-
-body.dark-mode {
-  background-color: var(--dark-mode);
-  color: #f1f1f1;
-}
-
-body.dark-mode .logo,
-body.dark-mode #themebutton {
-  color: #f1f1f1;
-}
-
-body.dark-mode .hamburger span {
-  background-color: #f1f1f1;
-}
-
+/* Her starter dark mode styling seksjonen */ 
 body.dark-mode .hero {
   background: var(--dark-mode);
-  color: #f1f1f1;            
 }
 
-body.dark-mode .nav  {
+body.dark-mode .nav {
   background: var(--dark-mode);
-  color: white;
-}
-
-body.dark-mode a {
-  color: white;
-}
-
-body.dark-mode h1 {
-  color: white;
 }
 
 body.dark-mode .health-card {
@@ -483,38 +433,75 @@ body.dark-mode .health-card h2 {
   color: white;
 }
 
+body.dark-mode .popup p {
+  color: white;
+  font-size: 17px;
+}
 
-/* Testing av popup er litt usikker om den skal være med */
+body.dark-mode .popup h1 {
+  color: white;
+}
+
+body.dark-mode .download-btn {
+  color: black;
+  background-color: white;
+}
+
+body.dark-mode #searchInput {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode #searchBtn {
+  background: white;
+  color: black;
+}
+
+.dark-mode .card {
+  background: #2d2d30;
+}
+
+.dark-mode .brand-logos {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.dark-mode #trusted-brands h1 {
+  color: white;
+}
+
+/* Her starter styling av popup meldingen */
 
 .popup {
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.2);
   border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: inset 0px 0px 20px 5x rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0px 0px 20px 5px rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   width: 90%;
   max-width: 450px;
   padding: 20px 30px;
   border-radius: 10px;
-  z-index:1000;
+  z-index: 1000;
   display: none;
 }
 
 .popup .close-button {
   position: absolute;
-  top:10px;
-  right:10px;
+  top: 10px;
+  right: 10px;
   width: 25px;
-  height:25px;
+  height: 25px;
   font-size: 18px;
-  text-align:center;
+  text-align: center;
   color: black;
-  background:rgba(255,255,255,0.15);
-  border-radius:50%;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -530,22 +517,10 @@ body.dark-mode .health-card h2 {
   font-size: 17px;
 }
 
-body.dark-mode .popup p {
-  color: white;
-  font-size: 17px;
-}
-
-body.dark-mode .popup h1 {
-  color: white;
-}
-
-/* Få popup modal til å se bedre ut på mobil, tilpasse basert på størrelse */
-
 @media (max-width: 480px) {
   .popup h1 {
     font-size: 26px;
   }
-
   .popup p {
     font-size: 15px;
   }
@@ -555,6 +530,8 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* ===== SOURCE (omoss.html) ===== */
+
 .source {
   display: flex;
   flex-direction: column;
@@ -562,7 +539,7 @@ body.no-scroll {
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
-  color: var(--text-main);
+  color: var(--text);
   text-align: center;
 }
 
@@ -578,7 +555,8 @@ body.no-scroll {
   max-width: 600px;
 }
 
-  /* ===== SEARCH ===== */
+/* ===== SEARCH (helsesøk.html) ===== */
+
 .health {
   display: block;
   text-align: center;
@@ -588,27 +566,27 @@ body.no-scroll {
 }
 
 .health-container {
-      max-width: 720px;
-      width: 100%;
-      text-align: center;
-      padding: 80px 20px;
-      animation: fadeUp 0.8s ease;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  padding: 80px 20px;
+  animation: fadeUp 0.8s ease;
 }
 
 .health-card {
-    background: white;
-    margin-top: 40px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    text-align: left;
+  background: white;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: left;
 }
 
 .health h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    color: #1a2e2a;
-    margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: #1a2e2a;
+  margin-bottom: 10px;
 }
 
 .health p {
@@ -616,7 +594,7 @@ body.no-scroll {
 }
 
 .health-search {
- display: flex;
+  display: flex;
   gap: 12px;
   justify-content: center;
   margin-bottom: 3rem;
@@ -647,20 +625,20 @@ body.no-scroll {
 }
 
 #searchButton {
-    padding: 15px 35px;
-    border-radius: 50px;
-    border: none;
-    background: var(--muted);
-    color: var(--text-main);
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    white-space: nowrap;
+  padding: 15px 35px;
+  border-radius: 50px;
+  border: none;
+  background: var(--muted);
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  white-space: nowrap;
 }
 
 #searchButton:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 #result {
@@ -674,28 +652,26 @@ body.no-scroll {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   margin-bottom: 1rem;
-  background: var(--text-main);
+  background: var(--text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-
 .hidden {
-    display: none;
+  display: none;
 }
 
 .health-disclaimer {
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: 20px;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
 }
 
 #description {
   font-weight: bold;
 }
-
 
 #whatToDo {
   font-weight: bold;
@@ -706,19 +682,20 @@ body.no-scroll {
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    #searchInput {
-        max-width: 100%;
-    }
+  h1 {
+    font-size: 2.5rem;
+  }
+  #searchInput {
+    max-width: 100%;
+  }
 }
+
+/* ===== DOWNLOAD KNAPP (omoss.html) ===== */
 
 .download-btn {
   display: inline-block;
   padding: 12px 20px;
-  background-color: var(--text-main);
+  background-color: var(--text);
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -736,25 +713,7 @@ body.no-scroll {
   transform: translateY(0);
 }
 
-body.dark-mode .download-btn{
-  color: black;
-  background-color: white;
-}
-
-body.dark-mode #searchInput {
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-
-body.dark-mode #searchBtn {
-  background: white;
-  color: black; 
-}
-
-
-/* Universell utforming av diagram og alt annet*/
+/* ===== REAKSJONSTID (reaction.html) ===== */
 
 .reaction {
   padding: 60px 20px;
@@ -785,41 +744,40 @@ body.dark-mode #searchBtn {
   max-width: 600px;
 }
 
-/* Card */
 .card {
-  background: #ffffff;
-  padding: 22px;
+  width: 100%;
+  max-width: 600px;
+  background: var(--text);
   border-radius: 12px;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-/* Klikk-området */
 .click-area {
   width: 100%;
-  height: 130px;
-  background: #950000;
+  height: 150px;
+  background: var(--muted);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-bottom: 15px;
-  transition: 0.15s ease;
+  transition: background 0.1s;
 }
 
-/* Liten hover-effekt (subtil) */
 .click-area:hover {
   opacity: 0.9;
 }
 
-/* Tekst i boksen */
 .display-text {
   color: white;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: bold;
+  user-select: none;
 }
 
-/* Kontroller */
 .controls {
   margin-top: 5px;
 }
@@ -834,7 +792,6 @@ body.dark-mode #searchBtn {
   cursor: pointer;
 }
 
-/* Forklaringstekst */
 .message {
   margin-top: 18px;
   font-size: 14px;
@@ -843,78 +800,37 @@ body.dark-mode #searchBtn {
 }
 
 @media (max-width: 600px) {
-
   .reaction-section {
     width: 90%;
     margin: 40px auto;
   }
-
   .reaction-section h2 {
     font-size: 22px;
   }
-
   .click-area {
     height: 110px;
   }
-
   .display-text {
     font-size: 18px;
   }
-
   .controls button {
     width: 100%;
   }
-
   #reactionChart {
     height: 220px;
   }
 }
 
 #reactionChart {
-  width: 100%;          /* fyller tilgjengelig bredde */
-  max-width: 600px;     /* maks bredde */
-  height: 300px;        /* fast høyde */
-  display: flex;       /* for å sikre at margin auto fungerer */
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  display: flex;
   align-items: center;
-  justify-content: center;   /* sentrerer canvas */
+  justify-content: center;
 }
 
-    .card {
-      width: 100%;
-      max-width: 600px;
-      background: var(--text-main);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .dark-mode .card {
-      background: #2d2d30;
-    }
-
-    .click-area {
-      width: 100%;
-      height: 150px;
-      background: var(--muted);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      margin-bottom: 15px;
-      transition: background 0.1s;
-    }
-
-    .display-text {
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-      user-select: none;
-    }
-
-
-  .chart-container {
+.chart-container {
   position: relative;
   width: 100%;
   max-width: 600px;
@@ -942,12 +858,15 @@ body.dark-mode #searchBtn {
   border-radius: 20px;
 }
 
+/* ===== TRUSTED BRANDS (index.html) ===== */
+
 .brand-logos {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
   flex-wrap: wrap;
+  padding-top: 20px;
 }
 
 .brand-logos img {
@@ -959,7 +878,7 @@ body.dark-mode #searchBtn {
 }
 
 #trusted-brands {
-  min-height: auto; 
+  min-height: auto;
   padding: 25px 20px 40px 20px;
   display: flex;
   flex-direction: column;
@@ -967,43 +886,17 @@ body.dark-mode #searchBtn {
   text-align: center;
 }
 
-
 #trusted-brands h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
-  color: var(--text-main);
+  color: var(--text);
 }
 
-.brand-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  padding-top: 20px;
-}
-
-/* Resten av koden din er fin! */
-.brand-logos img {
-  height: 40px;
-  width: auto;
-  opacity: 0.7;
-  transition: 0.25s ease;
-  filter: grayscale(100%);
-}
-
-.dark-mode .brand-logos {
-  background-color: white;
-  border-radius: 10px;
-}
-
-.dark-mode #trusted-brands h1 {
-  color: white;
-}
+/* ===== KALORIE KALKULATOR (livogkost.html) ===== */
 
 .kcal-section {
-    font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1013,13 +906,10 @@ body.dark-mode #searchBtn {
   width: 100%;
   border-radius: 15px;
   margin: auto;
-  
-/* Bakgrunnsbilde */
   background-image: url("https://images.unsplash.com/photo-1744744041774-4485eb2492ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
 }
 
 .kcal-container {
@@ -1027,8 +917,6 @@ body.dark-mode #searchBtn {
   max-width: 420px;
   padding: 40px;
   border-radius: 24px;
-
-  /* Glassmorphism */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1086,7 +974,6 @@ select {
   cursor: pointer;
   margin-top: 10px;
   transition: 0.2s ease;
-
   background-color: #2c2c2c;
   color: white;
 }
@@ -1104,23 +991,20 @@ select {
   color: #2c2c2c;
 }
 
-/* Responsivt */
 @media (max-width: 600px) {
   .kcal-section {
     padding: 30px 20px;
-      width: 92%;  
+    width: 92%;
   }
-
   .radio-group label {
     flex-direction: column;
   }
-
   .radio-group {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-evenly; 
-   }
+    justify-content: space-evenly;
+  }
 }
 
 .radio-group {
@@ -1146,6 +1030,8 @@ select {
   white-space: nowrap;
 }
 
+/* ===== BMI KALKULATOR (bmisite.html) ===== */
+
 .bmi-calculator {
   font-family: 'Playfair Display', serif;
   display: flex;
@@ -1158,7 +1044,6 @@ select {
   border-radius: 15px;
   margin: auto;
   padding: 30px;
-  
   background-image: url("https://images.unsplash.com/photo-1770983438128-f4065cf02752?q=80&w=797&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
@@ -1183,70 +1068,69 @@ select {
 }
 
 .calculator-container p {
-    color: rgba(0, 0, 0, 0.8);
-    margin-top: 0;
-    margin-bottom: 25px;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 0;
+  margin-bottom: 25px;
 }
 
 .bmi-circle {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 600;
-    background-color: white;
-    color: #0f2f24;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    margin: 0 auto 20px auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 600;
+  background-color: white;
+  color: #0f2f24;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  margin: 0 auto 20px auto;
 }
 
 .input-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 label {
-    display: block;
-    color: rgb(0, 0, 0);
-    margin-bottom: 5px;
-    font-size: 0.9rem;
+  display: block;
+  color: rgb(0, 0, 0);
+  margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
 .bmi-calculator input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    font-size: 1rem;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
-
 #message {
-    margin-top: 20px;
-    font-weight: 500;
-    color: rgb(0, 0, 0);
+  margin-top: 20px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
 }
 
 .bmi-calculator button {
-      width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.2s ease;
-    background-color: #2c2c2c;
-    color: white;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease;
+  background-color: #2c2c2c;
+  color: white;
 }
 
 #calculator-result {
   padding-top: 20px;
-    display: block;
+  display: block;
   margin-top: 20px;
   font-weight: bold;
   text-align: center;
@@ -1255,21 +1139,19 @@ label {
 }
 
 @media (max-width: 600px) {
-
   .bmi-calculator {
     padding: 30px 20px;
-      width: 92%;  
+    width: 92%;
   }
-
 }
 
 .bmi-section {
   padding: 60px 20px;
   display: flex;
-  flex-direction:column;
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  min-height: auto; 
+  min-height: auto;
 }
 
 .bmi-section h1 {
@@ -1286,14 +1168,14 @@ label {
 
 .bmi-section ul {
   color: var(--muted);
-  text-align: left; 
-  max-width: 500px; 
-  width: 90%; 
+  text-align: left;
+  max-width: 500px;
+  width: 90%;
   margin: 0 auto 30px auto;
-  padding-left: 20px; 
+  padding-left: 20px;
 }
 
-/* admin panel side */ 
+/* ===== ADMIN PANEL (adminpanel.html) ===== */
 
 #password-card {
   background: rgba(255, 255, 255, 0.15);
@@ -1315,6 +1197,15 @@ label {
   margin-bottom: 1rem;
   color: #000;
 }
+
+/* adminpanel.html bruker h1 inne i #password-card, ikke h2 */
+#password-card h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+  color: #000;
+  text-align: center;
+}
+
 #password-card input {
   width: 100%;
   padding: 12px;
@@ -1323,6 +1214,7 @@ label {
   box-sizing: border-box;
   border: none;
 }
+
 #password-card button {
   width: 100%;
   padding: 12px;
@@ -1342,36 +1234,43 @@ label {
   margin-top: 10px;
 }
 
+/* Klokke og dato fra adminpanel.js */
+#clock {
+  font-size: 2rem;
+  color: #000;
+  letter-spacing: 2px;
+}
+
+#date {
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+#error-message {
+  color: red;
+  display: none;
+}
+
 .admin-panel {
   display: flex;
-  align-items: center; 
+  align-items: center;
   text-align: center;
   background-image: url("https://images.unsplash.com/photo-1734784547175-e02d14fff45c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   margin: 0;
   overflow: hidden;
-
 }
 
-
 #mood-library {
-  background-color: black;
-  color: white;
-}
-
-/* Selve footer-diven */
-#mood-library {
-  position: fixed;          
-  bottom: 20px;             
-  left: 50%;                
-  transform: translateX(-50%); 
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1379,7 +1278,7 @@ label {
   border-radius: 12px;
   padding: 10px 20px;
   display: flex;
-  gap: 15px;                
+  gap: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   z-index: 1000;
 }
@@ -1400,21 +1299,17 @@ label {
   transform: scale(1.05);
 }
 
-
 #do-list {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
   max-width: 480px;
-  margin: 40px auto;
   padding: 32px;
   background: #fafafa;
   border: 1px solid #e8e8e8;
   border-radius: 4px;
-  margin: 40px auto; 
 }
-
 
 #do-list h2 {
   font-family: 'Georgia', serif;
@@ -1447,13 +1342,12 @@ label {
   margin-top: 16px;
   padding: 8px 20px;
   background: #333;
-  color: #fafafa;   
+  color: #fafafa;
   border: none;
   border-radius: 2px;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background 0.2s;
 }
 
 #addTask:hover {
@@ -1495,7 +1389,6 @@ body.admin-panel {
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 100vh;
 }
 
 #password-container {
@@ -1509,53 +1402,17 @@ body.admin-panel {
 #do-list {
   flex: 1;
   margin: auto;
-}
-
-#do-list {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* Testing av CSS for type effekt kanskje fjerne senere */
+/* stylingen av type effekter på admin*/
+
 #greeting {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-   font-size: clamp(0.9rem, 2vw, 1.2rem);
-}
-
-#greeting h1 {
-font-size: 2rem;
-color: white;
-font-weight: 600;
-position: relative;
-}
-
-#greeting h1 span {
-color: rgb(140, 255, 0);
-position: relative;
-}
-
-#greeting h1 span::after {
-content: "";
-position: absolute;
-right: -8px;
-top: 50%;
-height: 30px;
-width: 2px;
-background: blue;
-transform: translateY(-45%);
-animation: blink 0.7s infinite;
-}
-
-#greeting h1 span.stop-blinking::after {
-  animation: none;
-}
-
-@keyframes blink {
-  50% {
-      opacity: 0;
-            }
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
 }
