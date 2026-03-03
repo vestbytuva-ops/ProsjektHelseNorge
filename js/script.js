@@ -3,14 +3,13 @@ const lines = document.querySelectorAll('.line');
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
 
-// Hamburger meny som også funker på pc men også mobil
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('open');
     document.body.style.overflow =
       nav.classList.contains('open') ? 'hidden' : 'auto';
   });
 
-// Gjorde sånn at den lukkes hvis du trykker på den igjen
+
   document.querySelectorAll('.nav a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');

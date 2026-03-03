@@ -221,6 +221,12 @@ footer {
   margin-bottom: 1rem;
 }
 
+.info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+}
+
 .info p {
   color: var(--muted);
   margin-bottom: 1rem;
@@ -235,7 +241,7 @@ footer {
   box-shadow: 0 10px 30px rgba(15, 47, 36, 0.2);
 }
 
-#info-fiks {
+#info-space {
   margin-top: 80px;
 }
 
@@ -262,9 +268,16 @@ footer {
   margin-bottom: 20px;
 }
 
+@media (max-width: 600px) {
+  #quiz-container {
+    padding: 30px 20px;
+    width: 92%;
+  }
+}
+
 .quiz-section p {
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   max-width: 600px;
 }
 
@@ -286,14 +299,6 @@ iframe {
   box-shadow: #0f2f24;
   border: none;
   height: 600px;
-  width: 100%;
-  max-width: 700px;
-}
-
-#mcq-frame {
-  border-radius: 20px;
-  box-shadow: #0f2f24;
-  border: none;
   width: 100%;
   max-width: 700px;
 }
@@ -374,7 +379,7 @@ td:last-child {
   max-width: 600px;
 }
 
-.info-text h1 {
+.info-text h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1.5rem;
@@ -438,7 +443,7 @@ body.dark-mode .popup h1 {
   color: white;
 }
 
-body.dark-mode .download-btn {
+body.dark-mode .download-button {
   color: black;
   background-color: white;
 }
@@ -468,6 +473,10 @@ body.dark-mode #searchBtn {
 }
 
 .dark-mode #quiz-container {
+  color: black;
+}
+
+.dark-mode #result h2 {
   color: black;
 }
 
@@ -530,7 +539,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* ===== SOURCE (omoss.html) ===== */
+/* om oss siden */
 
 .source {
   display: flex;
@@ -543,7 +552,7 @@ body.no-scroll {
   text-align: center;
 }
 
-.source h1 {
+.source h4 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
@@ -555,7 +564,7 @@ body.no-scroll {
   max-width: 600px;
 }
 
-/* ===== SEARCH (helsesøk.html) ===== */
+/* helsesøk siden */
 
 .health {
   display: block;
@@ -690,9 +699,9 @@ body.no-scroll {
   }
 }
 
-/* ===== DOWNLOAD KNAPP (omoss.html) ===== */
+/* knapp for å åpne PDF i større skjerm på omoss.html */
 
-.download-btn {
+.download-button {
   display: inline-block;
   padding: 12px 20px;
   background-color: var(--text);
@@ -704,16 +713,16 @@ body.no-scroll {
   margin-top: 16px;
 }
 
-.download-btn:hover {
+.download-button:hover {
   background-color: #333;
   transform: translateY(-2px);
 }
 
-.download-btn:active {
+.download-button:active {
   transform: translateY(0);
 }
 
-/* ===== REAKSJONSTID (reaction.html) ===== */
+/* stylingen for reaksjonstid test siden */
 
 .reaction {
   padding: 60px 20px;
@@ -732,15 +741,15 @@ body.no-scroll {
   align-items: center;
 }
 
-.reaction h1 {
+.reaction h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 20px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
 }
 
 .reaction p {
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   max-width: 600px;
 }
 
@@ -778,20 +787,6 @@ body.no-scroll {
   user-select: none;
 }
 
-.controls {
-  margin-top: 5px;
-}
-
-.controls button {
-  padding: 9px 16px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: none;
-  background: black;
-  color: white;
-  cursor: pointer;
-}
-
 .message {
   margin-top: 18px;
   font-size: 14px;
@@ -812,9 +807,6 @@ body.no-scroll {
   }
   .display-text {
     font-size: 18px;
-  }
-  .controls button {
-    width: 100%;
   }
   #reactionChart {
     height: 220px;
@@ -858,7 +850,7 @@ body.no-scroll {
   border-radius: 20px;
 }
 
-/* ===== TRUSTED BRANDS (index.html) ===== */
+/* samarbeidspartnere */
 
 .brand-logos {
   display: flex;
@@ -893,7 +885,7 @@ body.no-scroll {
   color: var(--text);
 }
 
-/* ===== KALORIE KALKULATOR (livogkost.html) ===== */
+/* kaloriekalkulator */
 
 .kcal-section {
   font-family: 'Playfair Display', serif;
@@ -906,7 +898,7 @@ body.no-scroll {
   width: 100%;
   border-radius: 15px;
   margin: auto;
-  background-image: url("https://images.unsplash.com/photo-1744744041774-4485eb2492ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("../asset/image/HelseFactorUnsplashImg1.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1030,7 +1022,7 @@ select {
   white-space: nowrap;
 }
 
-/* ===== BMI KALKULATOR (bmisite.html) ===== */
+/* bmi-kalkulator */
 
 .bmi-calculator {
   font-family: 'Playfair Display', serif;
@@ -1044,7 +1036,7 @@ select {
   border-radius: 15px;
   margin: auto;
   padding: 30px;
-  background-image: url("https://images.unsplash.com/photo-1770983438128-f4065cf02752?q=80&w=797&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("../asset/image/museum-of-new-zealand-te-papa-tongarewa-1C7oRRwUkgU-unsplash.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1154,7 +1146,7 @@ label {
   min-height: auto;
 }
 
-.bmi-section h1 {
+.bmi-section h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 20px;
@@ -1175,7 +1167,7 @@ label {
   padding-left: 20px;
 }
 
-/* ===== ADMIN PANEL (adminpanel.html) ===== */
+/* admin panel side */
 
 #password-card {
   background: rgba(255, 255, 255, 0.15);
@@ -1198,7 +1190,6 @@ label {
   color: #000;
 }
 
-/* adminpanel.html bruker h1 inne i #password-card, ikke h2 */
 #password-card h1 {
   font-size: clamp(1.4rem, 3vw, 2rem);
   margin-bottom: 0.5rem;
@@ -1234,7 +1225,6 @@ label {
   margin-top: 10px;
 }
 
-/* Klokke og dato fra adminpanel.js */
 #clock {
   font-size: 2rem;
   color: #000;
@@ -1256,7 +1246,7 @@ label {
   display: flex;
   align-items: center;
   text-align: center;
-  background-image: url("https://images.unsplash.com/photo-1734784547175-e02d14fff45c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("../asset/image/photo-1734784547175-e02d14fff45c.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1407,8 +1397,6 @@ body.admin-panel {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-/* stylingen av type effekter på admin*/
 
 #greeting {
   width: 100%;

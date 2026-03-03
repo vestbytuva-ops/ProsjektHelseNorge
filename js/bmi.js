@@ -28,8 +28,6 @@
   const circle = document.getElementById("scoreCircle");
   const text = document.getElementById("scoreText");
 
-  // Skjul alle feedback-tekster først   
-
   if (value < 18.5) {
     circle.style.backgroundColor = "#f47f20"; 
   } else if (value < 25) {
@@ -40,7 +38,6 @@
     circle.style.backgroundColor = "#c72a29"; 
   }
 
-  // Animasjon på sirkelen
   let current = 0;
   const step = value / 40;
 

@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HelseFactor</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/asset/image/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/asset/image/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/asset/image/favicon-16x16.png">
-  <link rel="manifest" href="/asset/image/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="./asset/image/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./asset/image/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./asset/image/favicon-16x16.png">
+  <link rel="manifest" href="./asset/image/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
 <div id="progress"></div>
@@ -45,16 +45,13 @@
 </section>
 
 <section class="reaction">
-  <h1>Reaksjonstid Test</h1>
+  <h2>Reaksjonstid Test</h2>
   <div class="card">
     <div class="click-area">
       <div class="display-text">Start testen</div>
     </div>
-
-    <div class="controls">
-      <button id="averageButton">Vis gjennomsnitt</button>
-      <button id="reload" onclick="reload()">Tilbakestill</button>
-    </div>
+      <button class="button" id="averageButton">Vis gjennomsnitt</button>
+      <button class="button" id="reload" onclick="reload()">Tilbakestill</button>
   </div>
   <div class="chart-container">
   <canvas id="reactionChart"></canvas>
@@ -67,7 +64,7 @@
 
 
   <section class="quiz-section">
-  <h1>Hvor bra er reaksjonstiden din?</h1>
+  <h2>Hvor bra er reaksjonstiden din?</h2>
   <p>Vi på HelseFactor har utviklet en tabell som kan brukes for å sjekke din reaksjonstid i forhold til aldersgrupper.</p>
 
   <table>
@@ -99,7 +96,7 @@
     
   <p>Dersom du har fått en score dårligere enn det som er oppgitt på tabellen betyr det at du har en forsinket reaksjonstid, noe som kan påvirke din evne til å reagere raskt i situasjoner som krever hurtig beslutningstagning.</p>
   <p>En forsinket reaksjonstid kan være et tegn på underliggende helseproblemer, som for eksempel nevrologiske lidelser, søvnforstyrrelser eller kognitive svekkelser. Det kan også være et resultat av aldring, stress eller mangel på fysisk aktivitet.</p>
-  <h1>Forbered reaksjonstiden!</h1>
+  <h2>Forbered reaksjonstiden!</h2>
   <p>Du er kanskje ute etter å foreberede reaksjonstiden din? Da er det lurt å se på denne videoen fra Bryan Johnson, han forklarer mye nyttig og han mener selv at systemet vårt er blant en av de beste i verden.</p>
   <iframe src="https://www.youtube.com/embed/veJzV8iA6gg?si=NQrRkOxLL73acSBZ"></iframe>
   </section>
@@ -108,7 +105,7 @@
   HelseFactor 2026 © Alle rettigheter reservert.
 </footer>
 
-<script src="js/script.js"></script>
-<script src="js/reaction.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/reaction.js"></script>
 </body>
 </html>
