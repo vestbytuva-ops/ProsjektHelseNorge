@@ -1,7 +1,3 @@
-/* ===== VARIABLER ===== */
-/* Variabelnavnene er oppdatert fra --bg-dark/--text-main til --bg/--text */
-/* slik at dark-mode arver automatisk via body.dark-mode */
-
 :root {
   --bg: #f5faf7;
   --text: #0f2f24;
@@ -219,7 +215,7 @@ footer {
   text-align: center;
 }
 
-.info h1 {
+.info h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
@@ -260,7 +256,7 @@ footer {
   align-items: center;
 }
 
-.quiz-section h1 {
+.quiz-section h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 20px;
@@ -415,7 +411,7 @@ td:last-child {
   cursor: pointer;
 }
 
-/* Her starter dark mode styling seksjonen */ 
+/* Her starter stylingen av mørkmodus elementene */
 body.dark-mode .hero {
   background: var(--dark-mode);
 }
@@ -471,6 +467,10 @@ body.dark-mode #searchBtn {
   color: white;
 }
 
+.dark-mode #quiz-container {
+  color: black;
+}
+
 /* Her starter styling av popup meldingen */
 
 .popup {
@@ -505,7 +505,7 @@ body.dark-mode #searchBtn {
   cursor: pointer;
 }
 
-.popup h1 {
+.popup h4 {
   font-size: 35px;
   text-align: center;
   margin: 10px 0px 20px;
@@ -518,7 +518,7 @@ body.dark-mode #searchBtn {
 }
 
 @media (max-width: 480px) {
-  .popup h1 {
+  .popup h4 {
     font-size: 26px;
   }
   .popup p {
@@ -886,7 +886,7 @@ body.no-scroll {
   text-align: center;
 }
 
-#trusted-brands h1 {
+#trusted-brands h3 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
