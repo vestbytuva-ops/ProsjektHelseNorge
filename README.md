@@ -1,8 +1,10 @@
-# HelseFactor
+# ProsjektHelseNorge → HelseFactor
 
 **HelseFactor** is a health-focused web application that provides useful tools to help users understand and improve their health. The website includes calculators, quizzes, and other interactive features designed to make learning about health simple and engaging.
 
 The project is built using **HTML, CSS, and JavaScript**, and also includes an **admin panel** which is not fully secured (since it is a school project).
+
+**ProsjektHelseNorge** is the project name while **HelseFactor** is the name of the website.
 
 https://helsefactor.netlify.app 
 
