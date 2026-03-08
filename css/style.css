@@ -459,6 +459,10 @@ body.dark-mode #searchBtn {
   color: black;
 }
 
+.body.dark-mode .health-container h2 {
+  color: white;
+}
+
 .dark-mode .card {
   background: #2d2d30;
 }
@@ -479,6 +483,8 @@ body.dark-mode #searchBtn {
 .dark-mode #result h2 {
   color: black;
 }
+
+
 
 /* Her starter styling av popup meldingen */
 
@@ -579,7 +585,12 @@ body.no-scroll {
   width: 100%;
   text-align: center;
   padding: 80px 20px;
-  animation: fadeUp 0.8s ease;
+}
+
+.health-container h2 {
+ font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
 }
 
 .health-card {

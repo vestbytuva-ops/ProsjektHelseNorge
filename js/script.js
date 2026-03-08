@@ -63,17 +63,24 @@ document.addEventListener("DOMContentLoaded", () => {
   button.addEventListener("click", darkMode);
 });
 
-// Popup 
+// Popup kort som vises kun på index.html 
 
+const popup = document.getElementById("popup");
+const closeButton = document.getElementById("close-button");
+
+if (popup) {
   setTimeout(function () {
-    document.getElementById("popup").style.display = "block";
+    popup.style.display = "block";
     document.body.classList.add("no-scroll");
   }, 100000);
+}
 
-  document.getElementById("close-button").addEventListener("click", function () {
-    document.getElementById("popup").style.display = "none";
+if (closeButton) {
+  closeButton.addEventListener("click", function () {
+    popup.style.display = "none";
     document.body.classList.remove("no-scroll");
   });
+}
 
 document.addEventListener("keydown", function (event) {
   if (event.ctrlKey && event.shiftKey && event.key === "H") {
