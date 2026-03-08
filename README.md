@@ -32,7 +32,7 @@ You can get a copy of the project in two ways.
 If you have Git installed, run this command in your terminal:
 
 ```bash
-git clone https://github.com/yourusername/helsefactor.git
+git clone https://github.com/yourusername/prosjekthelsenorge.git
 ```
 
 ###  2.Download the project as a ZIP-file
